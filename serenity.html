@@ -5,75 +5,80 @@
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <title>Serenity - HK SCRIPTS</title>
 
-<!-- Fontes e Ícones -->
+<link crossorigin="anonymous" href="https://www.gstatic.com" rel="preconnect">
+<link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://cdnjs.cloudflare.com" rel="preconnect">
+<link href="https://cdn.onesignal.com" rel="preconnect">
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 
 <style>
-/* CSS do site embutido direto na página */
-:root {
-  --bg-dark: #0f0f13;
-  --bg-card: #18181f;
-  --text-main: #e2e2e2;
-  --text-dim: #999;
-  --accent: #e53935;
-  --accent-hover: #f44336;
-  --nav-bg: rgba(15, 15, 19, 0.95);
-}
-body {
-  margin: 0; padding: 0;
-  background-color: var(--bg-dark); color: var(--text-main);
-  font-family: 'Inter', sans-serif; line-height: 1.6;
-}
-h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
-a { color: var(--accent); text-decoration: none; }
-a:hover { color: var(--accent-hover); }
+@font-face { font-family: 'Font Awesome 6 Free'; font-display: swap; }
+@font-face { font-family: 'Font Awesome 6 Brands'; font-display: swap; }
 
-/* Header */
-.header-site {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 15px 5%; background: var(--nav-bg);
-  position: sticky; top: 0; z-index: 1000;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-}
-.header-logo-search h1 { margin: 0; font-size: 24px; color: #fff; }
-.menu-toggle { display: none; cursor: pointer; font-size: 20px; color: #fff; }
-.nav-links a { color: #fff; margin-right: 20px; font-weight: 600; }
+:root{--bg-body:#0a0a0a;--bg-card:#141414;--text-main:#e0e0e0;--text-dim:#888;--accent:#00ff7f;--border:#222;--star-color:#ffcc00}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg-body)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+body{background-color:var(--bg-body);color:var(--text-main);font-family:'Inter',sans-serif;margin:0;display:flex;flex-direction:column;min-height:100vh}
+a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4,.nav-links a{font-family:'Poppins',sans-serif}
+.header-site{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:var(--bg-card);border-bottom:1px solid var(--border);position:relative}
+.nav-left{flex:1;display:flex;align-items:center;gap:15px}.nav-links{display:flex;gap:15px}
+.nav-links a{color:var(--text-main);text-decoration:none;font-weight:bold;text-transform:uppercase;font-size:14px;transition:.3s}
+.nav-links a:hover{color:var(--accent);text-shadow:0 0 8px var(--accent)}.menu-toggle{display:none;font-size:24px;color:var(--accent);cursor:pointer}
+.header-logo-search{flex:2;display:flex;align-items:center;justify-content:center;gap:20px}.header-logo-search a{text-decoration:none}
+.header-logo-search h1{color:var(--accent);margin:0;font-size:28px;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 15px rgba(0,255,127,0.3)}
+.search-box{display:flex;align-items:center;background:#0a0a0a;border:1px solid var(--border);border-radius:4px;padding:5px 10px;transition:.3s}
+.search-box:focus-within{border-color:var(--accent);box-shadow:0 0 10px rgba(0,255,127,0.2)}.search-input{background:transparent;border:none;color:#fff;padding:5px;outline:none;font-size:14px;width:150px}
+.search-btn{background:transparent;border:none;color:var(--accent);cursor:pointer}.main-container{max-width:1200px;margin:0 auto;padding:20px;width:100%;box-sizing:border-box;flex:1}
 
-/* Post Container */
-.main-container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-.post-outer { background: var(--bg-card); padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-.post-title { font-size: 28px; margin-top: 0; margin-bottom: 15px; color: #fff; text-align: center; }
-.post-meta { display: flex; justify-content: center; align-items: center; font-size: 14px; color: var(--text-dim); margin-bottom: 30px; }
+/* MODO POST CONFIGURAÇÕES */
+.item .blog-posts{display:block}.item .main-container{max-width:850px}
+.item .post-outer{border:none;background:transparent}.item .post-title{font-size:32px;color:var(--accent);padding:20px 0 5px;text-align:center}
+.item .post-meta{display:flex;justify-content:center;align-items:center;font-size:14px;color:var(--text-dim);margin-bottom:30px;}
+.item .post-body{line-height:1.8;font-size:17px}.item .post-body a{color:var(--accent);font-weight:600;transition:.3s}.item .post-body a:hover{text-shadow:0 0 8px var(--accent)}
 
-/* Post Body (Blogger Content) */
-.post-body { font-size: 16px; margin-bottom: 40px; }
-.post-body img { max-width: 100%; height: auto; border-radius: 8px; }
-.post-body a { font-weight: bold; }
+/* GALERIA EM GRID (INDESTRUTÍVEL) */
+.img-capa { width: 100% !important; height: auto !important; max-height: 450px !important; border-radius: 8px; object-fit: cover; margin-bottom: 25px; display: block; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
+.hk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 25px 0; }
+.hk-grid .separator { margin: 0 !important; width: 100% !important; clear: none !important; display: block !important; }
+.hk-grid a { display: block !important; width: 100% !important; margin: 0 !important; }
+.img-galeria { width: 100% !important; height: 160px !important; object-fit: cover !important; border-radius: 8px; display: block !important; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+.img-galeria:hover { transform: scale(1.03); border: 1px solid var(--accent); box-shadow: 0 5px 15px rgba(0,255,127,0.3); z-index: 10; position: relative; }
+@media(min-width: 800px) { .hk-grid { gap: 20px; } .img-galeria { height: 220px !important; } }
 
-/* Support / PIX Box */
-.support-box {
-  background: rgba(229, 57, 53, 0.1); border: 1px solid var(--accent);
-  padding: 20px; border-radius: 12px; text-align: center; margin: 40px 0;
-}
-.support-title { font-size: 20px; font-weight: 700; color: var(--accent); margin-bottom: 10px; }
-.support-text { font-size: 14px; color: var(--text-dim); margin-bottom: 20px; }
-.qr-code-img { width: 150px; height: 150px; border-radius: 8px; border: 2px solid #fff; margin-bottom: 15px; }
-.pix-container { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-.pix-input { padding: 10px; border-radius: 6px; border: 1px solid #444; background: #222; color: #fff; width: 100%; max-width: 300px; text-align: center; }
-.pix-btn { padding: 10px 20px; background: var(--accent); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
-.pix-btn:hover { background: var(--accent-hover); }
+/* BOTÕES DE DOWNLOAD */
+.download-area { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.dl-btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 15px 25px; border-radius: 8px; font-weight: 700; text-transform: uppercase; transition: 0.3s; font-family: 'Poppins', sans-serif; border: 1px solid rgba(255,255,255,0.1); color: #fff !important; text-decoration: none !important; cursor: pointer;}
+.btn-vexfile { background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDB75eG5CtsCQZ6rFE_2r4JBUe5dYjaLAGWYtLrZp5umj8gVEIVAW9rQcc1SaRqdJfKs6nrNJdoVBmwlkP4FF-6tVgivCdwbt3IZyI1yIAGT4hg2unHaLoPs6hLLNbOkiPiTTeU6iNqY9HM6SQ3O7zJRCHU86lH3xzHytkHsNlcacit1OCGjG2_6h56Rg/s380/1001291960.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none; min-width: 200px; min-height: 50px; padding: 0; }
+.btn-vexfile:hover { transform: scale(1.05); }
+.btn-boosty { background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNSjrle_AGPhjxsgLPV4MemH4vS7zrke4xVizJsQQMK-v76WkpyioLeFd582JLRtK3xfK3lDyh578RzLI5g5ymlwpuEWhwMYSmIzL4GKwPDaGRlNmjoyjfHrMAXUdT9lcN_Po9ggD1FvsCvLG5aa7hbjz10xEFyiSZmr9bean73cWvMUOvsORrQN1qzcg/s144/1001291967.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none; min-width: 150px; min-height: 45px; padding: 0; }
+.btn-boosty:hover { transform: scale(1.05); }
+.btn-mediafire { background: #007bff; }
+.btn-mega { background: #d92121; }
+.btn-drive { background: #1da157; }
 
-/* Footer */
-.site-footer { text-align: center; padding: 20px; color: var(--text-dim); font-size: 14px; margin-top: 40px; border-top: 1px solid #222; }
+/* APOIO E ESTRELAS */
+.support-box { background: var(--bg-card); border: 2px dashed var(--accent); border-radius: 12px; padding: 25px; margin: 40px 0; text-align: center; box-shadow: 0 0 20px rgba(0,255,127,0.05); }
+.support-title { color: var(--accent); font-size: 24px; margin-bottom: 10px; font-weight: bold; font-family: 'Poppins', sans-serif; text-transform: uppercase; }
+.support-text { color: var(--text-dim); font-size: 15px; margin-bottom: 20px; line-height: 1.6; }
+.qr-code-img { width: 130px; height: 130px; border-radius: 8px; border: 3px solid var(--accent); padding: 5px; background: #fff; margin-bottom: 15px; }
+.pix-container { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.pix-input { background: #000; border: 1px solid var(--border); color: #fff; padding: 12px; border-radius: 6px; width: 100%; max-width: 350px; text-align: center; font-family: monospace; font-size: 14px; outline: none; }
+.pix-btn { background: var(--accent); color: #000; border: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; font-family: 'Poppins', sans-serif; }
+.pix-btn:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,255,127,0.3); }
 
-@media(max-width: 768px) {
-  .menu-toggle { display: block; }
-  .nav-links { display: none; position: absolute; top: 60px; left: 0; width: 100%; background: var(--bg-card); flex-direction: column; padding: 20px; box-sizing: border-box; }
-  .nav-links.active { display: flex; }
-  .nav-links a { margin: 10px 0; }
-}
+.rating-box{margin-top:30px;padding:30px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border);text-align:center}
+.stars-wrapper{display:flex;flex-direction:row-reverse;justify-content:center;gap:10px;margin:15px 0}.stars-wrapper label{font-size:35px;color:#333;cursor:pointer;transition:.2s}
+.stars-wrapper input:checked~label,.stars-wrapper label:hover,.stars-wrapper label:hover~label{color:var(--star-color);text-shadow:0 0 10px var(--star-color)}
+
+/* RODAPÉ */
+.rich-footer{background:var(--bg-card);border-top:1px solid var(--border);padding:40px 20px;margin-top:50px}
+.footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;text-align:left}
+.footer-col h4{color:var(--accent);margin-top:0}.footer-col ul{list-style:none;padding:0}.footer-col ul li{margin-bottom:10px}
+.footer-col ul li a{color:var(--text-main);text-decoration:none;transition:.3s}.footer-col ul li a:hover{color:var(--accent);padding-left:5px}
+.footer-bottom{text-align:center;padding-top:20px;margin-top:20px;border-top:1px solid var(--border);font-size:13px;color:var(--text-dim)}
+
+@media(max-width:800px){.header-site{flex-direction:column;gap:15px}.menu-toggle{display:block;position:absolute;top:25px;left:20px}.nav-links{display:none;flex-direction:column;width:100%;text-align:center;gap:10px;padding-top:10px}.nav-links.active{display:flex}.header-logo-search{flex-direction:column}}
 </style>
 </head>
 
@@ -94,20 +99,16 @@ a:hover { color: var(--accent-hover); }
     <h1 class="post-title">Serenity</h1>
     
     <span class="post-meta">
-      <i aria-hidden="true" class="fa fa-calendar-alt" style="margin-right:5px"></i> Publicado em 22/06/2026 | 
+      <i aria-hidden="true" class="fa fa-calendar-alt" style="margin-right:5px"></i> Publicado recentemente | 
       <i aria-hidden="true" class="fa fa-eye" style="margin-left:15px; margin-right:5px; color:var(--accent);"></i> <span class="view-count">0</span>
     </span>
 
     <div class="post-body">
       
-      <!-- CÓDIGO DO BLOGGER -->
-      <p style="text-align: center;">&nbsp;</p>
-      <div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/s1920/1001199637.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/w400-h225/1001199637.png" width="400" /></a></div><br /><p></p><p style="text-align: center;"><span style="font-size: x-large;"><b>Visão geral :</b></span></p><p style="text-align: center;"><span style="font-size: large;"><b><i>Serenity é uma visual novel adulta e dinâmica onde você assume o papel do protagonista... cuja mãe faleceu de câncer. Ela deixou para ele um livro que, ao ser lido, o transportaria para o mundo de Serenity.</i></b></span></p><p style="text-align: center;"><span style="font-size: large;"><b><i><br /></i></b></span></p><p style="text-align: center;"><span style="font-size: large;"><b></b></span></p><div class="separator" style="clear: both; text-align: center;"><span style="font-size: large;"><b><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtJTRr9IQcA18v7vrhxIwdk-4oargKwGEcAf_WaNHbA9oAV0zPAP9hYSOjXVBGI879nsI4A9HtoEjBzT9wSRsDRrwmKCUNb80r3ez78qFJv8M07446vJsvpyPjr9d8YNmuhEVa_KTjln7ZSo1qbHM-W8J16fBzq9OVh2b2br2Yl9t9aiOD7lwHqHa2z_c/s1920/1001199358.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtJTRr9IQcA18v7vrhxIwdk-4oargKwGEcAf_WaNHbA9oAV0zPAP9hYSOjXVBGI879nsI4A9HtoEjBzT9wSRsDRrwmKCUNb80r3ez78qFJv8M07446vJsvpyPjr9d8YNmuhEVa_KTjln7ZSo1qbHM-W8J16fBzq9OVh2b2br2Yl9t9aiOD7lwHqHa2z_c/w400-h225/1001199358.webp" width="400" /></a></b></span></div><span style="font-size: large;"><b><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNkWO6OAmnUvVu2TkJmfm2nmkT_GCpOoaMCX-tsCnkjZIb9qEvgK9VXwypgp9YU2DKrm7vJhhy9VnJnxurMOoXXW9DeXF_VeebzeWsOnrRDqyCy6q75NBXYsFAkJxfZDnPElasC5xqorAIe-gjdiThx5C7TR96VW8zOGmu8x-vNG6tTujQy_-hTnccUdE/s1920/1001199374.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNkWO6OAmnUvVu2TkJmfm2nmkT_GCpOoaMCX-tsCnkjZIb9qEvgK9VXwypgp9YU2DKrm7vJhhy9VnJnxurMOoXXW9DeXF_VeebzeWsOnrRDqyCy6q75NBXYsFAkJxfZDnPElasC5xqorAIe-gjdiThx5C7TR96VW8zOGmu8x-vNG6tTujQy_-hTnccUdE/w400-h225/1001199374.webp" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieFd0kwK976lBbuovR3qu0xMYAtjoQHxlIZI6YaU3f4j9Lpq5XJ2k2WE9Tdlct-VupKuNAoi3v_ygcM4i4WRDt2Mp_8OO_wMdmEK5NmLolzR8TPzXNp72mTGPzGswC1F5Znlc8B17RpHXQDGvQmkNkz0YQeAMORDntTFDANZagOvV_pduOduA-mFcxV-8/s1920/1001199362.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieFd0kwK976lBbuovR3qu0xMYAtjoQHxlIZI6YaU3f4j9Lpq5XJ2k2WE9Tdlct-VupKuNAoi3v_ygcM4i4WRDt2Mp_8OO_wMdmEK5NmLolzR8TPzXNp72mTGPzGswC1F5Znlc8B17RpHXQDGvQmkNkz0YQeAMORDntTFDANZagOvV_pduOduA-mFcxV-8/w400-h225/1001199362.webp" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWzDdLSqF4Qz6_J22zSM8a5yoWhDNRgGP6OIQDyuiTsford8dzcUUXPJArC_xjUXq1Q44GgG2BuOgHBT-enff-3ZRw7b-xJFWcREIUcdymQV0hbu25lSynHh_o1XkA0D3vGqignLTXvqwx_8GEDwzN5uIJ1h8WqPSMfDXb52N9GM7H5kEVBnUHms8XvRo/s1920/1001199375.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWzDdLSqF4Qz6_J22zSM8a5yoWhDNRgGP6OIQDyuiTsford8dzcUUXPJArC_xjUXq1Q44GgG2BuOgHBT-enff-3ZRw7b-xJFWcREIUcdymQV0hbu25lSynHh_o1XkA0D3vGqignLTXvqwx_8GEDwzN5uIJ1h8WqPSMfDXb52N9GM7H5kEVBnUHms8XvRo/w400-h225/1001199375.webp" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAlFpxPIo5wRgsu6AjErQ91E-TwAOn5naVbzK-Q7tt37FdJHlR3tHEF1csZNDqTLx9Y4G1Jd3wyCTf_3e79WZzwgsGCCV74sb15Dn6of56BleGkOir9hERLDpA3INB5bjjB7dbPxO2a_x07RAZVkhSke43ZGiAShWKmWukIq10ZvJ2kaXZM3dUD7oE06A/s1920/1001199368.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAlFpxPIo5wRgsu6AjErQ91E-TwAOn5naVbzK-Q7tt37FdJHlR3tHEF1csZNDqTLx9Y4G1Jd3wyCTf_3e79WZzwgsGCCV74sb15Dn6of56BleGkOir9hERLDpA3INB5bjjB7dbPxO2a_x07RAZVkhSke43ZGiAShWKmWukIq10ZvJ2kaXZM3dUD7oE06A/w400-h225/1001199368.webp" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqoZBaX_L_gktf_8o_8KpZO4QeJlp8XMcFGYQrjZRjccVBOZ7Isb4bIU2XVMceIgyuPfz7LJSf1IhwHaHmhi0gQ0NJc3gWlgRpxl4TEN2q7TsDVu5uwLbcsVfwQlUQycMHz-67_wLDkQZOwEE7S7TWxbujxYh7YjwXgGnklfPsFVRnTLxLjwSj0kN4C-M/s1920/1001199418.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqoZBaX_L_gktf_8o_8KpZO4QeJlp8XMcFGYQrjZRjccVBOZ7Isb4bIU2XVMceIgyuPfz7LJSf1IhwHaHmhi0gQ0NJc3gWlgRpxl4TEN2q7TsDVu5uwLbcsVfwQlUQycMHz-67_wLDkQZOwEE7S7TWxbujxYh7YjwXgGnklfPsFVRnTLxLjwSj0kN4C-M/w400-h225/1001199418.webp" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbqqxohYuwE4gyqMMHyS-94kdW935ccpDNhvPjKwdV2cy1ZD0lDSKbz3aM0WwoVHxdhcB6rdPSzLJdj_OWm4SAHMhOcpHz-1RRfpydB1rACaaaRnM9lyWWxpV2afDoQelDSDPOO2Deti1Ue7WRxvNjLPw7AOH9RFgptq8dSiYfmLFW2FrIZh1Bjf1yDTI/s1920/1001199376.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbqqxohYuwE4gyqMMHyS-94kdW935ccpDNhvPjKwdV2cy1ZD0lDSKbz3aM0WwoVHxdhcB6rdPSzLJdj_OWm4SAHMhOcpHz-1RRfpydB1rACaaaRnM9lyWWxpV2afDoQelDSDPOO2Deti1Ue7WRxvNjLPw7AOH9RFgptq8dSiYfmLFW2FrIZh1Bjf1yDTI/w400-h225/1001199376.webp" width="400" /></a></div><br /><i><br /></i></b></span><p></p><p style="text-align: center;"><span style="font-size: large;"><b><i>LINKS PARA DOWNLOAD</i></b></span></p><p style="text-align: center;"><span style="font-size: large;"><b><i>LINKS DIRETOS !</i></b></span></p><p style="text-align: center;"><b><i><span style="font-size: x-large;">SEASON 1</span></i></b></p><p style="text-align: center;"><b><i><span style="font-size: large;">APK:&nbsp;</span><a href="https://boostylink.com/4Z443Nza" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></i></b></p><p style="text-align: center;"><b><i><span style="font-size: large;">PC:&nbsp;</span><a href="https://boostylink.com/fDHA6nN9" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></i></b></p><p style="text-align: center;"><b><span style="font-size: x-large;">SEASON 2</span></b></p><p style="text-align: center;"><b><i><span style="font-size: large;">APK:&nbsp;</span><a href="https://boostylink.com/TfTAzny7" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></i></b></p><p style="text-align: center;"><b><i><span style="font-size: large;">PC:&nbsp;</span><a href="https://boostylink.com/3Hd4DiKz" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></i></b></p>
-      <!-- FIM DO CÓDIGO DO BLOGGER -->
-
+      <p style="text-align: center;">&nbsp;</p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/s1920/1001199637.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/w400-h225/1001199637.png" width="400" /></a></div><br /><p></p><p style="text-align: center;"><span style="font-size: x-large;"><b>Visão geral :</b></span></p><p style="text-align: center;"><span style="font-size: large;"><b><i>Serenity é uma visual novel adulta e dinâmica onde você assume o papel do protagonista... cuja mãe faleceu de câncer. Ela deixou para ele um livro que, ao ser lido, o transportaria para o mundo de Serenity.</i></b></span></p><p style="text-align: center;"><span style="font-size: large;"><b><i><br /></i></b></span></p><p style="text-align: center;"><span style="font-size: large;"><b></b></span></p><div class="separator" style="clear: both; text-align: center;"><span style="font-size: large;"><b><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtJTRr9IQcA18v7vrhxIwdk-4oargKwGEcAf_WaNHbA9oAV0zPAP9hYSOjXVBGI879nsI4A9HtoEjBzT9wSRsDRrwmKCUNb80r3ez78qFJv8M07446vJsvpyPjr9d8YNmuhEVa_KTjln7ZSo1qbHM-W8J16fBzq9OVh2b2br2Yl9t9aiOD7lwHqHa2z_c/s1920/1001199358.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtJTRr9IQcA18v7vrhxIwdk-4oargKwGEcAf_WaNHbA9oAV0zPAP9hYSOjXVBGI879nsI4A9HtoEjBzT9wSRsDRrwmKCUNb80r3ez78qFJv8M07446vJsvpyPjr9d8YNmuhEVa_KTjln7ZSo1qbHM-W8J16fBzq9OVh2b2br2Yl9t9aiOD7lwHqHa2z_c/w400-h225/1001199358.webp" width="400" /></a></b></span></div><span style="font-size: large;"><b><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNkWO6OAmnUvVu2TkJmfm2nmkT_GCpOoaMCX-tsCnkjZIb9qEvgK9VXwypgp9YU2DKrm7vJhhy9VnJnxurMOoXXW9DeXF_VeebzeWsOnrRDqyCy6q75NBXYsFAkJxfZDnPElasC5xqorAIe-gjdiThx5C7TR96VW8zOGmu8x-vNG6tTujQy_-hTnccUdE/s1920/1001199374.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNkWO6OAmnUvVu2TkJmfm2nmkT_GCpOoaMCX-tsCnkjZIb9qEvgK9VXwypgp9YU2DKrm7vJhhy9VnJnxurMOoXXW9DeXF_VeebzeWsOnrRDqyCy6q75NBXYsFAkJxfZDnPElasC5xqorAIe-gjdiThx5C7TR96VW8zOGmu8x-vNG6tTujQy_-hTnccUdE/w400-h225/1001199374.webp" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieFd0kwK976lBbuovR3qu0xMYAtjoQHxlIZI6YaU3f4j9Lpq5XJ2k2WE9Tdlct-VupKuNAoi3v_ygcM4i4WRDt2Mp_8OO_wMdmEK5NmLolzR8TPzXNp72mTGPzGswC1F5Znlc8B17RpHXQDGvQmkNkz0YQeAMORDntTFDANZagOvV_pduOduA-mFcxV-8/s1920/1001199362.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieFd0kwK976lBbuovR3qu0xMYAtjoQHxlIZI6YaU3f4j9Lpq5XJ2k2WE9Tdlct-VupKuNAoi3v_ygcM4i4WRDt2Mp_8OO_wMdmEK5NmLolzR8TPzXNp72mTGPzGswC1F5Znlc8B17RpHXQDGvQmkNkz0YQeAMORDntTFDANZagOvV_pduOduA-mFcxV-8/w400-h225/1001199362.webp" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWzDdLSqF4Qz6_J22zSM8a5yoWhDNRgGP6OIQDyuiTsford8dzcUUXPJArC_xjUXq1Q44GgG2BuOgHBT-enff-3ZRw7b-xJFWcREIUcdymQV0hbu25lSynHh_o1XkA0D3vGqignLTXvqwx_8GEDwzN5uIJ1h8WqPSMfDXb52N9GM7H5kEVBnUHms8XvRo/s1920/1001199375.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWzDdLSqF4Qz6_J22zSM8a5yoWhDNRgGP6OIQDyuiTsford8dzcUUXPJArC_xjUXq1Q44GgG2BuOgHBT-enff-3ZRw7b-xJFWcREIUcdymQV0hbu25lSynHh_o1XkA0D3vGqignLTXvqwx_8GEDwzN5uIJ1h8WqPSMfDXb52N9GM7H5kEVBnUHms8XvRo/w400-h225/1001199375.webp" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAlFpxPIo5wRgsu6AjErQ91E-TwAOn5naVbzK-Q7tt37FdJHlR3tHEF1csZNDqTLx9Y4G1Jd3wyCTf_3e79WZzwgsGCCV74sb15Dn6of56BleGkOir9hERLDpA3INB5bjjB7dbPxO2a_x07RAZVkhSke43ZGiAShWKmWukIq10ZvJ2kaXZM3dUD7oE06A/s1920/1001199368.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAlFpxPIo5wRgsu6AjErQ91E-TwAOn5naVbzK-Q7tt37FdJHlR3tHEF1csZNDqTLx9Y4G1Jd3wyCTf_3e79WZzwgsGCCV74sb15Dn6of56BleGkOir9hERLDpA3INB5bjjB7dbPxO2a_x07RAZVkhSke43ZGiAShWKmWukIq10ZvJ2kaXZM3dUD7oE06A/w400-h225/1001199368.webp" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqoZBaX_L_gktf_8o_8KpZO4QeJlp8XMcFGYQrjZRjccVBOZ7Isb4bIU2XVMceIgyuPfz7LJSf1IhwHaHmhi0gQ0NJc3gWlgRpxl4TEN2q7TsDVu5uwLbcsVfwQlUQycMHz-67_wLDkQZOwEE7S7TWxbujxYh7YjwXgGnklfPsFVRnTLxLjwSj0kN4C-M/s1920/1001199418.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqoZBaX_L_gktf_8o_8KpZO4QeJlp8XMcFGYQrjZRjccVBOZ7Isb4bIU2XVMceIgyuPfz7LJSf1IhwHaHmhi0gQ0NJc3gWlgRpxl4TEN2q7TsDVu5uwLbcsVfwQlUQycMHz-67_wLDkQZOwEE7S7TWxbujxYh7YjwXgGnklfPsFVRnTLxLjwSj0kN4C-M/w400-h225/1001199418.webp" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbqqxohYuwE4gyqMMHyS-94kdW935ccpDNhvPjKwdV2cy1ZD0lDSKbz3aM0WwoVHxdhcB6rdPSzLJdj_OWm4SAHMhOcpHz-1RRfpydB1rACaaaRnM9lyWWxpV2afDoQelDSDPOO2Deti1Ue7WRxvNjLPw7AOH9RFgptq8dSiYfmLFW2FrIZh1Bjf1yDTI/s1920/1001199376.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbqqxohYuwE4gyqMMHyS-94kdW935ccpDNhvPjKwdV2cy1ZD0lDSKbz3aM0WwoVHxdhcB6rdPSzLJdj_OWm4SAHMhOcpHz-1RRfpydB1rACaaaRnM9lyWWxpV2afDoQelDSDPOO2Deti1Ue7WRxvNjLPw7AOH9RFgptq8dSiYfmLFW2FrIZh1Bjf1yDTI/w400-h225/1001199376.webp" width="400" /></a></div><br /><i><br /></i></b></span><p></p><p style="text-align: center;"><span style="font-size: large;"><b><i>LINKS PARA DOWNLOAD</i></b></span></p><p style="text-align: center;"><span style="font-size: large;"><b><i>LINKS DIRETOS !</i></b></span></p><p style="text-align: center;"><b><i><span style="font-size: x-large;">SEASON 1</span></i></b></p><p style="text-align: center;"><b><i><span style="font-size: large;">APK:&nbsp;</span><a href="https://boostylink.com/4Z443Nza" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></i></b></p><p style="text-align: center;"><b><i><span style="font-size: large;">PC:&nbsp;</span><a href="https://boostylink.com/fDHA6nN9" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></i></b></p><p style="text-align: center;"><b><span style="font-size: x-large;">SEASON 2</span></b></p><p style="text-align: center;"><b><i><span style="font-size: large;">APK:&nbsp;</span><a href="https://boostylink.com/TfTAzny7" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></i></b></p><p style="text-align: center;"><b><i><span style="font-size: large;">PC:&nbsp;</span><a href="https://boostylink.com/3Hd4DiKz" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></i></b></p>
+      
     </div>
     
-    <!-- Caixa de Doação PIX -->
     <div class="support-box">
       <div class="support-title"><i aria-hidden="true" class="fa fa-coffee" style="margin-right:8px;"></i> Apoie o Tradutor!</div>
       <div class="support-text">Nossos links são diretos e sem encurtadores irritantes! Considere doar para ajudar a manter os projetos ativos.</div>
@@ -118,21 +119,173 @@ a:hover { color: var(--accent-hover); }
       </div>
     </div>
     
+    <div class="rating-box">
+      <h3>O que achou deste script/tradução?</h3>
+      <div id="currentRatingDisplay" style="color:var(--text-dim); font-size:14px; margin-bottom:15px;">Carregando avaliações...</div>
+      <div class="stars-wrapper" id="starRatingContainer">
+        <input id="star5" name="rating" style="display:none" type="radio" value="5"><label for="star5">★</label>
+        <input id="star4" name="rating" style="display:none" type="radio" value="4"><label for="star4">★</label>
+        <input id="star3" name="rating" style="display:none" type="radio" value="3"><label for="star3">★</label>
+        <input id="star2" name="rating" style="display:none" type="radio" value="2"><label for="star2">★</label>
+        <input id="star1" name="rating" style="display:none" type="radio" value="1"><label for="star1">★</label>
+      </div>
+      <span id="ratingMsg" style="color:var(--accent); font-size:14px; display:none; margin-top:10px;">Obrigado pela sua avaliação!</span>
+    </div>
+
   </article>
 </div>
 
-<footer class="site-footer">
-  <p>&copy; 2026 HK SCRIPTS. Todos os direitos reservados.</p>
+<footer class="rich-footer">
+  <div class="footer-content">
+    <div class="footer-col">
+      <h4 class="notranslate" translate="no">HK SCRIPTS</h4>
+      <p>O seu portal definitivo para os melhores scripts, mods e traduções.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Redes Sociais</h4>
+      <ul>
+        <li><a href="https://discord.gg/zt5Ub6Xgbw" target="_blank"><i aria-hidden="true" class="fab fa-discord"></i> Discord</a></li>
+        <li><a href="https://www.youtube.com/@HkScripts-b8z" target="_blank"><i aria-hidden="true" class="fab fa-youtube"></i> YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 HK Scripts - Todos os direitos reservados.</p>
+  </div>
 </footer>
 
-<script>
-  function copyPix() {
-    var copyText = document.getElementById("pixKey");
-    copyText.select();
-    copyText.setSelectionRange(0, 99999);
-    document.execCommand("copy");
-    alert("Chave PIX copiada com sucesso! Obrigado pelo apoio.");
+<script type="text/javascript">
+function copyPix() { 
+  var copyText = document.getElementById("pixKey"); 
+  if(copyText){
+      copyText.select(); 
+      copyText.setSelectionRange(0, 99999); 
+      navigator.clipboard.writeText(copyText.value).then(function() { 
+        alert("Chave PIX copiada! 💚"); 
+      }); 
   }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  /* SCRIPT DOS LINKS DE DOWNLOAD AUTOMÁTICOS */
+  const pb = document.querySelector('.post-body');
+  if (pb) { pb.querySelectorAll('a').forEach(link => {
+    const url = link.href.toLowerCase();
+    let bc = ''; let bt = ''; let ic = 'fa-download';
+    
+    if (url.includes('vexfile.com') || url.includes('boostylink.com')) { 
+        bc = url.includes('vexfile.com') ? 'btn-vexfile' : 'btn-boosty'; 
+        bt = ''; ic = ''; 
+    }
+    else if (url.includes('mediafire.com')) { bc = 'btn-mediafire'; bt = 'Baixar via MediaFire'; }
+    else if (url.includes('mega.nz')) { bc = 'btn-mega'; bt = 'Baixar via MEGA'; }
+    else if (url.includes('drive.google.com')) { bc = 'btn-drive'; bt = 'Baixar via Drive'; }
+    
+    if (bc !== '') { 
+      link.className = 'dl-btn ' + bc; 
+      link.innerHTML = ic !== '' ? `<i aria-hidden="true" class="fa ${ic}"></i> ${bt}` : bt; 
+      const w = document.createElement('div'); w.className = 'download-area'; 
+      link.parentNode.insertBefore(w, link); w.appendChild(link); 
+    }
+  });}
+
+  /* SCRIPT DA GALERIA EM GRID (INDESTRUTÍVEL) */
+  const postBodyGaleria = document.querySelector('.item .post-body');
+  if (postBodyGaleria) {
+    const imgs = postBodyGaleria.querySelectorAll('img');
+    if (imgs.length > 0) {
+      imgs[0].classList.add('img-capa'); // A primeira vira capa
+      if (imgs.length > 1) {
+        const galleryWrapper = document.createElement('div');
+        galleryWrapper.className = 'hk-grid';
+        let firstGalItem = imgs[1].closest('.separator') || imgs[1].closest('a') || imgs[1];
+        firstGalItem.parentNode.insertBefore(galleryWrapper, firstGalItem);
+        
+        // Puxa as outras imagens para formarem o grid perfeito
+        for (let i = 1; i < imgs.length; i++) {
+          let item = imgs[i].closest('.separator') || imgs[i].closest('a') || imgs[i];
+          galleryWrapper.appendChild(item);
+          imgs[i].classList.add('img-galeria');
+        }
+      }
+    }
+    
+    // Limpeza de espaços em branco vazios deixados pelo Blogger
+    postBodyGaleria.querySelectorAll('div, p, span').forEach(el => {
+      let conteudo = el.innerHTML.replace(/&nbsp;/g, '').trim();
+      if (conteudo === '' || conteudo === '<br>') { el.remove(); }
+    });
+    postBodyGaleria.querySelectorAll('br').forEach(br => {
+      let prox = br.nextElementSibling;
+      if (prox && prox.tagName === 'BR') { br.remove(); }
+    });
+  }
+});
+</script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+  import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDCNF3pZ3g20UkNDTUYq-X9zkyKA3El1TM",
+    authDomain: "hk-scripts-db.firebaseapp.com",
+    databaseURL: "https://hk-scripts-db-default-rtdb.firebaseio.com",
+    projectId: "hk-scripts-db",
+    storageBucket: "hk-scripts-db.firebasestorage.app",
+    messagingSenderId: "688262885548",
+    appId: "1:688262885548:web:495109ee40f2f603a6af09",
+    measurementId: "G-X0QLGZMQQT"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  function sanitizePath(path) { return path.replace(/[.\/#$\[\]]/g, "_"); }
+  const currentPath = window.location.pathname;
+  const pathId = sanitizePath(currentPath);
+
+  if (currentPath !== "/" && currentPath !== "" && !currentPath.includes("/search")) {
+    if (localStorage.getItem('hk_admin') !== 'true') { 
+      runTransaction(ref(database, 'views/' + pathId), (v) => (v || 0) + 1); 
+    }
+  }
+
+  function updateRatingsUI(id, el, isCard = false) {
+    onValue(ref(database, 'ratings/' + id), (s) => {
+      const data = s.val() || { totalPoints: 0, count: 0 };
+      const avg = data.count > 0 ? (data.totalPoints / data.count).toFixed(1) : "0.0";
+      if (isCard) { 
+        el.innerHTML = `<i aria-hidden="true" class="fa fa-star" style="color:var(--star-color)"></i> ${avg} <span style="color:#888; font-size:11px;">(${data.count})</span>`; 
+      } else { 
+        const display = document.getElementById('currentRatingDisplay');
+        if (display) {
+          display.innerHTML = `<span style="color:var(--accent); font-weight:bold;">Média: ${avg} / 5</span> baseado em ${data.count} avaliações.`; 
+        }
+      }
+    });
+  }
+
+  if (document.getElementById('currentRatingDisplay')) { updateRatingsUI(pathId, null, false); }
+
+  document.querySelectorAll('input[name="rating"]').forEach(star => {
+    star.addEventListener('change', function() {
+      const points = parseInt(this.value);
+      const msg = document.getElementById('ratingMsg');
+      msg.style.display = "block"; 
+      msg.innerText = "Salvando voto...";
+      
+      runTransaction(ref(database, 'ratings/' + pathId), (current) => {
+        if (!current) current = { totalPoints: 0, count: 0 };
+        current.totalPoints += points; 
+        current.count += 1;
+        return current;
+      }).then(() => { 
+        msg.innerText = "Avaliação enviada com sucesso! ⭐"; 
+        document.querySelectorAll('input[name="rating"]').forEach(s => s.disabled = true); 
+      });
+    });
+  });
 </script>
 </body>
 </html>
