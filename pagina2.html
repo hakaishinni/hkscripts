@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>HK SCRIPTS - Página 2</title>
+
+<!-- Conexões Externas -->
+<link crossorigin="anonymous" href="https://www.gstatic.com" rel="preconnect">
+<link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+
+<style>
+/* ===================================================================== */
+/* CSS GLOBAL (Idêntico ao index.html para manter o padrão)              */
+/* ===================================================================== */
+:root{--bg-body:#0a0a0a;--bg-card:#141414;--text-main:#e0e0e0;--text-dim:#888;--accent:#00ff7f;--border:#222;--star-color:#ffcc00}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg-body)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+body{background-color:var(--bg-body);color:var(--text-main);font-family:'Inter',sans-serif;margin:0;display:flex;flex-direction:column;min-height:100vh}
+a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins',sans-serif}
+
+/* Header */
+.header-site{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000}
+.nav-left{display:flex;align-items:center;gap:15px}
+.menu-toggle{font-size:24px;color:var(--accent);cursor:pointer}
+.header-logo-search{display:flex;align-items:center;gap:20px}
+.header-logo-search h1{color:var(--accent);margin:0;font-size:28px;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 15px rgba(0,255,127,0.3)}
+.search-box{display:flex;align-items:center;background:#0a0a0a;border:1px solid var(--border);border-radius:4px;padding:5px 10px;transition:.3s}
+.search-box:focus-within{border-color:var(--accent);box-shadow:0 0 10px rgba(0,255,127,0.2)}
+.search-input{background:transparent;border:none;color:#fff;padding:5px;outline:none;font-size:14px;width:150px}
+.search-btn{background:transparent;border:none;color:var(--accent);cursor:pointer}
+
+/* Grid de Cards (Vitrine) */
+.main-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; width: 100%; box-sizing: border-box; flex: 1; }
+.post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+.card { background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; display: flex; flex-direction: column; }
+.card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+.card-img { width: 100%; height: 180px; object-fit: cover; display: block; border-bottom: 1px solid var(--border); }
+.card-info { padding: 15px; }
+.card-title { font-size: 16px; margin: 0 0 10px 0; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-meta { display: flex; gap: 15px; font-size: 13px; color: var(--text-dim); align-items: center; }
+.card-meta span { display: flex; align-items: center; gap: 5px; }
+.meta-star { color: var(--star-color); }
+.meta-eye { color: var(--accent); }
+
+/* Paginação */
+.pagination { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+.btn-page { background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border); padding: 10px 20px; border-radius: 6px; font-weight: bold; transition: 0.3s; }
+.btn-page:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Footer */
+.rich-footer{background:var(--bg-card);border-top:1px solid var(--border);padding:40px 20px;margin-top:50px}
+.footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;text-align:left}
+.footer-col h4{color:var(--accent);margin-top:0}.footer-col ul{list-style:none;padding:0}.footer-col ul li{margin-bottom:10px}
+.footer-col ul li a{color:var(--text-main);text-decoration:none;transition:.3s}.footer-col ul li a:hover{color:var(--accent);padding-left:5px}
+.footer-bottom{text-align:center;padding-top:20px;margin-top:20px;border-top:1px solid var(--border);font-size:13px;color:var(--text-dim)}
+
+/* Botão flutuante */
+.back-to-top { position: fixed; bottom: 30px; right: 30px; background: var(--accent); color: #000; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 20px; cursor: pointer; opacity: 0; visibility: hidden; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,255,127,0.4); z-index: 999; }
+.back-to-top.show { opacity: 1; visibility: visible; }
+.back-to-top:hover { transform: translateY(-5px); background: #fff; }
+
+/* ===================================================================== */
+/* AJUSTES PARA CELULAR                                                  */
+/* ===================================================================== */
+@media(max-width:768px){
+  .header-site{flex-direction:column;gap:15px; padding: 15px;}
+  .header-logo-search{flex-direction:column; width: 100%; gap: 15px;}
+  .search-box{width: 100%; justify-content: space-between; box-sizing: border-box;}
+  .search-input{width: 100%;}
+  .nav-left { width: 100%; justify-content: center; position: relative;}
+  .menu-toggle { position: absolute; left: 0; }
+  
+  /* CARDS LADO A LADO */
+  .main-container { padding: 20px 10px; margin-top: 0; }
+  .post-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .card-img { height: 110px; } 
+  .card-info { padding: 10px; }
+  .card-title { font-size: 13px; margin-bottom: 5px; } 
+  .card-meta { font-size: 10px; gap: 8px; flex-wrap: wrap; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- CABEÇALHO -->
+<header class="header-site">
+  <div class="nav-left">
+    <div aria-label="Menu" class="menu-toggle"><i class="fa fa-bars"></i></div>
+    <div class="header-logo-search"><a href="index.html"><h1 class="notranslate" translate="no">HK SCRIPTS</h1></a></div>
+  </div>
+  <div class="search-box">
+    <input type="text" class="search-input" placeholder="Pesquisar...">
+    <button class="search-btn"><i class="fa fa-search"></i></button>
+  </div>
+</header>
+
+<!-- GRID DE JOGOS (PÁGINA 2) -->
+<main class="main-container">
+  <div class="post-grid">
+
+    <!-- COLOQUE OS CARDS DOS JOGOS ANTIGOS AQUI PARA BAIXO -->
+    <!-- Exemplo de Card vazio/genérico -->
+    <a href="#" class="card">
+      <img src="https://via.placeholder.com/400x225/141414/00ff7f?text=JOGO+ANTIGO" alt="Jogo Antigo" class="card-img">
+      <div class="card-info">
+        <h3 class="card-title">Nome do Jogo Antigo</h3>
+        <div class="card-meta">
+          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
+          <span title="Data"><i class="fa fa-calendar-alt"></i> Data Aqui</span>
+        </div>
+      </div>
+    </a>
+    <!-- FIM DO CARD -->
+
+  </div>
+
+  <!-- Botões de Paginação (PÁGINA 2) -->
+  <div class="pagination">
+    <!-- Volta para a página 1 (index.html) -->
+    <a href="index.html" class="btn-page"><i class="fa fa-arrow-left"></i> Recentes</a>
+    
+    <!-- Bloqueado até você precisar criar a pagina3.html -->
+    <a href="#" class="btn-page" style="opacity: 0.5; cursor: default; pointer-events: none;">Antigas <i class="fa fa-arrow-right"></i></a>
+  </div>
+</main>
+
+<!-- RODAPÉ -->
+<footer class="rich-footer">
+  <div class="footer-content">
+    <div class="footer-col">
+      <h4 class="notranslate" translate="no">HK SCRIPTS</h4>
+      <p>O seu portal definitivo para os melhores scripts, mods e traduções.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Redes Sociais</h4>
+      <ul>
+        <li><a href="https://discord.gg/zt5Ub6Xgbw" target="_blank"><i aria-hidden="true" class="fab fa-discord"></i> Discord</a></li>
+        <li><a href="https://www.youtube.com/@HkScripts-b8z" target="_blank"><i aria-hidden="true" class="fab fa-youtube"></i> YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 HK Scripts - Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<!-- BOTÃO FLUTUANTE (Voltar ao Topo) -->
+<div class="back-to-top" id="btnTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+  <i class="fa fa-arrow-up"></i>
+</div>
+
+<script type="module">
+  window.addEventListener('scroll', function() {
+    var btn = document.getElementById('btnTop');
+    if (window.scrollY > 300) { btn.classList.add('show'); } 
+    else { btn.classList.remove('show'); }
+  });
+</script>
+
+</body>
+</html>
