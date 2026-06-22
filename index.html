@@ -3,413 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta content="width=device-width, initial-scale=1" name="viewport">
-<title>HK SCRIPTS</title>
+<title>HK SCRIPTS - Visual Novels</title>
 
-<link href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4ZWzPlq7BQ9OlVBy70l4J03HeP4IbKcB7YkeWKDdZ_bHLOmMiKkrXHloap7z8GlhJtuh3TI2txin4EGMOLftsZSzYVneVGOd757paDDP8za3awhochenKxmb47qWoTv6uMuOr193O8tPadj7mrbVlndkfchlaBe_kuJ8fsXQwdp_2xwsCSvpF_mRvGVs/s1024/1001138548.png" rel="icon" type="image/png">
-<meta name="description" content="O seu portal definitivo para os melhores scripts, mods e traduções.">
-<meta property="og:title" content="HK SCRIPTS">
-<meta property="og:description" content="Os melhores scripts e mods da HK.">
-<meta property="og:type" content="website">
-
-<link crossorigin="anonymous" href="https://www.gstatic.com" rel="preconnect">
-<link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://cdnjs.cloudflare.com" rel="preconnect">
-<link href="https://cdn.onesignal.com" rel="preconnect">
-
+<!-- Fontes e Ícones -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 
-<script async="async" src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"></script>
-<script type="text/javascript">
-  window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "18195bc8-1785-45a6-bf19-3b8853c9da99",
-      requiresUserPrivacyConsent: false,
-      allowLocalhostAsSecureOrigin: true,
-      autoResubscribe: true,
-      notifyButton: {
-        enable: true,
-        displayPredicate: function() { return true; }, 
-        size: 'medium',
-        position: 'bottom-left',
-        offset: { bottom: '80px', left: '20px' },
-        colors: {
-            'circle.background': '#00ff7f',
-            'circle.foreground': '#000000',
-            'badge.background': '#00ff7f',
-            'badge.foreground': '#000000',
-            'pulse.color': '#00ff7f',
-            'dialog.button.background': '#00ff7f',
-            'dialog.button.foreground': '#000000'
-        },
-        text: {
-            'tip.state.unsubscribed': 'Receber avisos de lançamentos',
-            'message.prenotify': 'Clique para ser avisado de novos scripts!',
-            'dialog.main.button.subscribe': 'INSCREVER',
-        }
-      },
-      welcomeNotification: {
-        "title": "HK SCRIPTS",
-        "message": "Vlw por se inscrever! Avisaremos você de cada mod novo.",
-        "url": "https://hkscripts2.blogspot.com" 
-      }
-    });
-  });
-</script>
-
 <style>
-@font-face { font-family: 'Font Awesome 6 Free'; font-display: swap; }
-@font-face { font-family: 'Font Awesome 6 Brands'; font-display: swap; }
+/* ===================================================================== */
+/* CSS PRINCIPAL DA PÁGINA INICIAL (VITRINE)                             */
+/* ===================================================================== */
+:root {
+  --bg-dark: #0f0f13;
+  --bg-card: #18181f;
+  --text-main: #e2e2e2;
+  --text-dim: #999;
+  --accent: #00e676; /* Verde HK Scripts */
+  --accent-hover: #00c853;
+  --nav-bg: rgba(15, 15, 19, 0.95);
+}
 
-:root{--bg-body:#0a0a0a;--bg-card:#141414;--text-main:#e0e0e0;--text-dim:#888;--accent:#00ff7f;--border:#222;--star-color:#ffcc00}
-::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg-body)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}::-webkit-scrollbar-thumb:hover{background:var(--accent)}
-body{background-color:var(--bg-body);color:var(--text-main);font-family:'Inter',sans-serif;margin:0;display:flex;flex-direction:column;min-height:100vh}
-a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4,.nav-links a{font-family:'Poppins',sans-serif}
-.header-site{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:var(--bg-card);border-bottom:1px solid var(--border);position:relative}
-.nav-left{flex:1;display:flex;align-items:center;gap:15px}.nav-links{display:flex;gap:15px}
-.nav-links a{color:var(--text-main);text-decoration:none;font-weight:bold;text-transform:uppercase;font-size:14px;transition:.3s}
-.nav-links a:hover{color:var(--accent);text-shadow:0 0 8px var(--accent)}.menu-toggle{display:none;font-size:24px;color:var(--accent);cursor:pointer}
-.header-logo-search{flex:2;display:flex;align-items:center;justify-content:center;gap:20px}.header-logo-search a{text-decoration:none}
-.header-logo-search h1{color:var(--accent);margin:0;font-size:28px;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 15px rgba(0,255,127,0.3)}
-.search-box{display:flex;align-items:center;background:#0a0a0a;border:1px solid var(--border);border-radius:4px;padding:5px 10px;transition:.3s}
-.search-box:focus-within{border-color:var(--accent);box-shadow:0 0 10px rgba(0,255,127,0.2)}.search-input{background:transparent;border:none;color:#fff;padding:5px;outline:none;font-size:14px;width:150px}
-.search-btn{background:transparent;border:none;color:var(--accent);cursor:pointer}.main-container{max-width:1200px;margin:0 auto;padding:20px;width:100%;box-sizing:border-box;flex:1}
-.blog-posts{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:25px}
-.post-outer{background:var(--bg-card);border-radius:12px;border:1px solid var(--border);overflow:hidden;transition:.3s ease}
-.index .post-outer:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:0 10px 30px rgba(0,255,127,0.15)}
-.post-thumbnail{width:100%;height:200px;object-fit:cover;display:block;border-bottom:1px solid var(--border)}
-.index .post-title{font-size:17px;margin:0;padding:15px 15px 5px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.post-title a{color:var(--text-main);text-decoration:none;transition:.3s}.post-title a:hover{color:var(--accent)}
+body {
+  margin: 0; padding: 0;
+  background-color: var(--bg-dark); color: var(--text-main);
+  font-family: 'Inter', sans-serif; line-height: 1.6;
+}
+h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+a { text-decoration: none; }
 
-.index .post-info-bar{display:flex;align-items:center;gap:15px;padding:0 15px 15px;font-size:12px;color:var(--text-dim);flex-wrap:wrap}
-.index .grid-stars{color:var(--text-main);font-weight:bold;display:flex;align-items:center;gap:5px}
-.grid-stars i{color:var(--star-color)}
-.index .meta-item{display:flex;align-items:center;gap:5px}
-.index .meta-item i{color:var(--accent)}
+/* Header e Navegação */
+.header-site {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 20px 5%; background: var(--nav-bg);
+  position: sticky; top: 0; z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+}
+.header-top { display: flex; width: 100%; justify-content: space-between; align-items: center; margin-bottom: 15px;}
+.menu-toggle { cursor: pointer; font-size: 24px; color: var(--accent); }
+.header-logo { text-align: center; flex: 1; }
+.header-logo h1 { margin: 0; font-size: 28px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase;}
+.search-container {
+  display: flex; align-items: center; background: #111; border: 1px solid #333;
+  border-radius: 20px; padding: 8px 15px; width: 100%; max-width: 400px;
+}
+.search-container input {
+  background: transparent; border: none; color: #fff; width: 100%; outline: none; font-size: 14px;
+}
+.search-container i { color: var(--accent); cursor: pointer; }
 
-.index .post-body,.index .post-footer{display:none!important}.item .blog-posts{display:block}.item .main-container{max-width:850px}
-.item .post-outer{border:none;background:transparent}.item .post-title{font-size:32px;color:var(--accent);padding:20px 0 5px;text-align:left}
-.item .post-body{line-height:1.8;font-size:17px}.item .post-body a{color:var(--accent);font-weight:600;transition:.3s}.item .post-body a:hover{text-shadow:0 0 8px var(--accent)}
-.post-labels{margin:10px 0 20px;display:flex;flex-wrap:wrap;gap:8px}
-.label-item{background:#1a1a1a;color:var(--text-main);padding:5px 12px;border-radius:4px;font-size:12px;text-decoration:none;border:1px solid var(--border);transition:.3s}
-.label-item:hover{border-color:var(--accent);color:var(--accent)}
+/* Banner Principal (Destaque) */
+.featured-banner {
+  max-width: 1000px; margin: 30px auto; padding: 0 20px;
+}
+.banner-content {
+  position: relative; border-radius: 12px; overflow: hidden;
+  background-color: var(--bg-card);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  display: flex; align-items: flex-end;
+  min-height: 300px;
+  /* Imagem de Fundo do Banner apontando para o Serenity */
+  background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/s1920/1001199637.png');
+  background-size: cover; background-position: center;
+}
+.banner-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  width: 100%; padding: 40px 20px 20px 20px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.banner-info h2 { margin: 0 0 15px 0; color: var(--accent); font-size: 28px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+.btn-play {
+  background: var(--accent); color: #000; padding: 10px 25px; border-radius: 6px;
+  font-weight: bold; font-family: 'Poppins', sans-serif; display: inline-block;
+  transition: background 0.3s;
+}
+.btn-play:hover { background: var(--accent-hover); }
+.banner-nav { color: var(--accent); font-size: 24px; cursor: pointer; background: rgba(0,0,0,0.5); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;}
 
-.img-capa { width: 100% !important; height: auto !important; max-height: 450px !important; border-radius: 8px; object-fit: cover; margin-bottom: 25px; display: block; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
-.hk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 25px 0; }
-.hk-grid .separator { margin: 0 !important; width: 100% !important; clear: none !important; display: block !important; }
-.hk-grid a { display: block !important; width: 100% !important; margin: 0 !important; }
-.img-galeria { width: 100% !important; height: 160px !important; object-fit: cover !important; border-radius: 8px; display: block !important; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
-.img-galeria:hover { transform: scale(1.03); border: 1px solid var(--accent); box-shadow: 0 5px 15px rgba(0,255,127,0.3); z-index: 10; position: relative; }
-@media(min-width: 800px) { .hk-grid { gap: 20px; } .img-galeria { height: 220px !important; } }
+/* Grid de Jogos (Cards) */
+.main-container { max-width: 1000px; margin: 0 auto 40px auto; padding: 0 20px; }
+.post-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;
+}
+.post-card {
+  background: var(--bg-card); border-radius: 12px; overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.3s; border: 1px solid #222;
+}
+.post-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+.post-card img { width: 100%; height: 160px; object-fit: cover; display: block; border-bottom: 1px solid #333;}
+.card-content { padding: 15px; }
+.card-title { margin: 0 0 10px 0; color: #fff; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-meta { display: flex; gap: 15px; font-size: 12px; color: var(--text-dim); }
+.card-meta span { display: flex; align-items: center; gap: 5px; }
 
-.support-box { background: var(--bg-card); border: 2px dashed var(--accent); border-radius: 12px; padding: 25px; margin: 40px 0; text-align: center; box-shadow: 0 0 20px rgba(0,255,127,0.05); }
-.support-title { color: var(--accent); font-size: 24px; margin-bottom: 10px; font-weight: bold; font-family: 'Poppins', sans-serif; text-transform: uppercase; }
-.support-text { color: var(--text-dim); font-size: 15px; margin-bottom: 20px; line-height: 1.6; }
-.qr-code-img { width: 130px; height: 130px; border-radius: 8px; border: 3px solid var(--accent); padding: 5px; background: #fff; margin-bottom: 15px; }
-.pix-container { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
-.pix-input { background: #000; border: 1px solid var(--border); color: #fff; padding: 12px; border-radius: 6px; width: 100%; max-width: 350px; text-align: center; font-family: monospace; font-size: 14px; outline: none; }
-.pix-input:focus { border-color: var(--accent); }
-.pix-btn { background: var(--accent); color: #000; border: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; font-family: 'Poppins', sans-serif; }
-.pix-btn:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,255,127,0.3); }
+/* Rodapé */
+.site-footer {
+  background: #111; padding: 40px 20px; margin-top: 50px; border-top: 1px solid #222;
+}
+.footer-content { max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; }
+.footer-col h4 { color: var(--accent); margin-bottom: 15px; font-size: 18px; }
+.footer-col p { color: var(--text-dim); font-size: 14px; max-width: 300px; }
+.footer-links a { display: flex; align-items: center; gap: 10px; color: var(--text-main); margin-bottom: 10px; font-size: 14px; transition: color 0.3s; }
+.footer-links a:hover { color: var(--accent); }
+.copyright { text-align: center; color: #666; font-size: 12px; margin-top: 40px; border-top: 1px solid #222; padding-top: 20px; }
 
-.share-box{margin-top:20px;padding:20px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border);text-align:center}
-.share-title{font-weight:bold;margin-bottom:15px;display:block;color:var(--accent)}.share-buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap}
-.share-btn{width:45px;height:45px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff!important;text-decoration:none;font-size:20px;transition:.3s}
-.share-btn:hover{transform:scale(1.15);box-shadow:0 0 15px rgba(255,255,255,0.2)}.btn-whatsapp{background:#25D366}.btn-facebook{background:#1877F2}.btn-twitter{background:#000}.btn-telegram{background:#0088cc}
-.rating-box{margin-top:30px;padding:30px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border);text-align:center}
-.stars-wrapper{display:flex;flex-direction:row-reverse;justify-content:center;gap:10px;margin:15px 0}.stars-wrapper label{font-size:35px;color:#333;cursor:pointer;transition:.2s}
-.stars-wrapper input:checked~label,.stars-wrapper label:hover,.stars-wrapper label:hover~label{color:var(--star-color);text-shadow:0 0 10px var(--star-color)}
-
-.site-pager{display:flex;justify-content:space-between;margin:40px 0;padding:20px 0;border-top:1px solid var(--border)}
-.pager-btn{background:var(--bg-card);color:var(--accent);padding:10px 20px;border:1px solid var(--border);border-radius:4px;text-decoration:none;font-weight:bold;transition:.3s}.pager-btn:hover{background:var(--accent);color:#000}
-.rich-footer{background:var(--bg-card);border-top:1px solid var(--border);padding:40px 20px;margin-top:50px}
-.footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;text-align:left}
-.footer-col h4{color:var(--accent);margin-top:0}.footer-col ul{list-style:none;padding:0}.footer-col ul li{margin-bottom:10px}
-.footer-col ul li a{color:var(--text-main);text-decoration:none;transition:.3s}.footer-col ul li a:hover{color:var(--accent);padding-left:5px}
-.footer-bottom{text-align:center;padding-top:20px;margin-top:20px;border-top:1px solid var(--border);font-size:13px;color:var(--text-dim)}
-#backToTop{position:fixed;bottom:30px;right:30px;background:var(--accent);color:#000;width:45px;height:45px;border-radius:50%;border:none;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 5px 15px rgba(0,255,127,0.3);transition:.3s;z-index:999}
-#backToTop:hover{transform:translateY(-5px)}
-
-.featured-slider{position:relative;width:100%;height:350px;margin-bottom:40px;border-radius:15px;overflow:hidden;border:1px solid var(--border);display:none}
-.index .featured-slider{display:block}
-.slide-track{display:flex;width:100%;height:100%;transition:transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)}
-.slide-item{min-width:100%;height:100%;position:relative}
-.slide-img{width:100%;height:100%;object-fit:cover;filter:brightness(0.5)}
-.slide-content{position:absolute;bottom:40px;left:40px;right:40px;z-index:2}
-.slide-title{font-size:28px;color:var(--accent);margin:0 0 10px;text-shadow:0 2px 10px rgba(0,0,0,0.8); white-space:normal;}
-.slide-btn{display:inline-block;padding:10px 25px;background:var(--accent);color:#000;border-radius:5px;font-weight:bold;font-size:14px;text-transform:uppercase;text-decoration:none;}
-.slider-nav{position:absolute;top:50%;width:100%;display:flex;justify-content:space-between;padding:0 20px;box-sizing:border-box;transform:translateY(-50%);z-index:3}
-.nav-arrow{width:40px;height:40px;background:rgba(0,0,0,0.5);border:1px solid var(--border);color:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:0.3s}
-.nav-arrow:hover{background:var(--accent);color:#000;box-shadow:0 0 15px var(--accent)}
-
-.download-area { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; align-items: center; }
-.dl-btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 15px 25px; border-radius: 8px; font-weight: 700; text-transform: uppercase; transition: 0.3s; font-family: 'Poppins', sans-serif; border: 1px solid rgba(255,255,255,0.1); color: #fff !important; text-decoration: none !important; cursor: pointer;}
-.btn-vexfile { background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDB75eG5CtsCQZ6rFE_2r4JBUe5dYjaLAGWYtLrZp5umj8gVEIVAW9rQcc1SaRqdJfKs6nrNJdoVBmwlkP4FF-6tVgivCdwbt3IZyI1yIAGT4hg2unHaLoPs6hLLNbOkiPiTTeU6iNqY9HM6SQ3O7zJRCHU86lH3xzHytkHsNlcacit1OCGjG2_6h56Rg/s380/1001291960.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none; min-width: 200px; min-height: 50px; padding: 0; }
-.btn-vexfile:hover { transform: scale(1.05); }
-.btn-boosty { background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNSjrle_AGPhjxsgLPV4MemH4vS7zrke4xVizJsQQMK-v76WkpyioLeFd582JLRtK3xfK3lDyh578RzLI5g5ymlwpuEWhwMYSmIzL4GKwPDaGRlNmjoyjfHrMAXUdT9lcN_Po9ggD1FvsCvLG5aa7hbjz10xEFyiSZmr9bean73cWvMUOvsORrQN1qzcg/s144/1001291967.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none; min-width: 150px; min-height: 45px; padding: 0; }
-.btn-boosty:hover { transform: scale(1.05); }
-.btn-mediafire { background: #007bff; }
-.btn-mega { background: #d92121; }
-.btn-drive { background: #1da157; }
-
-@media(max-width:800px){.header-site{flex-direction:column;gap:15px}.menu-toggle{display:block;position:absolute;top:25px;left:20px}.nav-links{display:none;flex-direction:column;width:100%;text-align:center;gap:10px;padding-top:10px}.nav-links.active{display:flex}.header-logo-search{flex-direction:column}}
-@media(max-width:600px){.featured-slider{height:250px}.slide-title{font-size:18px}.blog-posts{grid-template-columns:repeat(2, 1fr); gap:12px}.post-thumbnail{height:120px}.index .post-title{font-size:14px; padding:12px 10px 5px}.index .post-info-bar{padding:0 10px 12px}}
+@media(max-width: 768px) {
+  .banner-overlay { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .banner-nav { display: none; }
+}
 </style>
 </head>
 
-<body class="index">
+<body>
+
 <header class="header-site">
-  <div class="nav-left">
-    <div aria-label="Menu" class="menu-toggle" onclick="document.getElementById('mobileMenu').classList.toggle('active')">
-      <i aria-hidden="true" class="fa fa-bars"></i>
-    </div>
-    <div class="nav-links" id="mobileMenu">
-      <a class="notranslate" href="/" translate="no">Início</a>
-    </div>
+  <div class="header-top">
+    <div aria-label="Menu" class="menu-toggle"><i class="fa fa-bars"></i></div>
+    <div class="header-logo"><a href="index.html"><h1 class="notranslate" translate="no">HK SCRIPTS</h1></a></div>
+    <div style="width: 24px;"></div> <!-- Espaçador para alinhar a logo ao centro -->
   </div>
-  
-  <div class="header-logo-search">
-    <a href="/"><h1 class="notranslate" translate="no">HK SCRIPTS</h1></a>
-    <form action="#" method="get">
-      <div class="search-box">
-        <input aria-label="Pesquisar no site" class="search-input" name="q" placeholder="Pesquisar..." type="text">
-        <button aria-label="Pesquisar" class="search-btn" type="submit"><i aria-hidden="true" class="fa fa-search"></i></button>
-      </div>
-    </form>
+  <div class="search-container">
+    <input type="text" placeholder="Pesquisar...">
+    <i class="fa fa-search"></i>
   </div>
-  <div style="flex:1"></div>
 </header>
 
-<div class="main-container">
-  <div class="featured-slider" id="hkSlider">
-    <div class="slide-track" id="slideTrack"></div>
-    <div class="slider-nav">
-      <div class="nav-arrow" onclick="prevSlide()"><i aria-hidden="true" class="fa fa-chevron-left"></i></div>
-      <div class="nav-arrow" onclick="nextSlide()"><i aria-hidden="true" class="fa fa-chevron-right"></i></div>
+<!-- BANNER DE DESTAQUE -->
+<div class="featured-banner">
+  <div class="banner-content">
+    <div class="banner-overlay">
+      <div class="banner-nav"><i class="fa fa-chevron-left"></i></div>
+      
+      <div class="banner-info">
+        <h2>Serenity</h2>
+        <a href="serenity.html" class="btn-play">VER SCRIPT</a>
+      </div>
+
+      <div class="banner-nav"><i class="fa fa-chevron-right"></i></div>
     </div>
   </div>
-
-  <div class="blog-posts">
-  
-    <article class="post-outer">
-      <a class="post-data-link" data-img="https://via.placeholder.com/600x300/141414/00ff7f?text=Capa+do+Jogo" data-title="Nome da Visual Novel" href="posts/nome-do-jogo.html">
-        <img class="post-thumbnail" alt="Capa" src="https://via.placeholder.com/600x300/141414/00ff7f?text=Capa+do+Jogo" loading="lazy"/>
-        <h2 class="post-title">Nome da Visual Novel [v1.0]</h2>
-      </a>
-      <div class="post-info-bar">
-        <div class="grid-stars" data-posturl="posts/nome-do-jogo.html">
-          <i aria-hidden="true" class="fa fa-star" style="color:#555"></i> <span style="color:#888; font-weight:normal;">...</span>
-        </div>
-        <div class="meta-item">
-          <i aria-hidden="true" class="fa fa-calendar-alt"></i> <span>22/06/2026</span>
-        </div>
-        <div class="meta-item">
-          <i aria-hidden="true" class="fa fa-eye"></i> <span class="view-count">0</span>
-        </div>
-      </div>
-    </article>
-    </div>
 </div>
 
-<footer class="rich-footer">
+<!-- GRID DE JOGOS (VITRINE) -->
+<div class="main-container">
+  <div class="post-grid">
+    
+    <!-- CARD 1: SERENITY -->
+    <article class="post-card">
+      <!-- O href abaixo é o que liga este card à sua página do jogo -->
+      <a href="serenity.html">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/w400-h225/1001199637.png" alt="Capa Serenity">
+        <div class="card-content">
+          <h3 class="card-title">Serenity [v1.0]</h3>
+          <div class="card-meta">
+            <span><i class="fa fa-star" style="color: #FFD700;"></i> 5.0</span>
+            <span><i class="fa fa-calendar-alt"></i> 22/06/2026</span>
+            <span><i class="fa fa-eye" style="color: var(--accent);"></i> 0</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    <!-- FIM DO CARD 1 -->
+
+    <!-- Quando for adicionar novos jogos no futuro, basta copiar desde "<article class="post-card">" até "</article>" e colar aqui embaixo, mudando o link e a foto! -->
+
+  </div>
+</div>
+
+<!-- RODAPÉ -->
+<footer class="site-footer">
   <div class="footer-content">
     <div class="footer-col">
-      <h4 class="notranslate" translate="no">HK SCRIPTS</h4>
+      <h4>HK SCRIPTS</h4>
       <p>O seu portal definitivo para os melhores scripts, mods e traduções.</p>
     </div>
-    <div class="footer-col">
+    
+    <div class="footer-col footer-links">
       <h4>Redes Sociais</h4>
-      <ul>
-        <li><a href="https://discord.gg/zt5Ub6Xgbw" target="_blank"><i aria-hidden="true" class="fab fa-discord"></i> Discord</a></li>
-        <li><a href="https://www.youtube.com/@HkScripts-b8z" target="_blank"><i aria-hidden="true" class="fab fa-youtube"></i> YouTube</a></li>
-      </ul>
+      <a href="#"><i class="fa-brands fa-discord"></i> Discord</a>
+      <a href="#"><i class="fa-brands fa-youtube"></i> YouTube</a>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>&copy; 2026 HK Scripts - Todos os direitos reservados.</p>
+  <div class="copyright">
+    &copy; 2026 HK SCRIPTS. Todos os direitos reservados.
   </div>
 </footer>
 
-<button aria-label="Voltar ao topo" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><i aria-hidden="true" class="fa fa-arrow-up"></i></button>
-
-<script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" type="text/javascript"></script>
-<script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-/* ALERTA DE ADMIN */
-const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.get('admin') === 'hk') {
-  localStorage.setItem('hk_admin', 'true');
-  alert('Bem-vindo, chefe!');
-}
-
-/* SCRIPT DO PIX */
-function copyPix() { 
-  var copyText = document.getElementById("pixKey"); 
-  if(copyText){
-      copyText.select(); 
-      copyText.setSelectionRange(0, 99999); 
-      navigator.clipboard.writeText(copyText.value).then(function() { 
-        alert("Chave PIX copiada! 💚"); 
-      }); 
-  }
-}
-
-window.onscroll = function() { var btn = document.getElementById("backToTop"); if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) { btn.style.display = "flex"; } else { btn.style.display = "none"; } };
-
-/* SCRIPT DO SLIDER ORIGINAL */
-let currentSlide = 0;
-function updateSlider(){ const track = document.getElementById('slideTrack'); if(track) track.style.transform = `translateX(-${currentSlide * 100}%)`; }
-function nextSlide(){ const slides = document.querySelectorAll('.slide-item'); if(slides.length > 0) { currentSlide = (currentSlide + 1) % slides.length; updateSlider(); } }
-function prevSlide(){ const slides = document.querySelectorAll('.slide-item'); if(slides.length > 0) { currentSlide = (currentSlide - 1 + slides.length) % slides.length; updateSlider(); } }
-
-document.addEventListener("DOMContentLoaded", function() {
-  const posts = document.querySelectorAll('.post-data-link');
-  const track = document.getElementById('slideTrack');
-  if(posts.length > 0 && track) {
-    posts.forEach((post, index) => { if(index < 5) {
-      let img = post.getAttribute('data-img') || 'https://via.placeholder.com/1200x400';
-      let title = post.getAttribute('data-title');
-      let url = post.getAttribute('href');
-      track.innerHTML += `<div class="slide-item"><img alt="${title}" class="slide-img" src="${img}"/><div class="slide-content"><h2 class="slide-title">${title}</h2><a class="slide-btn" href="${url}">Ver Script</a></div></div>`;
-    }});
-    setInterval(nextSlide, 5000);
-  }
-  
-  /* SCRIPT DOS LINKS DE DOWNLOAD AUTOMÁTICOS */
-  const pb = document.querySelector('.post-body');
-  if (pb) { pb.querySelectorAll('a').forEach(link => {
-    const url = link.href.toLowerCase();
-    let bc = ''; let bt = ''; let ic = 'fa-download';
-    
-    if (url.includes('vexfile.com')) { bc = 'btn-vexfile'; bt = ''; ic = ''; }
-    else if (url.includes('boostylink.com')) { bc = 'btn-boosty'; bt = ''; ic = ''; }
-    else if (url.includes('mediafire.com')) { bc = 'btn-mediafire'; bt = 'Baixar via MediaFire'; }
-    else if (url.includes('mega.nz')) { bc = 'btn-mega'; bt = 'Baixar via MEGA'; }
-    else if (url.includes('drive.google.com')) { bc = 'btn-drive'; bt = 'Baixar via Drive'; }
-    
-    if (bc !== '') { 
-      link.className = 'dl-btn ' + bc; 
-      link.innerHTML = ic !== '' ? `<i aria-hidden="true" class="fa ${ic}"></i> ${bt}` : bt; 
-      const w = document.createElement('div'); w.className = 'download-area'; 
-      link.parentNode.insertBefore(w, link); w.appendChild(link); 
-    }
-  });}
-
-  /* SCRIPT DA GALERIA EM GRID (INDESTRUTÍVEL) */
-  const postBodyGaleria = document.querySelector('.item .post-body');
-  if (postBodyGaleria) {
-    const imgs = postBodyGaleria.querySelectorAll('img');
-    if (imgs.length > 0) {
-      imgs[0].classList.add('img-capa');
-      if (imgs.length > 1) {
-        const galleryWrapper = document.createElement('div');
-        galleryWrapper.className = 'hk-grid';
-        let firstGalItem = imgs[1].closest('.separator') || imgs[1].closest('a') || imgs[1];
-        firstGalItem.parentNode.insertBefore(galleryWrapper, firstGalItem);
-        for (let i = 1; i < imgs.length; i++) {
-          let item = imgs[i].closest('.separator') || imgs[i].closest('a') || imgs[i];
-          galleryWrapper.appendChild(item);
-          imgs[i].classList.add('img-galeria');
-        }
-      }
-    }
-  }
-
-  /* SCRIPT PARA CORRIGIR O VÃO GIGANTE */
-  const pbClean = document.querySelector('.item .post-body');
-  if (pbClean) {
-    pbClean.querySelectorAll('div, p, span').forEach(el => {
-      let conteudo = el.innerHTML.replace(/&nbsp;/g, '').trim();
-      if (conteudo === '' || conteudo === '<br>') { el.remove(); }
-    });
-    pbClean.querySelectorAll('br').forEach(br => {
-      let prox = br.nextElementSibling;
-      if (prox && prox.tagName === 'BR') { br.remove(); }
-    });
-  }
-});
-</script>
-
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-  import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyDCNF3pZ3g20UkNDTUYq-X9zkyKA3El1TM",
-    authDomain: "hk-scripts-db.firebaseapp.com",
-    databaseURL: "https://hk-scripts-db-default-rtdb.firebaseio.com",
-    projectId: "hk-scripts-db",
-    storageBucket: "hk-scripts-db.firebasestorage.app",
-    messagingSenderId: "688262885548",
-    appId: "1:688262885548:web:495109ee40f2f603a6af09",
-    measurementId: "G-X0QLGZMQQT"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const database = getDatabase(app);
-
-  function sanitizePath(path) { return path.replace(/[.\/#$\[\]]/g, "_"); }
-  const currentPath = window.location.pathname;
-  const pathId = sanitizePath(currentPath);
-
-  if (currentPath !== "/" && currentPath !== "" && !currentPath.includes("/search")) {
-    if (localStorage.getItem('hk_admin') !== 'true') { 
-      runTransaction(ref(database, 'views/' + pathId), (v) => (v || 0) + 1); 
-    }
-  }
-
-  onValue(ref(database, 'views'), (s) => {
-    const d = s.val() || {};
-    document.querySelectorAll('.view-count').forEach(el => {
-      const card = el.closest('.post-outer');
-      const linkEl = card ? card.querySelector('.post-data-link') : null;
-      const path = linkEl ? sanitizePath(new URL(linkEl.getAttribute('href'), window.location.origin).pathname) : pathId;
-      el.innerText = d[path] || 0;
-    });
-  });
-
-  function updateRatingsUI(id, el, isCard = false) {
-    onValue(ref(database, 'ratings/' + id), (s) => {
-      const data = s.val() || { totalPoints: 0, count: 0 };
-      const avg = data.count > 0 ? (data.totalPoints / data.count).toFixed(1) : "0.0";
-      if (isCard) { 
-        el.innerHTML = `<i aria-hidden="true" class="fa fa-star" style="color:var(--star-color)"></i> ${avg} <span style="color:#888; font-size:11px;">(${data.count})</span>`; 
-      } else { 
-        const display = document.getElementById('currentRatingDisplay');
-        if (display) {
-          display.innerHTML = `<span style="color:var(--accent); font-weight:bold;">Média: ${avg} / 5</span> baseado em ${data.count} avaliações.`; 
-        }
-      }
-    });
-  }
-
-  document.querySelectorAll('.grid-stars').forEach(container => {
-    const url = container.getAttribute('data-posturl');
-    if(url) { updateRatingsUI(sanitizePath(new URL(url, window.location.origin).pathname), container, true); }
-  });
-
-  if (document.getElementById('currentRatingDisplay')) { updateRatingsUI(pathId, null, false); }
-
-  document.querySelectorAll('input[name="rating"]').forEach(star => {
-    star.addEventListener('change', function() {
-      const points = parseInt(this.value);
-      const msg = document.getElementById('ratingMsg');
-      msg.style.display = "block"; 
-      msg.innerText = "Salvando voto...";
-      
-      runTransaction(ref(database, 'ratings/' + pathId), (current) => {
-        if (!current) current = { totalPoints: 0, count: 0 };
-        current.totalPoints += points; 
-        current.count += 1;
-        return current;
-      }).then(() => { 
-        msg.innerText = "Avaliação enviada com sucesso! ⭐"; 
-        document.querySelectorAll('input[name="rating"]').forEach(s => s.disabled = true); 
-      });
-    });
-  });
-</script>
 </body>
 </html>
