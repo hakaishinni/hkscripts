@@ -5,189 +5,256 @@
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <title>HK SCRIPTS - Visual Novels</title>
 
-<!-- Fontes e Ícones -->
+<!-- Conexões Externas -->
+<link crossorigin="anonymous" href="https://www.gstatic.com" rel="preconnect">
+<link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 
 <style>
 /* ===================================================================== */
-/* CSS PRINCIPAL DA PÁGINA INICIAL (VITRINE)                             */
+/* CSS GLOBAL - IDÊNTICO AO SERENITY.HTML PARA MANTER O PADRÃO           */
 /* ===================================================================== */
-:root {
-  --bg-dark: #0f0f13;
-  --bg-card: #18181f;
-  --text-main: #e2e2e2;
-  --text-dim: #999;
-  --accent: #00e676; /* Verde HK Scripts */
-  --accent-hover: #00c853;
-  --nav-bg: rgba(15, 15, 19, 0.95);
-}
+:root{--bg-body:#0a0a0a;--bg-card:#141414;--text-main:#e0e0e0;--text-dim:#888;--accent:#00ff7f;--border:#222;--star-color:#ffcc00}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg-body)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+body{background-color:var(--bg-body);color:var(--text-main);font-family:'Inter',sans-serif;margin:0;display:flex;flex-direction:column;min-height:100vh}
+a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins',sans-serif}
 
-body {
-  margin: 0; padding: 0;
-  background-color: var(--bg-dark); color: var(--text-main);
-  font-family: 'Inter', sans-serif; line-height: 1.6;
-}
-h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
-a { text-decoration: none; }
+/* Header */
+.header-site{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000}
+.nav-left{display:flex;align-items:center;gap:15px}
+.menu-toggle{font-size:24px;color:var(--accent);cursor:pointer}
+.header-logo-search{display:flex;align-items:center;gap:20px}
+.header-logo-search h1{color:var(--accent);margin:0;font-size:28px;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 15px rgba(0,255,127,0.3)}
+.search-box{display:flex;align-items:center;background:#0a0a0a;border:1px solid var(--border);border-radius:4px;padding:5px 10px;transition:.3s}
+.search-box:focus-within{border-color:var(--accent);box-shadow:0 0 10px rgba(0,255,127,0.2)}
+.search-input{background:transparent;border:none;color:#fff;padding:5px;outline:none;font-size:14px;width:150px}
+.search-btn{background:transparent;border:none;color:var(--accent);cursor:pointer}
 
-/* Header e Navegação */
-.header-site {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  padding: 20px 5%; background: var(--nav-bg);
-  position: sticky; top: 0; z-index: 1000;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
-}
-.header-top { display: flex; width: 100%; justify-content: space-between; align-items: center; margin-bottom: 15px;}
-.menu-toggle { cursor: pointer; font-size: 24px; color: var(--accent); }
-.header-logo { text-align: center; flex: 1; }
-.header-logo h1 { margin: 0; font-size: 28px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase;}
-.search-container {
-  display: flex; align-items: center; background: #111; border: 1px solid #333;
-  border-radius: 20px; padding: 8px 15px; width: 100%; max-width: 400px;
-}
-.search-container input {
-  background: transparent; border: none; color: #fff; width: 100%; outline: none; font-size: 14px;
-}
-.search-container i { color: var(--accent); cursor: pointer; }
+/* Banner Destacado */
+.featured-section { max-width: 1200px; margin: 30px auto; padding: 0 20px; box-sizing: border-box; width: 100%; }
+.banner { position: relative; border-radius: 12px; overflow: hidden; height: 350px; background-size: cover; background-position: center; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.8); display: flex; align-items: flex-end; }
+.banner::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.4) 50%, transparent 100%); z-index: 1; }
+.banner-content { position: relative; z-index: 2; padding: 30px; width: 100%; display: flex; justify-content: space-between; align-items: flex-end; }
+.banner-info h2 { font-size: 32px; margin: 0 0 15px 0; color: #fff; text-shadow: 2px 2px 5px #000; }
+.btn-ver-script { background: var(--accent); color: #000; padding: 12px 30px; border-radius: 6px; font-weight: bold; text-transform: uppercase; display: inline-block; transition: 0.3s; font-family: 'Poppins', sans-serif; box-shadow: 0 0 15px rgba(0,255,127,0.4); }
+.btn-ver-script:hover { background: #fff; box-shadow: 0 0 20px rgba(255,255,255,0.6); transform: translateY(-2px); }
+.banner-nav { font-size: 24px; color: #fff; cursor: pointer; padding: 10px; background: rgba(0,0,0,0.5); border-radius: 50%; transition: 0.3s; }
+.banner-nav:hover { color: var(--accent); background: #000; }
 
-/* Banner Principal (Destaque) */
-.featured-banner {
-  max-width: 1000px; margin: 30px auto; padding: 0 20px;
-}
-.banner-content {
-  position: relative; border-radius: 12px; overflow: hidden;
-  background-color: var(--bg-card);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-  display: flex; align-items: flex-end;
-  min-height: 300px;
-  /* Imagem de Fundo do Banner apontando para o Serenity */
-  background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/s1920/1001199637.png');
-  background-size: cover; background-position: center;
-}
-.banner-overlay {
-  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-  width: 100%; padding: 40px 20px 20px 20px;
-  display: flex; justify-content: space-between; align-items: center;
-}
-.banner-info h2 { margin: 0 0 15px 0; color: var(--accent); font-size: 28px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
-.btn-play {
-  background: var(--accent); color: #000; padding: 10px 25px; border-radius: 6px;
-  font-weight: bold; font-family: 'Poppins', sans-serif; display: inline-block;
-  transition: background 0.3s;
-}
-.btn-play:hover { background: var(--accent-hover); }
-.banner-nav { color: var(--accent); font-size: 24px; cursor: pointer; background: rgba(0,0,0,0.5); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;}
-
-/* Grid de Jogos (Cards) */
-.main-container { max-width: 1000px; margin: 0 auto 40px auto; padding: 0 20px; }
-.post-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;
-}
-.post-card {
-  background: var(--bg-card); border-radius: 12px; overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.3s; border: 1px solid #222;
-}
-.post-card:hover { transform: translateY(-5px); border-color: var(--accent); }
-.post-card img { width: 100%; height: 160px; object-fit: cover; display: block; border-bottom: 1px solid #333;}
-.card-content { padding: 15px; }
-.card-title { margin: 0 0 10px 0; color: #fff; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.card-meta { display: flex; gap: 15px; font-size: 12px; color: var(--text-dim); }
+/* Grid de Cards (Vitrine) */
+.main-container { max-width: 1200px; margin: 0 auto 40px auto; padding: 0 20px; width: 100%; box-sizing: border-box; flex: 1; }
+.post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.card { background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; display: flex; flex-direction: column; }
+.card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+.card-img { width: 100%; height: 180px; object-fit: cover; display: block; border-bottom: 1px solid var(--border); }
+.card-info { padding: 15px; }
+.card-title { font-size: 16px; margin: 0 0 10px 0; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-meta { display: flex; gap: 15px; font-size: 13px; color: var(--text-dim); align-items: center; }
 .card-meta span { display: flex; align-items: center; gap: 5px; }
+.meta-star { color: var(--star-color); }
+.meta-eye { color: var(--accent); }
 
-/* Rodapé */
-.site-footer {
-  background: #111; padding: 40px 20px; margin-top: 50px; border-top: 1px solid #222;
-}
-.footer-content { max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; }
-.footer-col h4 { color: var(--accent); margin-bottom: 15px; font-size: 18px; }
-.footer-col p { color: var(--text-dim); font-size: 14px; max-width: 300px; }
-.footer-links a { display: flex; align-items: center; gap: 10px; color: var(--text-main); margin-bottom: 10px; font-size: 14px; transition: color 0.3s; }
-.footer-links a:hover { color: var(--accent); }
-.copyright { text-align: center; color: #666; font-size: 12px; margin-top: 40px; border-top: 1px solid #222; padding-top: 20px; }
+/* Paginação */
+.pagination { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+.btn-page { background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border); padding: 10px 20px; border-radius: 6px; font-weight: bold; transition: 0.3s; }
+.btn-page:hover { border-color: var(--accent); color: var(--accent); }
 
-@media(max-width: 768px) {
-  .banner-overlay { flex-direction: column; align-items: flex-start; gap: 20px; }
+/* Footer */
+.rich-footer{background:var(--bg-card);border-top:1px solid var(--border);padding:40px 20px;margin-top:50px}
+.footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;text-align:left}
+.footer-col h4{color:var(--accent);margin-top:0}.footer-col ul{list-style:none;padding:0}.footer-col ul li{margin-bottom:10px}
+.footer-col ul li a{color:var(--text-main);text-decoration:none;transition:.3s}.footer-col ul li a:hover{color:var(--accent);padding-left:5px}
+.footer-bottom{text-align:center;padding-top:20px;margin-top:20px;border-top:1px solid var(--border);font-size:13px;color:var(--text-dim)}
+
+/* Botão flutuante */
+.back-to-top { position: fixed; bottom: 30px; right: 30px; background: var(--accent); color: #000; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 20px; cursor: pointer; opacity: 0; visibility: hidden; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,255,127,0.4); z-index: 999; }
+.back-to-top.show { opacity: 1; visibility: visible; }
+.back-to-top:hover { transform: translateY(-5px); background: #fff; }
+
+@media(max-width:800px){
+  .header-site{flex-direction:column;gap:15px;}
+  .header-logo-search{flex-direction:column; width: 100%;}
+  .search-box{width: 100%; justify-content: space-between;}
+  .search-input{width: 100%;}
+  .banner { height: 250px; }
+  .banner-content { flex-direction: column; align-items: center; text-align: center; gap: 15px; }
+  .banner-info h2 { font-size: 24px; }
   .banner-nav { display: none; }
+  .nav-left { width: 100%; justify-content: center; position: relative;}
+  .menu-toggle { position: absolute; left: 0; }
 }
 </style>
 </head>
 
 <body>
 
+<!-- CABEÇALHO -->
 <header class="header-site">
-  <div class="header-top">
+  <div class="nav-left">
     <div aria-label="Menu" class="menu-toggle"><i class="fa fa-bars"></i></div>
-    <div class="header-logo"><a href="index.html"><h1 class="notranslate" translate="no">HK SCRIPTS</h1></a></div>
-    <div style="width: 24px;"></div> <!-- Espaçador para alinhar a logo ao centro -->
+    <div class="header-logo-search"><a href="index.html"><h1 class="notranslate" translate="no">HK SCRIPTS</h1></a></div>
   </div>
-  <div class="search-container">
-    <input type="text" placeholder="Pesquisar...">
-    <i class="fa fa-search"></i>
+  <div class="search-box">
+    <input type="text" class="search-input" placeholder="Pesquisar...">
+    <button class="search-btn"><i class="fa fa-search"></i></button>
   </div>
 </header>
 
-<!-- BANNER DE DESTAQUE -->
-<div class="featured-banner">
-  <div class="banner-content">
-    <div class="banner-overlay">
+<!-- BANNER PRINCIPAL (DESTAQUE) -->
+<section class="featured-section">
+  <!-- Você pode trocar a URL da imagem no style abaixo para mudar o fundo do banner -->
+  <div class="banner" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/s1920/1001199637.png');">
+    <div class="banner-content">
       <div class="banner-nav"><i class="fa fa-chevron-left"></i></div>
       
       <div class="banner-info">
         <h2>Serenity</h2>
-        <a href="serenity.html" class="btn-play">VER SCRIPT</a>
+        <a href="serenity.html" class="btn-ver-script">VER SCRIPT</a>
       </div>
 
       <div class="banner-nav"><i class="fa fa-chevron-right"></i></div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- GRID DE JOGOS (VITRINE) -->
-<div class="main-container">
+<!-- GRID DE JOGOS -->
+<main class="main-container">
   <div class="post-grid">
-    
-    <!-- CARD 1: SERENITY -->
-    <article class="post-card">
-      <!-- O href abaixo é o que liga este card à sua página do jogo -->
-      <a href="serenity.html">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/w400-h225/1001199637.png" alt="Capa Serenity">
-        <div class="card-content">
-          <h3 class="card-title">Serenity [v1.0]</h3>
-          <div class="card-meta">
-            <span><i class="fa fa-star" style="color: #FFD700;"></i> 5.0</span>
-            <span><i class="fa fa-calendar-alt"></i> 22/06/2026</span>
-            <span><i class="fa fa-eye" style="color: var(--accent);"></i> 0</span>
-          </div>
-        </div>
-      </a>
-    </article>
-    <!-- FIM DO CARD 1 -->
 
-    <!-- Quando for adicionar novos jogos no futuro, basta copiar desde "<article class="post-card">" até "</article>" e colar aqui embaixo, mudando o link e a foto! -->
+    <!-- CARD: SERENITY -->
+    <a href="serenity.html" class="card">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/w400-h225/1001199637.png" alt="Serenity" class="card-img">
+      <div class="card-info">
+        <h3 class="card-title">Serenity [v1.0]</h3>
+        <div class="card-meta">
+          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:10px">(1)</span></span>
+          <span title="Data"><i class="fa fa-calendar-alt"></i> Junho 22, 2026</span>
+          <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="serenity_html">1</span></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- CARD: BRIGHT LORD -->
+    <a href="#" class="card">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7b3U7-pG-0R648rI9q0Wj-1Vb6lZ_eR1B9vV7O2G1Z-54Y3Xo2lK4XQ-E2zX5P0Q6vK8d6d6K_6uK4M8X1O6b6hK7U-3-4/w400-h225/bright-lord.jpg" alt="Bright Lord" class="card-img" onerror="this.src='https://via.placeholder.com/400x225/1a1a1a/00ff7f?text=Bright+Lord'">
+      <div class="card-info">
+        <h3 class="card-title">Bright Lord [v1.16.0 Fix2] [KissKiss studio]</h3>
+        <div class="card-meta">
+          <span><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:10px">(1)</span></span>
+          <span><i class="fa fa-calendar-alt"></i> Junho 21, 2026</span>
+          <span><i class="fa fa-eye meta-eye"></i> 0</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- CARD: ZERO END -->
+    <a href="#" class="card">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7b3U7-pG-0R648rI9q0Wj-1Vb6lZ_eR1B9vV7O2G1Z-54Y3Xo2lK4XQ-E2zX5P0Q6vK8d6d6K_6uK4M8X1O6b6hK7U-3-4/w400-h225/zero-end.jpg" alt="Zero End" class="card-img" onerror="this.src='https://via.placeholder.com/400x225/1a1a1a/00ff7f?text=Zero+End'">
+      <div class="card-info">
+        <h3 class="card-title">Zero End [v0.3.6c] [Stolen Rose]</h3>
+        <div class="card-meta">
+          <span><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:10px">(2)</span></span>
+          <span><i class="fa fa-calendar-alt"></i> Junho 05, 2026</span>
+          <span><i class="fa fa-eye meta-eye"></i> 2</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- CARD: ERUPTION IMMINENT -->
+    <a href="#" class="card">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7b3U7-pG-0R648rI9q0Wj-1Vb6lZ_eR1B9vV7O2G1Z-54Y3Xo2lK4XQ-E2zX5P0Q6vK8d6d6K_6uK4M8X1O6b6hK7U-3-4/w400-h225/eruption.jpg" alt="Eruption Imminent" class="card-img" onerror="this.src='https://via.placeholder.com/400x225/1a1a1a/00ff7f?text=Eruption+Imminent'">
+      <div class="card-info">
+        <h3 class="card-title">Eruption Imminent [v0.8.0]</h3>
+        <div class="card-meta">
+          <span><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:10px">(2)</span></span>
+          <span><i class="fa fa-calendar-alt"></i> Junho 03, 2026</span>
+          <span><i class="fa fa-eye meta-eye"></i> 2</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- CARD: NEPHILIM -->
+    <a href="#" class="card">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7b3U7-pG-0R648rI9q0Wj-1Vb6lZ_eR1B9vV7O2G1Z-54Y3Xo2lK4XQ-E2zX5P0Q6vK8d6d6K_6uK4M8X1O6b6hK7U-3-4/w400-h225/nephilim.jpg" alt="Nephilim" class="card-img" onerror="this.src='https://via.placeholder.com/400x225/1a1a1a/00ff7f?text=Nephilim'">
+      <div class="card-info">
+        <h3 class="card-title">Nephilim [v0.6.5] [BuuPlays]</h3>
+        <div class="card-meta">
+          <span><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:10px">(3)</span></span>
+          <span><i class="fa fa-calendar-alt"></i> Maio 14, 2026</span>
+          <span><i class="fa fa-eye meta-eye"></i> 5</span>
+        </div>
+      </div>
+    </a>
 
   </div>
-</div>
+
+  <!-- Botões de Paginação -->
+  <div class="pagination">
+    <a href="#" class="btn-page"><i class="fa fa-arrow-left"></i> Recentes</a>
+    <a href="#" class="btn-page">Antigas <i class="fa fa-arrow-right"></i></a>
+  </div>
+</main>
 
 <!-- RODAPÉ -->
-<footer class="site-footer">
+<footer class="rich-footer">
   <div class="footer-content">
     <div class="footer-col">
-      <h4>HK SCRIPTS</h4>
+      <h4 class="notranslate" translate="no">HK SCRIPTS</h4>
       <p>O seu portal definitivo para os melhores scripts, mods e traduções.</p>
     </div>
-    
-    <div class="footer-col footer-links">
+    <div class="footer-col">
       <h4>Redes Sociais</h4>
-      <a href="#"><i class="fa-brands fa-discord"></i> Discord</a>
-      <a href="#"><i class="fa-brands fa-youtube"></i> YouTube</a>
+      <ul>
+        <li><a href="https://discord.gg/zt5Ub6Xgbw" target="_blank"><i aria-hidden="true" class="fab fa-discord"></i> Discord</a></li>
+        <li><a href="https://www.youtube.com/@HkScripts-b8z" target="_blank"><i aria-hidden="true" class="fab fa-youtube"></i> YouTube</a></li>
+      </ul>
     </div>
   </div>
-  <div class="copyright">
-    &copy; 2026 HK SCRIPTS. Todos os direitos reservados.
+  <div class="footer-bottom">
+    <p>&copy; 2026 HK Scripts - Todos os direitos reservados.</p>
   </div>
 </footer>
+
+<!-- BOTÃO FLUTUANTE (Voltar ao Topo) -->
+<div class="back-to-top" id="btnTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+  <i class="fa fa-arrow-up"></i>
+</div>
+
+<!-- SCRIPT DO BOTÃO FLUTUANTE E FIREBASE BÁSICO -->
+<script type="module">
+  // Script para o botão de voltar ao topo aparecer ao rolar
+  window.addEventListener('scroll', function() {
+    var btn = document.getElementById('btnTop');
+    if (window.scrollY > 300) { btn.classList.add('show'); } 
+    else { btn.classList.remove('show'); }
+  });
+
+  // Conexão com Firebase para puxar as visualizações (Opcional na Index)
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDCNF3pZ3g20UkNDTUYq-X9zkyKA3El1TM",
+    authDomain: "hk-scripts-db.firebaseapp.com",
+    databaseURL: "https://hk-scripts-db-default-rtdb.firebaseio.com",
+    projectId: "hk-scripts-db"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  // Puxa as views em tempo real para os cards que tiverem a classe 'fb-views' e o data-path correto
+  document.querySelectorAll('.fb-views').forEach(el => {
+    const path = el.getAttribute('data-path');
+    if(path) {
+      onValue(ref(database, 'views/' + path), (snapshot) => {
+        const views = snapshot.val() || 0;
+        el.innerText = views;
+      });
+    }
+  });
+</script>
 
 </body>
 </html>
