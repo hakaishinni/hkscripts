@@ -5,7 +5,6 @@
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <title>HK SCRIPTS - Visual Novels</title>
 
-<!-- Conexões Externas -->
 <link crossorigin="anonymous" href="https://www.gstatic.com" rel="preconnect">
 <link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
@@ -94,12 +93,12 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   /* A MÁGICA DOS CARDS LADO A LADO NO CELULAR */
   .main-container { padding: 0 10px; }
   .post-grid { 
-    grid-template-columns: repeat(2, 1fr); /* FORÇA DUAS COLUNAS SEMPRE */
-    gap: 10px; /* Reduz o espaço entre eles pra caber bonito */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px; 
   }
-  .card-img { height: 110px; } /* Deixa a capinha proporcional */
+  .card-img { height: 110px; } 
   .card-info { padding: 10px; }
-  .card-title { font-size: 13px; margin-bottom: 5px; } /* Fonte menor pra não quebrar */
+  .card-title { font-size: 13px; margin-bottom: 5px; } 
   .card-meta { font-size: 10px; gap: 8px; flex-wrap: wrap; }
 }
 </style>
@@ -107,7 +106,6 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 
 <body>
 
-<!-- CABEÇALHO -->
 <header class="header-site">
   <div class="nav-left">
     <div aria-label="Menu" class="menu-toggle"><i class="fa fa-bars"></i></div>
@@ -119,9 +117,7 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   </div>
 </header>
 
-<!-- BANNER PRINCIPAL (DESTAQUE) -->
 <section class="featured-section">
-  <!-- Troque a URL da imagem no style abaixo para mudar a capa do banner -->
   <div class="banner" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/s1920/1001199637.png');">
     <div class="banner-content">
       <div class="banner-nav"><i class="fa fa-chevron-left"></i></div>
@@ -136,15 +132,13 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   </div>
 </section>
 
-<!-- GRID DE JOGOS -->
 <main class="main-container">
   <div class="post-grid">
 
-    <!-- CARD: SERENITY -->
     <a href="serenity.html" class="card">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/w400-h225/1001199637.png" alt="Serenity" class="card-img">
       <div class="card-info">
-        <h3 class="card-title">Serenity [v1.0]</h3>
+        <h3 class="card-title">Serenity [Ch. 2 v0.5] [N2TheFire]</h3>
         <div class="card-meta">
           <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(1)</span></span>
           <span title="Data"><i class="fa fa-calendar-alt"></i> Junho 22, 2026</span>
@@ -152,69 +146,14 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
         </div>
       </div>
     </a>
+    </div>
 
-    <!-- CARD: BRIGHT LORD -->
-    <a href="#" class="card">
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7b3U7-pG-0R648rI9q0Wj-1Vb6lZ_eR1B9vV7O2G1Z-54Y3Xo2lK4XQ-E2zX5P0Q6vK8d6d6K_6uK4M8X1O6b6hK7U-3-4/w400-h225/bright-lord.jpg" alt="Bright Lord" class="card-img" onerror="this.src='https://via.placeholder.com/400x225/1a1a1a/00ff7f?text=Bright+Lord'">
-      <div class="card-info">
-        <h3 class="card-title">Bright Lord [v1.16.0 Fix2] [KissKiss studio]</h3>
-        <div class="card-meta">
-          <span><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(1)</span></span>
-          <span><i class="fa fa-calendar-alt"></i> Junho 21, 2026</span>
-          <span><i class="fa fa-eye meta-eye"></i> 0</span>
-        </div>
-      </div>
-    </a>
-
-    <!-- CARD: ZERO END -->
-    <a href="#" class="card">
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7b3U7-pG-0R648rI9q0Wj-1Vb6lZ_eR1B9vV7O2G1Z-54Y3Xo2lK4XQ-E2zX5P0Q6vK8d6d6K_6uK4M8X1O6b6hK7U-3-4/w400-h225/zero-end.jpg" alt="Zero End" class="card-img" onerror="this.src='https://via.placeholder.com/400x225/1a1a1a/00ff7f?text=Zero+End'">
-      <div class="card-info">
-        <h3 class="card-title">Zero End [v0.3.6c] [Stolen Rose]</h3>
-        <div class="card-meta">
-          <span><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(2)</span></span>
-          <span><i class="fa fa-calendar-alt"></i> Junho 05, 2026</span>
-          <span><i class="fa fa-eye meta-eye"></i> 2</span>
-        </div>
-      </div>
-    </a>
-
-    <!-- CARD: ERUPTION IMMINENT -->
-    <a href="#" class="card">
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7b3U7-pG-0R648rI9q0Wj-1Vb6lZ_eR1B9vV7O2G1Z-54Y3Xo2lK4XQ-E2zX5P0Q6vK8d6d6K_6uK4M8X1O6b6hK7U-3-4/w400-h225/eruption.jpg" alt="Eruption Imminent" class="card-img" onerror="this.src='https://via.placeholder.com/400x225/1a1a1a/00ff7f?text=Eruption+Imminent'">
-      <div class="card-info">
-        <h3 class="card-title">Eruption Imminent [v0.8.0]</h3>
-        <div class="card-meta">
-          <span><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(2)</span></span>
-          <span><i class="fa fa-calendar-alt"></i> Junho 03, 2026</span>
-          <span><i class="fa fa-eye meta-eye"></i> 2</span>
-        </div>
-      </div>
-    </a>
-
-    <!-- CARD: NEPHILIM -->
-    <a href="#" class="card">
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7b3U7-pG-0R648rI9q0Wj-1Vb6lZ_eR1B9vV7O2G1Z-54Y3Xo2lK4XQ-E2zX5P0Q6vK8d6d6K_6uK4M8X1O6b6hK7U-3-4/w400-h225/nephilim.jpg" alt="Nephilim" class="card-img" onerror="this.src='https://via.placeholder.com/400x225/1a1a1a/00ff7f?text=Nephilim'">
-      <div class="card-info">
-        <h3 class="card-title">Nephilim [v0.6.5] [BuuPlays]</h3>
-        <div class="card-meta">
-          <span><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(3)</span></span>
-          <span><i class="fa fa-calendar-alt"></i> Maio 14, 2026</span>
-          <span><i class="fa fa-eye meta-eye"></i> 5</span>
-        </div>
-      </div>
-    </a>
-
-  </div>
-
-  <!-- Botões de Paginação -->
   <div class="pagination">
     <a href="#" class="btn-page"><i class="fa fa-arrow-left"></i> Recentes</a>
     <a href="#" class="btn-page">Antigas <i class="fa fa-arrow-right"></i></a>
   </div>
 </main>
 
-<!-- RODAPÉ -->
 <footer class="rich-footer">
   <div class="footer-content">
     <div class="footer-col">
@@ -234,12 +173,10 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   </div>
 </footer>
 
-<!-- BOTÃO FLUTUANTE (Voltar ao Topo) -->
 <div class="back-to-top" id="btnTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
   <i class="fa fa-arrow-up"></i>
 </div>
 
-<!-- SCRIPT DO BOTÃO FLUTUANTE E FIREBASE -->
 <script type="module">
   window.addEventListener('scroll', function() {
     var btn = document.getElementById('btnTop');
