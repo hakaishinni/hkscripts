@@ -13,7 +13,7 @@
 
 <style>
 /* ===================================================================== */
-/* CSS GLOBAL - IDÊNTICO AO SERENITY.HTML PARA MANTER O PADRÃO           */
+/* CSS GLOBAL DA PÁGINA INICIAL                                          */
 /* ===================================================================== */
 :root{--bg-body:#0a0a0a;--bg-card:#141414;--text-main:#e0e0e0;--text-dim:#888;--accent:#00ff7f;--border:#222;--star-color:#ffcc00}
 ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg-body)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}::-webkit-scrollbar-thumb:hover{background:var(--accent)}
@@ -44,7 +44,7 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 
 /* Grid de Cards (Vitrine) */
 .main-container { max-width: 1200px; margin: 0 auto 40px auto; padding: 0 20px; width: 100%; box-sizing: border-box; flex: 1; }
-.post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
 .card { background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; display: flex; flex-direction: column; }
 .card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
 .card-img { width: 100%; height: 180px; object-fit: cover; display: block; border-bottom: 1px solid var(--border); }
@@ -72,17 +72,35 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 .back-to-top.show { opacity: 1; visibility: visible; }
 .back-to-top:hover { transform: translateY(-5px); background: #fff; }
 
-@media(max-width:800px){
-  .header-site{flex-direction:column;gap:15px;}
-  .header-logo-search{flex-direction:column; width: 100%;}
-  .search-box{width: 100%; justify-content: space-between;}
+/* ===================================================================== */
+/* AJUSTES PARA CELULAR (FORÇANDO 2 COLUNAS LADO A LADO)                 */
+/* ===================================================================== */
+@media(max-width:768px){
+  .header-site{flex-direction:column;gap:15px; padding: 15px;}
+  .header-logo-search{flex-direction:column; width: 100%; gap: 15px;}
+  .search-box{width: 100%; justify-content: space-between; box-sizing: border-box;}
   .search-input{width: 100%;}
-  .banner { height: 250px; }
-  .banner-content { flex-direction: column; align-items: center; text-align: center; gap: 15px; }
-  .banner-info h2 { font-size: 24px; }
-  .banner-nav { display: none; }
   .nav-left { width: 100%; justify-content: center; position: relative;}
   .menu-toggle { position: absolute; left: 0; }
+  
+  /* Ajuste do Banner no Mobile */
+  .featured-section { padding: 0 10px; margin: 20px auto; }
+  .banner { height: 200px; }
+  .banner-content { padding: 15px; flex-direction: column; align-items: center; text-align: center; gap: 10px; justify-content: center;}
+  .banner-info h2 { font-size: 22px; margin-bottom: 8px;}
+  .btn-ver-script { padding: 8px 20px; font-size: 13px; }
+  .banner-nav { display: none; } /* Esconde as setinhas no celular */
+
+  /* A MÁGICA DOS CARDS LADO A LADO NO CELULAR */
+  .main-container { padding: 0 10px; }
+  .post-grid { 
+    grid-template-columns: repeat(2, 1fr); /* FORÇA DUAS COLUNAS SEMPRE */
+    gap: 10px; /* Reduz o espaço entre eles pra caber bonito */
+  }
+  .card-img { height: 110px; } /* Deixa a capinha proporcional */
+  .card-info { padding: 10px; }
+  .card-title { font-size: 13px; margin-bottom: 5px; } /* Fonte menor pra não quebrar */
+  .card-meta { font-size: 10px; gap: 8px; flex-wrap: wrap; }
 }
 </style>
 </head>
@@ -103,7 +121,7 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 
 <!-- BANNER PRINCIPAL (DESTAQUE) -->
 <section class="featured-section">
-  <!-- Você pode trocar a URL da imagem no style abaixo para mudar o fundo do banner -->
+  <!-- Troque a URL da imagem no style abaixo para mudar a capa do banner -->
   <div class="banner" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/s1920/1001199637.png');">
     <div class="banner-content">
       <div class="banner-nav"><i class="fa fa-chevron-left"></i></div>
@@ -128,7 +146,7 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
       <div class="card-info">
         <h3 class="card-title">Serenity [v1.0]</h3>
         <div class="card-meta">
-          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:10px">(1)</span></span>
+          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(1)</span></span>
           <span title="Data"><i class="fa fa-calendar-alt"></i> Junho 22, 2026</span>
           <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="serenity_html">1</span></span>
         </div>
@@ -141,7 +159,7 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
       <div class="card-info">
         <h3 class="card-title">Bright Lord [v1.16.0 Fix2] [KissKiss studio]</h3>
         <div class="card-meta">
-          <span><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:10px">(1)</span></span>
+          <span><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(1)</span></span>
           <span><i class="fa fa-calendar-alt"></i> Junho 21, 2026</span>
           <span><i class="fa fa-eye meta-eye"></i> 0</span>
         </div>
@@ -154,7 +172,7 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
       <div class="card-info">
         <h3 class="card-title">Zero End [v0.3.6c] [Stolen Rose]</h3>
         <div class="card-meta">
-          <span><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:10px">(2)</span></span>
+          <span><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(2)</span></span>
           <span><i class="fa fa-calendar-alt"></i> Junho 05, 2026</span>
           <span><i class="fa fa-eye meta-eye"></i> 2</span>
         </div>
@@ -167,7 +185,7 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
       <div class="card-info">
         <h3 class="card-title">Eruption Imminent [v0.8.0]</h3>
         <div class="card-meta">
-          <span><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:10px">(2)</span></span>
+          <span><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(2)</span></span>
           <span><i class="fa fa-calendar-alt"></i> Junho 03, 2026</span>
           <span><i class="fa fa-eye meta-eye"></i> 2</span>
         </div>
@@ -180,7 +198,7 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
       <div class="card-info">
         <h3 class="card-title">Nephilim [v0.6.5] [BuuPlays]</h3>
         <div class="card-meta">
-          <span><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:10px">(3)</span></span>
+          <span><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(3)</span></span>
           <span><i class="fa fa-calendar-alt"></i> Maio 14, 2026</span>
           <span><i class="fa fa-eye meta-eye"></i> 5</span>
         </div>
@@ -221,16 +239,14 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   <i class="fa fa-arrow-up"></i>
 </div>
 
-<!-- SCRIPT DO BOTÃO FLUTUANTE E FIREBASE BÁSICO -->
+<!-- SCRIPT DO BOTÃO FLUTUANTE E FIREBASE -->
 <script type="module">
-  // Script para o botão de voltar ao topo aparecer ao rolar
   window.addEventListener('scroll', function() {
     var btn = document.getElementById('btnTop');
     if (window.scrollY > 300) { btn.classList.add('show'); } 
     else { btn.classList.remove('show'); }
   });
 
-  // Conexão com Firebase para puxar as visualizações (Opcional na Index)
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
   import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
@@ -244,7 +260,6 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
 
-  // Puxa as views em tempo real para os cards que tiverem a classe 'fb-views' e o data-path correto
   document.querySelectorAll('.fb-views').forEach(el => {
     const path = el.getAttribute('data-path');
     if(path) {
