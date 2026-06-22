@@ -5,6 +5,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <title>HK SCRIPTS - Visual Novels</title>
 
+<!-- Conexões Externas -->
 <link crossorigin="anonymous" href="https://www.gstatic.com" rel="preconnect">
 <link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
@@ -30,15 +31,16 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 .search-input{background:transparent;border:none;color:#fff;padding:5px;outline:none;font-size:14px;width:150px}
 .search-btn{background:transparent;border:none;color:var(--accent);cursor:pointer}
 
-/* Banner Destacado */
+/* Banner Destacado - Ajustado para ficar igual ao site antigo */
 .featured-section { max-width: 1200px; margin: 30px auto; padding: 0 20px; box-sizing: border-box; width: 100%; }
 .banner { position: relative; border-radius: 12px; overflow: hidden; height: 350px; background-size: cover; background-position: center; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.8); display: flex; align-items: flex-end; }
 .banner::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.4) 50%, transparent 100%); z-index: 1; }
-.banner-content { position: relative; z-index: 2; padding: 30px; width: 100%; display: flex; justify-content: space-between; align-items: flex-end; }
-.banner-info h2 { font-size: 32px; margin: 0 0 15px 0; color: #fff; text-shadow: 2px 2px 5px #000; }
+.banner-content { position: relative; z-index: 2; padding: 30px; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; box-sizing: border-box; }
+.banner-top-row { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 20px; }
+.banner-title { font-size: 28px; margin: 0; color: var(--accent); text-shadow: 2px 2px 8px #000; text-align: center; flex: 1; padding: 0 15px; }
 .btn-ver-script { background: var(--accent); color: #000; padding: 12px 30px; border-radius: 6px; font-weight: bold; text-transform: uppercase; display: inline-block; transition: 0.3s; font-family: 'Poppins', sans-serif; box-shadow: 0 0 15px rgba(0,255,127,0.4); }
 .btn-ver-script:hover { background: #fff; box-shadow: 0 0 20px rgba(255,255,255,0.6); transform: translateY(-2px); }
-.banner-nav { font-size: 24px; color: #fff; cursor: pointer; padding: 10px; background: rgba(0,0,0,0.5); border-radius: 50%; transition: 0.3s; }
+.banner-nav { font-size: 24px; color: #fff; cursor: pointer; padding: 10px 15px; background: rgba(0,0,0,0.6); border-radius: 50%; transition: 0.3s; }
 .banner-nav:hover { color: var(--accent); background: #000; }
 
 /* Grid de Cards (Vitrine) */
@@ -72,7 +74,7 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 .back-to-top:hover { transform: translateY(-5px); background: #fff; }
 
 /* ===================================================================== */
-/* AJUSTES PARA CELULAR (FORÇANDO 2 COLUNAS LADO A LADO)                 */
+/* AJUSTES PARA CELULAR                                                  */
 /* ===================================================================== */
 @media(max-width:768px){
   .header-site{flex-direction:column;gap:15px; padding: 15px;}
@@ -82,20 +84,18 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   .nav-left { width: 100%; justify-content: center; position: relative;}
   .menu-toggle { position: absolute; left: 0; }
   
-  /* Ajuste do Banner no Mobile */
+  /* Banner no Mobile idêntico ao antigo */
   .featured-section { padding: 0 10px; margin: 20px auto; }
-  .banner { height: 200px; }
-  .banner-content { padding: 15px; flex-direction: column; align-items: center; text-align: center; gap: 10px; justify-content: center;}
-  .banner-info h2 { font-size: 22px; margin-bottom: 8px;}
+  .banner { height: 220px; }
+  .banner-content { padding: 15px; }
+  .banner-top-row { margin-bottom: 12px; }
+  .banner-title { font-size: 15px; padding: 0 5px; } /* Fonte menor pra caber entre as setas */
+  .banner-nav { font-size: 16px; padding: 8px 12px; } /* Setas restauradas no mobile */
   .btn-ver-script { padding: 8px 20px; font-size: 13px; }
-  .banner-nav { display: none; } /* Esconde as setinhas no celular */
 
-  /* A MÁGICA DOS CARDS LADO A LADO NO CELULAR */
+  /* CARDS LADO A LADO */
   .main-container { padding: 0 10px; }
-  .post-grid { 
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 10px; 
-  }
+  .post-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .card-img { height: 110px; } 
   .card-info { padding: 10px; }
   .card-title { font-size: 13px; margin-bottom: 5px; } 
@@ -106,6 +106,7 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 
 <body>
 
+<!-- CABEÇALHO -->
 <header class="header-site">
   <div class="nav-left">
     <div aria-label="Menu" class="menu-toggle"><i class="fa fa-bars"></i></div>
@@ -117,24 +118,31 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   </div>
 </header>
 
+<!-- BANNER PRINCIPAL (DESTAQUE) -->
 <section class="featured-section">
+  <!-- Troque a URL da imagem no style abaixo para mudar a capa do banner -->
   <div class="banner" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/s1920/1001199637.png');">
     <div class="banner-content">
-      <div class="banner-nav"><i class="fa fa-chevron-left"></i></div>
       
-      <div class="banner-info">
-        <h2>Serenity</h2>
-        <a href="serenity.html" class="btn-ver-script">VER SCRIPT</a>
+      <!-- Linha superior com as setas e o título em verde -->
+      <div class="banner-top-row">
+        <div class="banner-nav"><i class="fa fa-chevron-left"></i></div>
+        <h2 class="banner-title">Serenity [Ch. 2 v0.5] [N2TheFire]</h2>
+        <div class="banner-nav"><i class="fa fa-chevron-right"></i></div>
       </div>
+      
+      <!-- Botão embaixo -->
+      <a href="serenity.html" class="btn-ver-script">VER SCRIPT</a>
 
-      <div class="banner-nav"><i class="fa fa-chevron-right"></i></div>
     </div>
   </div>
 </section>
 
+<!-- GRID DE JOGOS -->
 <main class="main-container">
   <div class="post-grid">
 
+    <!-- CARD: SERENITY -->
     <a href="serenity.html" class="card">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/w400-h225/1001199637.png" alt="Serenity" class="card-img">
       <div class="card-info">
@@ -146,14 +154,18 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
         </div>
       </div>
     </a>
-    </div>
+    <!-- FIM DO CARD -->
 
+  </div>
+
+  <!-- Botões de Paginação -->
   <div class="pagination">
     <a href="#" class="btn-page"><i class="fa fa-arrow-left"></i> Recentes</a>
     <a href="#" class="btn-page">Antigas <i class="fa fa-arrow-right"></i></a>
   </div>
 </main>
 
+<!-- RODAPÉ -->
 <footer class="rich-footer">
   <div class="footer-content">
     <div class="footer-col">
@@ -173,10 +185,12 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   </div>
 </footer>
 
+<!-- BOTÃO FLUTUANTE (Voltar ao Topo) -->
 <div class="back-to-top" id="btnTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
   <i class="fa fa-arrow-up"></i>
 </div>
 
+<!-- SCRIPT DO BOTÃO FLUTUANTE E FIREBASE -->
 <script type="module">
   window.addEventListener('scroll', function() {
     var btn = document.getElementById('btnTop');
