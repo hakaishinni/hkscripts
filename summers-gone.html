@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<!-- ATENÇÃO: MUDE O NOME DO JOGO AQUI ABAIXO -->
+<title>[NOME DO JOGO AQUI] - HK SCRIPTS</title>
+
+<!-- Conexões Externas -->
+<link crossorigin="anonymous" href="https://www.gstatic.com" rel="preconnect">
+<link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+
+<style>
+@font-face { font-family: 'Font Awesome 6 Free'; font-display: swap; }
+@font-face { font-family: 'Font Awesome 6 Brands'; font-display: swap; }
+
+:root{--bg-body:#0a0a0a;--bg-card:#141414;--text-main:#e0e0e0;--text-dim:#888;--accent:#00ff7f;--border:#222;--star-color:#ffcc00}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg-body)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+body{background-color:var(--bg-body);color:var(--text-main);font-family:'Inter',sans-serif;margin:0;display:flex;flex-direction:column;min-height:100vh}
+a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4,.nav-links a{font-family:'Poppins',sans-serif}
+.header-site{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:var(--bg-card);border-bottom:1px solid var(--border);position:relative}
+.nav-left{flex:1;display:flex;align-items:center;gap:15px}.nav-links{display:flex;gap:15px}
+.nav-links a{color:var(--text-main);text-decoration:none;font-weight:bold;text-transform:uppercase;font-size:14px;transition:.3s}
+.nav-links a:hover{color:var(--accent);text-shadow:0 0 8px var(--accent)}.menu-toggle{display:none;font-size:24px;color:var(--accent);cursor:pointer}
+.header-logo-search{flex:2;display:flex;align-items:center;justify-content:center;gap:20px}.header-logo-search a{text-decoration:none}
+.header-logo-search h1{color:var(--accent);margin:0;font-size:28px;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 15px rgba(0,255,127,0.3)}
+.search-box{display:flex;align-items:center;background:#0a0a0a;border:1px solid var(--border);border-radius:4px;padding:5px 10px;transition:.3s}
+.search-box:focus-within{border-color:var(--accent);box-shadow:0 0 10px rgba(0,255,127,0.2)}.search-input{background:transparent;border:none;color:#fff;padding:5px;outline:none;font-size:14px;width:150px}
+.search-btn{background:transparent;border:none;color:var(--accent);cursor:pointer}.main-container{max-width:1200px;margin:0 auto;padding:20px;width:100%;box-sizing:border-box;flex:1}
+
+/* MODO POST CONFIGURAÇÕES */
+.item .blog-posts{display:block}.item .main-container{max-width:850px}
+.item .post-outer{border:none;background:transparent}.item .post-title{font-size:32px;color:var(--accent);padding:20px 0 5px;text-align:center}
+.item .post-meta{display:flex;justify-content:center;align-items:center;font-size:14px;color:var(--text-dim);margin-bottom:30px;}
+.item .post-body{line-height:1.8;font-size:17px}.item .post-body a{color:var(--accent);font-weight:600;transition:.3s}.item .post-body a:hover{text-shadow:0 0 8px var(--accent)}
+
+/* GALERIA EM GRID */
+.img-capa { width: 100% !important; height: auto !important; max-height: 450px !important; border-radius: 8px; object-fit: cover; margin-bottom: 25px; display: block; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
+.hk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 25px 0; }
+.hk-grid .separator { margin: 0 !important; width: 100% !important; clear: none !important; display: block !important; }
+.hk-grid a { display: block !important; width: 100% !important; margin: 0 !important; }
+.img-galeria { width: 100% !important; height: 160px !important; object-fit: cover !important; border-radius: 8px; display: block !important; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+.img-galeria:hover { transform: scale(1.03); border: 1px solid var(--accent); box-shadow: 0 5px 15px rgba(0,255,127,0.3); z-index: 10; position: relative; }
+@media(min-width: 800px) { .hk-grid { gap: 20px; } .img-galeria { height: 220px !important; } }
+
+/* BOTÕES DE DOWNLOAD */
+.download-area { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.dl-btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 15px 25px; border-radius: 8px; font-weight: 700; text-transform: uppercase; transition: 0.3s; font-family: 'Poppins', sans-serif; border: 1px solid rgba(255,255,255,0.1); color: #fff !important; text-decoration: none !important; cursor: pointer;}
+.btn-vexfile { background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDB75eG5CtsCQZ6rFE_2r4JBUe5dYjaLAGWYtLrZp5umj8gVEIVAW9rQcc1SaRqdJfKs6nrNJdoVBmwlkP4FF-6tVgivCdwbt3IZyI1yIAGT4hg2unHaLoPs6hLLNbOkiPiTTeU6iNqY9HM6SQ3O7zJRCHU86lH3xzHytkHsNlcacit1OCGjG2_6h56Rg/s380/1001291960.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none; min-width: 200px; min-height: 50px; padding: 0; }
+.btn-vexfile:hover { transform: scale(1.05); }
+.btn-boosty { background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNSjrle_AGPhjxsgLPV4MemH4vS7zrke4xVizJsQQMK-v76WkpyioLeFd582JLRtK3xfK3lDyh578RzLI5g5ymlwpuEWhwMYSmIzL4GKwPDaGRlNmjoyjfHrMAXUdT9lcN_Po9ggD1FvsCvLG5aa7hbjz10xEFyiSZmr9bean73cWvMUOvsORrQN1qzcg/s144/1001291967.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none; min-width: 150px; min-height: 45px; padding: 0; }
+.btn-boosty:hover { transform: scale(1.05); }
+
+/* APOIO E ESTRELAS */
+.support-box { background: var(--bg-card); border: 2px dashed var(--accent); border-radius: 12px; padding: 25px; margin: 40px 0; text-align: center; box-shadow: 0 0 20px rgba(0,255,127,0.05); }
+.support-title { color: var(--accent); font-size: 24px; margin-bottom: 10px; font-weight: bold; font-family: 'Poppins', sans-serif; text-transform: uppercase; }
+.support-text { color: var(--text-dim); font-size: 15px; margin-bottom: 20px; line-height: 1.6; }
+.qr-code-img { width: 130px; height: 130px; border-radius: 8px; border: 3px solid var(--accent); padding: 5px; background: #fff; margin-bottom: 15px; }
+.pix-container { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.pix-input { background: #000; border: 1px solid var(--border); color: #fff; padding: 12px; border-radius: 6px; width: 100%; max-width: 350px; text-align: center; font-family: monospace; font-size: 14px; outline: none; }
+.pix-btn { background: var(--accent); color: #000; border: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; font-family: 'Poppins', sans-serif; }
+.pix-btn:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,255,127,0.3); }
+
+.rating-box{margin-top:30px;padding:30px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border);text-align:center}
+.stars-wrapper{display:flex;flex-direction:row-reverse;justify-content:center;gap:10px;margin:15px 0}.stars-wrapper label{font-size:35px;color:#333;cursor:pointer;transition:.2s}
+.stars-wrapper input:checked~label,.stars-wrapper label:hover,.stars-wrapper label:hover~label{color:var(--star-color);text-shadow:0 0 10px var(--star-color)}
+
+/* RODAPÉ */
+.rich-footer{background:var(--bg-card);border-top:1px solid var(--border);padding:40px 20px;margin-top:50px}
+.footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;text-align:left}
+.footer-col h4{color:var(--accent);margin-top:0}.footer-col ul{list-style:none;padding:0}.footer-col ul li{margin-bottom:10px}
+.footer-col ul li a{color:var(--text-main);text-decoration:none;transition:.3s}.footer-col ul li a:hover{color:var(--accent);padding-left:5px}
+.footer-bottom{text-align:center;padding-top:20px;margin-top:20px;border-top:1px solid var(--border);font-size:13px;color:var(--text-dim)}
+
+@media(max-width:800px){.header-site{flex-direction:column;gap:15px}.menu-toggle{display:block;position:absolute;top:25px;left:20px}.nav-links{display:none;flex-direction:column;width:100%;text-align:center;gap:10px;padding-top:10px}.nav-links.active{display:flex}.header-logo-search{flex-direction:column}}
+</style>
+</head>
+
+<body class="item">
+
+<header class="header-site">
+  <div class="nav-left">
+    <div aria-label="Menu" class="menu-toggle" onclick="document.getElementById('mobileMenu').classList.toggle('active')"><i aria-hidden="true" class="fa fa-bars"></i></div>
+    <div class="nav-links" id="mobileMenu">
+      <a class="notranslate" href="index.html" translate="no">Início</a>
+    </div>
+  </div>
+  <div class="header-logo-search">
+    <a href="index.html"><h1 class="notranslate" translate="no">HK SCRIPTS</h1></a>
+  </div>
+  <div style="flex:1"></div>
+</header>
+
+<div class="main-container">
+  <article class="post-outer">
+    
+    <!-- ATENÇÃO: MUDE O NOME DO JOGO AQUI ABAIXO -->
+    <h1 class="post-title">[NOME DO JOGO AQUI]</h1>
+    
+    <span class="post-meta">
+      <!-- Mude a data se quiser -->
+      <i aria-hidden="true" class="fa fa-calendar-alt" style="margin-right:5px"></i> Hoje | 
+      <i aria-hidden="true" class="fa fa-eye" style="margin-left:15px; margin-right:5px; color:var(--accent);"></i> <span class="view-count">0</span>
+    </span>
+
+    <div class="post-body">
+      
+      <!-- CÓDIGO EXATO QUE VOCÊ COPIOU DO BLOGGER -->
+      <p style="text-align: center;">&nbsp;</p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsT-nJrVCCfmd1856w9AI-Ctir0_aIaCgwHsxTw9w9KV0ZgzqihiYR-K18vHKLuzF50VlUHY4vRSbhR_Zi-ikDuAL8vDff678m3biFXb3JHvwE0eaunnE16CV8wJJA4iDfkOkPyffxp8eEwGROAVlSmJz4s_GMEhiHxYbGzhQYls9vPPxE5_0ZWOgD2Mg/s1600/1001199958.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="400" data-original-width="1600" height="100" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsT-nJrVCCfmd1856w9AI-Ctir0_aIaCgwHsxTw9w9KV0ZgzqihiYR-K18vHKLuzF50VlUHY4vRSbhR_Zi-ikDuAL8vDff678m3biFXb3JHvwE0eaunnE16CV8wJJA4iDfkOkPyffxp8eEwGROAVlSmJz4s_GMEhiHxYbGzhQYls9vPPxE5_0ZWOgD2Mg/w400-h100/1001199958.png" width="400" /></a></div><br /><p></p><p style="text-align: center;"><span style="font-size: x-large;"><b>Sinopse :</b></span></p><p style="text-align: center;"><span style="font-size: large;"><b><i>Após uma experiência traumática, um jovem tenta reencontrar seu caminho na vida. A faculdade está prestes a começar e mistérios estão prestes a ser revelados.</i></b></span></p><p style="text-align: center;"><span style="font-size: large;"><b><i><br /></i></b></span></p><p style="text-align: center;"><span style="font-size: large;"><b></b></span></p><div class="separator" style="clear: both; text-align: center;"><span style="font-size: large;"><b><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKmMgXnWP5hU5zoZ26ybsGHt6czE3v-FqYhscHI93RsG_uT3D1N_Szr9gzCTJI1CPweEAl3dYqnIMXMGiI6gFV90cDqmTFnZe4kk-CnfC7QqNHr-4u_rfCFXKgqtJqAgo6JmR7m3Th5Og1VdenKkmS86m3xLFRk1gvENK27TvMqmEi-6ECca9D1OWQKR4/s532/1001150893.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="332" data-original-width="532" height="250" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKmMgXnWP5hU5zoZ26ybsGHt6czE3v-FqYhscHI93RsG_uT3D1N_Szr9gzCTJI1CPweEAl3dYqnIMXMGiI6gFV90cDqmTFnZe4kk-CnfC7QqNHr-4u_rfCFXKgqtJqAgo6JmR7m3Th5Og1VdenKkmS86m3xLFRk1gvENK27TvMqmEi-6ECca9D1OWQKR4/w400-h250/1001150893.png" width="400" /></a></b></span></div><span style="font-size: large;"><b><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjopDYErLzatyQjoCO87vUMQHr6qPO2XQubleVlKzEq_5nDkZKW-tAoNjSUZ54GITzWmsk1gZBZO2EwdhP-qhHCR1htqQq60qDmzsQRj1RTcaYm-k0CWTsiSC2MqKvXeL7IrjNwoDYeO08MPzMcoz8DWCAh3sK7ZcuIw-WzGBmxA_e_bULFOkhAXy8sUzc/s532/1001150890.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="332" data-original-width="532" height="250" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjopDYErLzatyQjoCO87vUMQHr6qPO2XQubleVlKzEq_5nDkZKW-tAoNjSUZ54GITzWmsk1gZBZO2EwdhP-qhHCR1htqQq60qDmzsQRj1RTcaYm-k0CWTsiSC2MqKvXeL7IrjNwoDYeO08MPzMcoz8DWCAh3sK7ZcuIw-WzGBmxA_e_bULFOkhAXy8sUzc/w400-h250/1001150890.png" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6VJxErT6lJw4qfK_QHjgSIn6qkVzQ3G8kXDkttwiklQM9SpvzLhBNG04SIM9mpEYFc-lQ7b1_1wMBK0v3f_idgwZIXTj8KGPtaEE_BFZvVM2xwv6hGnEWY5LZ4pijDP9DnWAJ9CqqoGcufV2k_INeCaNT1wgExQ9mF1UiUs-8LPbQGO8utFoglWvAvCw/s532/1001150730.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="332" data-original-width="532" height="250" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6VJxErT6lJw4qfK_QHjgSIn6qkVzQ3G8kXDkttwiklQM9SpvzLhBNG04SIM9mpEYFc-lQ7b1_1wMBK0v3f_idgwZIXTj8KGPtaEE_BFZvVM2xwv6hGnEWY5LZ4pijDP9DnWAJ9CqqoGcufV2k_INeCaNT1wgExQ9mF1UiUs-8LPbQGO8utFoglWvAvCw/w400-h250/1001150730.png" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhIVBFRKI48mXpR5PZB4562PmTfrzpD57EPZWa8oxCjzOUNMoVJK9XhJYe7l8m7RqAUOEM5qcXjOPQa7L43McJ0iL3dkPSZjORdL3Ymr0IS1zEe8S4i-ENMhBvV7EG5iQxNRrskKuH56kIrKRaOCn1KNsm3fGs5D2Jchfbjl8ERio_rE71Tm3An_p3-3k/s532/1001150900.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="332" data-original-width="532" height="250" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhIVBFRKI48mXpR5PZB4562PmTfrzpD57EPZWa8oxCjzOUNMoVJK9XhJYe7l8m7RqAUOEM5qcXjOPQa7L43McJ0iL3dkPSZjORdL3Ymr0IS1zEe8S4i-ENMhBvV7EG5iQxNRrskKuH56kIrKRaOCn1KNsm3fGs5D2Jchfbjl8ERio_rE71Tm3An_p3-3k/w400-h250/1001150900.png" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8KJfAGmjHAP3-x30bXgELkSCxy0RitG3Rk1LRSknFk_wEcPOWmD-0-81sxwvnE-bqdCPPFL8dBwixgnGpe7ta9fc0uW6IBGs-QtakoxfYWA7fOE6MUAgtp3R8d5R2uIsG3OTYmhwSYHelkIn9m7w2U2xq4AB3LsMI7R9Di6hWj1fCWlCIxnMcVpIK6gE/s532/1001150901.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="332" data-original-width="532" height="250" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8KJfAGmjHAP3-x30bXgELkSCxy0RitG3Rk1LRSknFk_wEcPOWmD-0-81sxwvnE-bqdCPPFL8dBwixgnGpe7ta9fc0uW6IBGs-QtakoxfYWA7fOE6MUAgtp3R8d5R2uIsG3OTYmhwSYHelkIn9m7w2U2xq4AB3LsMI7R9Di6hWj1fCWlCIxnMcVpIK6gE/w400-h250/1001150901.png" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOUK_TBIUe4S-spAKMcG0SfHwOVv9vMMuib28KG1Wu0CCLnSerToSe6pJ2CrMZ_3NKbwIIAE6cs86gqzn-jYi49ejsiMms0VB3-zZMhS6Y5y8epA1xREIjDxq88AedAt2OpISj4fHxOhzeZ7tsJw0ITnBLWjuAZWwL3YHJlcbtzgrful9GWOv7s64WnYA/s532/1001150898.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="332" data-original-width="532" height="250" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOUK_TBIUe4S-spAKMcG0SfHwOVv9vMMuib28KG1Wu0CCLnSerToSe6pJ2CrMZ_3NKbwIIAE6cs86gqzn-jYi49ejsiMms0VB3-zZMhS6Y5y8epA1xREIjDxq88AedAt2OpISj4fHxOhzeZ7tsJw0ITnBLWjuAZWwL3YHJlcbtzgrful9GWOv7s64WnYA/w400-h250/1001150898.png" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiT4HLPh6AMywJH2vxTl2bzy9pCOPJu3LBP6j3PSU65UzBxpJTbCQRPBCa-Pp6Ms6MBCC8jRdmYY_6xdGPtLfAmJADxCx86yoFEBQCto5XwdoZa_9oeUuNfyyOYOHCND7QcisLBxOJG7C_agOP0fKkdr9wi8-U_pvpzJTwAu-m2j031zRx5MVL6ZTYqJdo/s532/1001150907.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="332" data-original-width="532" height="250" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiT4HLPh6AMywJH2vxTl2bzy9pCOPJu3LBP6j3PSU65UzBxpJTbCQRPBCa-Pp6Ms6MBCC8jRdmYY_6xdGPtLfAmJADxCx86yoFEBQCto5XwdoZa_9oeUuNfyyOYOHCND7QcisLBxOJG7C_agOP0fKkdr9wi8-U_pvpzJTwAu-m2j031zRx5MVL6ZTYqJdo/w400-h250/1001150907.png" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkkBhH1efiMKKDZK9kptfQjIlE7s5OrM2r4_4mF_A-pz3wsCGIpl0FSgk2Ao5-bFfYHoOhDqF1Q8rxKg-CHqPMTEvb0NMzqXQVDDwpb6I4rjxRwMbQpBBqguLd5dadey_dIbxqOwMtPhhdomPRIU0tT0CM0CF-IFaqz8SPKRWary1Lj5silc5CGGdED9s/s532/1001150897.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="332" data-original-width="532" height="250" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkkBhH1efiMKKDZK9kptfQjIlE7s5OrM2r4_4mF_A-pz3wsCGIpl0FSgk2Ao5-bFfYHoOhDqF1Q8rxKg-CHqPMTEvb0NMzqXQVDDwpb6I4rjxRwMbQpBBqguLd5dadey_dIbxqOwMtPhhdomPRIU0tT0CM0CF-IFaqz8SPKRWary1Lj5silc5CGGdED9s/w400-h250/1001150897.png" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaUemUp4hFrqyQ0qPoBjwqsQGMYHKHn4wfuQiRlmXNScmC-C8w1Plj2icvsE0cdN6llGNtnzMxKRpUxIETraCFfLlDy-WSYkV6oFP-cN0Ppg2lcdyKjDQ0Cxh6oNlAG92qUYPoyKlL0AgtbiBnINx2208TF4jj09vKq_Ru-z1TT84x_SvwSAlgsJVJwgc/s3840/1001150746.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="2160" data-original-width="3840" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaUemUp4hFrqyQ0qPoBjwqsQGMYHKHn4wfuQiRlmXNScmC-C8w1Plj2icvsE0cdN6llGNtnzMxKRpUxIETraCFfLlDy-WSYkV6oFP-cN0Ppg2lcdyKjDQ0Cxh6oNlAG92qUYPoyKlL0AgtbiBnINx2208TF4jj09vKq_Ru-z1TT84x_SvwSAlgsJVJwgc/w400-h225/1001150746.png" width="400" /></a></div><br /><i>LINKS PARA DOWNLOAD</i></b></span><p></p><p style="text-align: center;"><b style="font-size: x-large;"><i>LINKS DIRETOS !</i></b></p><p style="text-align: center;"><b><i><span style="font-size: x-large;">SEASON 1</span></i></b></p><p style="text-align: center;"><span style="font-size: large;"><b><i><br /></i></b></span></p><p style="text-align: center;"><b><i><span style="font-size: large;">APK:&nbsp;</span><a href="https://boostylink.com/zNYQ95FF" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></i></b></p><p style="text-align: center;"><b><i><span style="font-size: large;">PC:&nbsp;</span><a href="https://boostylink.com/2RdadG9Y" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></i></b></p><p style="text-align: center;"><span style="font-size: large;"><b><i><br /></i></b></span></p><p style="text-align: center;"><b><i><span style="font-size: x-large;">SEASON 2</span></i></b></p><p style="text-align: center;"><span style="font-size: large;"><b><i><br /></i></b></span></p><p style="text-align: center;"><b><i><span style="font-size: large;">APK:&nbsp;</span><a href="https://boostylink.com/thQ4zKk6" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></i></b></p><p style="text-align: center;"><b><i><span style="font-size: large;">PC:&nbsp;</span><a href="https://boostylink.com/zNzGehYY" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></i></b></p>
+      <!-- FIM DO CÓDIGO DO BLOGGER -->
+
+    </div>
+    
+    <!-- Caixa de Doação PIX -->
+    <div class="support-box">
+      <div class="support-title"><i aria-hidden="true" class="fa fa-coffee" style="margin-right:8px;"></i> Apoie o Tradutor!</div>
+      <div class="support-text">Nossos links são diretos e sem encurtadores irritantes! Considere doar para ajudar a manter os projetos ativos.</div>
+      <img alt="QR Code PIX" class="qr-code-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=00020126580014BR.GOV.BCB.PIX0136ba714471-1484-4618-a070-4a991de0395d5204000053039865802BR5924Isaac Newton Gomes Pinto6009SAO PAULO62140510Q8LzqXbuQc6304A85E">
+      <div class="pix-container">
+        <input aria-label="Chave PIX HK Scripts" class="pix-input" id="pixKey" readonly="readonly" type="text" value="00020126580014BR.GOV.BCB.PIX0136ba714471-1484-4618-a070-4a991de0395d5204000053039865802BR5924Isaac Newton Gomes Pinto6009SAO PAULO62140510Q8LzqXbuQc6304A85E">
+        <button class="pix-btn" onclick="copyPix()"><i aria-hidden="true" class="fa fa-copy"></i> Copiar PIX</button>
+      </div>
+    </div>
+    
+    <!-- Avaliação de Estrelas -->
+    <div class="rating-box">
+      <h3>O que achou deste script/tradução?</h3>
+      <div id="currentRatingDisplay" style="color:var(--text-dim); font-size:14px; margin-bottom:15px;">Carregando avaliações...</div>
+      <div class="stars-wrapper" id="starRatingContainer">
+        <input id="star5" name="rating" style="display:none" type="radio" value="5"><label for="star5">★</label>
+        <input id="star4" name="rating" style="display:none" type="radio" value="4"><label for="star4">★</label>
+        <input id="star3" name="rating" style="display:none" type="radio" value="3"><label for="star3">★</label>
+        <input id="star2" name="rating" style="display:none" type="radio" value="2"><label for="star2">★</label>
+        <input id="star1" name="rating" style="display:none" type="radio" value="1"><label for="star1">★</label>
+      </div>
+      <span id="ratingMsg" style="color:var(--accent); font-size:14px; display:none; margin-top:10px;">Obrigado pela sua avaliação!</span>
+    </div>
+
+  </article>
+</div>
+
+<footer class="rich-footer">
+  <div class="footer-content">
+    <div class="footer-col">
+      <h4 class="notranslate" translate="no">HK SCRIPTS</h4>
+      <p>O seu portal definitivo para os melhores scripts, mods e traduções.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Redes Sociais</h4>
+      <ul>
+        <li><a href="https://discord.gg/zt5Ub6Xgbw" target="_blank"><i aria-hidden="true" class="fab fa-discord"></i> Discord</a></li>
+        <li><a href="https://www.youtube.com/@HkScripts-b8z" target="_blank"><i aria-hidden="true" class="fab fa-youtube"></i> YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 HK Scripts - Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script type="text/javascript">
+function copyPix() { 
+  var copyText = document.getElementById("pixKey"); 
+  if(copyText){
+      copyText.select(); 
+      copyText.setSelectionRange(0, 99999); 
+      navigator.clipboard.writeText(copyText.value).then(function() { 
+        alert("Chave PIX copiada! 💚"); 
+      }); 
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  const pb = document.querySelector('.post-body');
+  if (pb) { pb.querySelectorAll('a').forEach(link => {
+    const url = link.href.toLowerCase();
+    let bc = ''; let bt = ''; let ic = 'fa-download';
+    
+    if (url.includes('vexfile.com') || url.includes('boostylink.com')) { 
+        bc = url.includes('vexfile.com') ? 'btn-vexfile' : 'btn-boosty'; 
+        bt = ''; ic = ''; 
+    }
+    else if (url.includes('mediafire.com')) { bc = 'btn-mediafire'; bt = 'Baixar via MediaFire'; }
+    else if (url.includes('mega.nz')) { bc = 'btn-mega'; bt = 'Baixar via MEGA'; }
+    else if (url.includes('drive.google.com')) { bc = 'btn-drive'; bt = 'Baixar via Drive'; }
+    
+    if (bc !== '') { 
+      link.className = 'dl-btn ' + bc; 
+      link.innerHTML = ic !== '' ? `<i aria-hidden="true" class="fa ${ic}"></i> ${bt}` : bt; 
+      const w = document.createElement('div'); w.className = 'download-area'; 
+      link.parentNode.insertBefore(w, link); w.appendChild(link); 
+    }
+  });}
+
+  const postBodyGaleria = document.querySelector('.item .post-body');
+  if (postBodyGaleria) {
+    const imgs = postBodyGaleria.querySelectorAll('img');
+    if (imgs.length > 0) {
+      imgs[0].classList.add('img-capa');
+      if (imgs.length > 1) {
+        const galleryWrapper = document.createElement('div');
+        galleryWrapper.className = 'hk-grid';
+        let firstGalItem = imgs[1].closest('.separator') || imgs[1].closest('a') || imgs[1];
+        firstGalItem.parentNode.insertBefore(galleryWrapper, firstGalItem);
+        
+        for (let i = 1; i < imgs.length; i++) {
+          let item = imgs[i].closest('.separator') || imgs[i].closest('a') || imgs[i];
+          galleryWrapper.appendChild(item);
+          imgs[i].classList.add('img-galeria');
+        }
+      }
+    }
+    
+    postBodyGaleria.querySelectorAll('div, p, span').forEach(el => {
+      let conteudo = el.innerHTML.replace(/&nbsp;/g, '').trim();
+      if (conteudo === '' || conteudo === '<br>') { el.remove(); }
+    });
+    postBodyGaleria.querySelectorAll('br').forEach(br => {
+      let prox = br.nextElementSibling;
+      if (prox && prox.tagName === 'BR') { br.remove(); }
+    });
+  }
+});
+</script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+  import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDCNF3pZ3g20UkNDTUYq-X9zkyKA3El1TM",
+    authDomain: "hk-scripts-db.firebaseapp.com",
+    databaseURL: "https://hk-scripts-db-default-rtdb.firebaseio.com",
+    projectId: "hk-scripts-db"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  function sanitizePath(path) { return path.replace(/[.\/#$\[\]]/g, "_"); }
+  const currentPath = window.location.pathname;
+  const pathId = sanitizePath(currentPath);
+
+  if (currentPath !== "/" && currentPath !== "" && !currentPath.includes("/search")) {
+    if (localStorage.getItem('hk_admin') !== 'true') { 
+      runTransaction(ref(database, 'views/' + pathId), (v) => (v || 0) + 1); 
+    }
+  }
+
+  function updateRatingsUI(id, el, isCard = false) {
+    onValue(ref(database, 'ratings/' + id), (s) => {
+      const data = s.val() || { totalPoints: 0, count: 0 };
+      const avg = data.count > 0 ? (data.totalPoints / data.count).toFixed(1) : "0.0";
+      if (isCard) { 
+        el.innerHTML = `<i aria-hidden="true" class="fa fa-star" style="color:var(--star-color)"></i> ${avg} <span style="color:#888; font-size:11px;">(${data.count})</span>`; 
+      } else { 
+        const display = document.getElementById('currentRatingDisplay');
+        if (display) {
+          display.innerHTML = `<span style="color:var(--accent); font-weight:bold;">Média: ${avg} / 5</span> baseado em ${data.count} avaliações.`; 
+        }
+      }
+    });
+  }
+
+  if (document.getElementById('currentRatingDisplay')) { updateRatingsUI(pathId, null, false); }
+
+  document.querySelectorAll('input[name="rating"]').forEach(star => {
+    star.addEventListener('change', function() {
+      const points = parseInt(this.value);
+      const msg = document.getElementById('ratingMsg');
+      msg.style.display = "block"; 
+      msg.innerText = "Salvando voto...";
+      
+      runTransaction(ref(database, 'ratings/' + pathId), (current) => {
+        if (!current) current = { totalPoints: 0, count: 0 };
+        current.totalPoints += points; 
+        current.count += 1;
+        return current;
+      }).then(() => { 
+        msg.innerText = "Avaliação enviada com sucesso! ⭐"; 
+        document.querySelectorAll('input[name="rating"]').forEach(s => s.disabled = true); 
+      });
+    });
+  });
+</script>
+</body>
+</html>
