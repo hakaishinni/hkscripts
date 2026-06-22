@@ -10,10 +10,70 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 
 <style>
-/* ===================================================================== */
-/* 1. COLE AQUI TODO O SEU CÓDIGO CSS (O MESMO QUE ESTÁ NO INDEX.HTML)   */
-/* ===================================================================== */
+/* CSS do site embutido direto na página */
+:root {
+  --bg-dark: #0f0f13;
+  --bg-card: #18181f;
+  --text-main: #e2e2e2;
+  --text-dim: #999;
+  --accent: #e53935;
+  --accent-hover: #f44336;
+  --nav-bg: rgba(15, 15, 19, 0.95);
+}
+body {
+  margin: 0; padding: 0;
+  background-color: var(--bg-dark); color: var(--text-main);
+  font-family: 'Inter', sans-serif; line-height: 1.6;
+}
+h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); }
 
+/* Header */
+.header-site {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 15px 5%; background: var(--nav-bg);
+  position: sticky; top: 0; z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+}
+.header-logo-search h1 { margin: 0; font-size: 24px; color: #fff; }
+.menu-toggle { display: none; cursor: pointer; font-size: 20px; color: #fff; }
+.nav-links a { color: #fff; margin-right: 20px; font-weight: 600; }
+
+/* Post Container */
+.main-container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+.post-outer { background: var(--bg-card); padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+.post-title { font-size: 28px; margin-top: 0; margin-bottom: 15px; color: #fff; text-align: center; }
+.post-meta { display: flex; justify-content: center; align-items: center; font-size: 14px; color: var(--text-dim); margin-bottom: 30px; }
+
+/* Post Body (Blogger Content) */
+.post-body { font-size: 16px; margin-bottom: 40px; }
+.post-body img { max-width: 100%; height: auto; border-radius: 8px; }
+.post-body a { font-weight: bold; }
+
+/* Support / PIX Box */
+.support-box {
+  background: rgba(229, 57, 53, 0.1); border: 1px solid var(--accent);
+  padding: 20px; border-radius: 12px; text-align: center; margin: 40px 0;
+}
+.support-title { font-size: 20px; font-weight: 700; color: var(--accent); margin-bottom: 10px; }
+.support-text { font-size: 14px; color: var(--text-dim); margin-bottom: 20px; }
+.qr-code-img { width: 150px; height: 150px; border-radius: 8px; border: 2px solid #fff; margin-bottom: 15px; }
+.pix-container { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.pix-input { padding: 10px; border-radius: 6px; border: 1px solid #444; background: #222; color: #fff; width: 100%; max-width: 300px; text-align: center; }
+.pix-btn { padding: 10px 20px; background: var(--accent); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
+.pix-btn:hover { background: var(--accent-hover); }
+
+/* Footer */
+.site-footer { text-align: center; padding: 20px; color: var(--text-dim); font-size: 14px; margin-top: 40px; border-top: 1px solid #222; }
+
+@media(max-width: 768px) {
+  .menu-toggle { display: block; }
+  .nav-links { display: none; position: absolute; top: 60px; left: 0; width: 100%; background: var(--bg-card); flex-direction: column; padding: 20px; box-sizing: border-box; }
+  .nav-links.active { display: flex; }
+  .nav-links a { margin: 10px 0; }
+}
 </style>
 </head>
 
@@ -34,20 +94,20 @@
     <h1 class="post-title">Serenity</h1>
     
     <span class="post-meta">
-      <i aria-hidden="true" class="fa fa-calendar-alt" style="margin-right:5px"></i> Publicado recentemente | 
+      <i aria-hidden="true" class="fa fa-calendar-alt" style="margin-right:5px"></i> Publicado em 22/06/2026 | 
       <i aria-hidden="true" class="fa fa-eye" style="margin-left:15px; margin-right:5px; color:var(--accent);"></i> <span class="view-count">0</span>
     </span>
 
     <div class="post-body">
       
-      <!-- INÍCIO DO CÓDIGO DO SEU BLOGGER -->
+      <!-- CÓDIGO DO BLOGGER -->
       <p style="text-align: center;">&nbsp;</p>
       <div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/s1920/1001199637.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/w400-h225/1001199637.png" width="400" /></a></div><br /><p></p><p style="text-align: center;"><span style="font-size: x-large;"><b>Visão geral :</b></span></p><p style="text-align: center;"><span style="font-size: large;"><b><i>Serenity é uma visual novel adulta e dinâmica onde você assume o papel do protagonista... cuja mãe faleceu de câncer. Ela deixou para ele um livro que, ao ser lido, o transportaria para o mundo de Serenity.</i></b></span></p><p style="text-align: center;"><span style="font-size: large;"><b><i><br /></i></b></span></p><p style="text-align: center;"><span style="font-size: large;"><b></b></span></p><div class="separator" style="clear: both; text-align: center;"><span style="font-size: large;"><b><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtJTRr9IQcA18v7vrhxIwdk-4oargKwGEcAf_WaNHbA9oAV0zPAP9hYSOjXVBGI879nsI4A9HtoEjBzT9wSRsDRrwmKCUNb80r3ez78qFJv8M07446vJsvpyPjr9d8YNmuhEVa_KTjln7ZSo1qbHM-W8J16fBzq9OVh2b2br2Yl9t9aiOD7lwHqHa2z_c/s1920/1001199358.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtJTRr9IQcA18v7vrhxIwdk-4oargKwGEcAf_WaNHbA9oAV0zPAP9hYSOjXVBGI879nsI4A9HtoEjBzT9wSRsDRrwmKCUNb80r3ez78qFJv8M07446vJsvpyPjr9d8YNmuhEVa_KTjln7ZSo1qbHM-W8J16fBzq9OVh2b2br2Yl9t9aiOD7lwHqHa2z_c/w400-h225/1001199358.webp" width="400" /></a></b></span></div><span style="font-size: large;"><b><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNkWO6OAmnUvVu2TkJmfm2nmkT_GCpOoaMCX-tsCnkjZIb9qEvgK9VXwypgp9YU2DKrm7vJhhy9VnJnxurMOoXXW9DeXF_VeebzeWsOnrRDqyCy6q75NBXYsFAkJxfZDnPElasC5xqorAIe-gjdiThx5C7TR96VW8zOGmu8x-vNG6tTujQy_-hTnccUdE/s1920/1001199374.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNkWO6OAmnUvVu2TkJmfm2nmkT_GCpOoaMCX-tsCnkjZIb9qEvgK9VXwypgp9YU2DKrm7vJhhy9VnJnxurMOoXXW9DeXF_VeebzeWsOnrRDqyCy6q75NBXYsFAkJxfZDnPElasC5xqorAIe-gjdiThx5C7TR96VW8zOGmu8x-vNG6tTujQy_-hTnccUdE/w400-h225/1001199374.webp" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieFd0kwK976lBbuovR3qu0xMYAtjoQHxlIZI6YaU3f4j9Lpq5XJ2k2WE9Tdlct-VupKuNAoi3v_ygcM4i4WRDt2Mp_8OO_wMdmEK5NmLolzR8TPzXNp72mTGPzGswC1F5Znlc8B17RpHXQDGvQmkNkz0YQeAMORDntTFDANZagOvV_pduOduA-mFcxV-8/s1920/1001199362.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieFd0kwK976lBbuovR3qu0xMYAtjoQHxlIZI6YaU3f4j9Lpq5XJ2k2WE9Tdlct-VupKuNAoi3v_ygcM4i4WRDt2Mp_8OO_wMdmEK5NmLolzR8TPzXNp72mTGPzGswC1F5Znlc8B17RpHXQDGvQmkNkz0YQeAMORDntTFDANZagOvV_pduOduA-mFcxV-8/w400-h225/1001199362.webp" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWzDdLSqF4Qz6_J22zSM8a5yoWhDNRgGP6OIQDyuiTsford8dzcUUXPJArC_xjUXq1Q44GgG2BuOgHBT-enff-3ZRw7b-xJFWcREIUcdymQV0hbu25lSynHh_o1XkA0D3vGqignLTXvqwx_8GEDwzN5uIJ1h8WqPSMfDXb52N9GM7H5kEVBnUHms8XvRo/s1920/1001199375.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWzDdLSqF4Qz6_J22zSM8a5yoWhDNRgGP6OIQDyuiTsford8dzcUUXPJArC_xjUXq1Q44GgG2BuOgHBT-enff-3ZRw7b-xJFWcREIUcdymQV0hbu25lSynHh_o1XkA0D3vGqignLTXvqwx_8GEDwzN5uIJ1h8WqPSMfDXb52N9GM7H5kEVBnUHms8XvRo/w400-h225/1001199375.webp" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAlFpxPIo5wRgsu6AjErQ91E-TwAOn5naVbzK-Q7tt37FdJHlR3tHEF1csZNDqTLx9Y4G1Jd3wyCTf_3e79WZzwgsGCCV74sb15Dn6of56BleGkOir9hERLDpA3INB5bjjB7dbPxO2a_x07RAZVkhSke43ZGiAShWKmWukIq10ZvJ2kaXZM3dUD7oE06A/s1920/1001199368.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAlFpxPIo5wRgsu6AjErQ91E-TwAOn5naVbzK-Q7tt37FdJHlR3tHEF1csZNDqTLx9Y4G1Jd3wyCTf_3e79WZzwgsGCCV74sb15Dn6of56BleGkOir9hERLDpA3INB5bjjB7dbPxO2a_x07RAZVkhSke43ZGiAShWKmWukIq10ZvJ2kaXZM3dUD7oE06A/w400-h225/1001199368.webp" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqoZBaX_L_gktf_8o_8KpZO4QeJlp8XMcFGYQrjZRjccVBOZ7Isb4bIU2XVMceIgyuPfz7LJSf1IhwHaHmhi0gQ0NJc3gWlgRpxl4TEN2q7TsDVu5uwLbcsVfwQlUQycMHz-67_wLDkQZOwEE7S7TWxbujxYh7YjwXgGnklfPsFVRnTLxLjwSj0kN4C-M/s1920/1001199418.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqoZBaX_L_gktf_8o_8KpZO4QeJlp8XMcFGYQrjZRjccVBOZ7Isb4bIU2XVMceIgyuPfz7LJSf1IhwHaHmhi0gQ0NJc3gWlgRpxl4TEN2q7TsDVu5uwLbcsVfwQlUQycMHz-67_wLDkQZOwEE7S7TWxbujxYh7YjwXgGnklfPsFVRnTLxLjwSj0kN4C-M/w400-h225/1001199418.webp" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbqqxohYuwE4gyqMMHyS-94kdW935ccpDNhvPjKwdV2cy1ZD0lDSKbz3aM0WwoVHxdhcB6rdPSzLJdj_OWm4SAHMhOcpHz-1RRfpydB1rACaaaRnM9lyWWxpV2afDoQelDSDPOO2Deti1Ue7WRxvNjLPw7AOH9RFgptq8dSiYfmLFW2FrIZh1Bjf1yDTI/s1920/1001199376.webp" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbqqxohYuwE4gyqMMHyS-94kdW935ccpDNhvPjKwdV2cy1ZD0lDSKbz3aM0WwoVHxdhcB6rdPSzLJdj_OWm4SAHMhOcpHz-1RRfpydB1rACaaaRnM9lyWWxpV2afDoQelDSDPOO2Deti1Ue7WRxvNjLPw7AOH9RFgptq8dSiYfmLFW2FrIZh1Bjf1yDTI/w400-h225/1001199376.webp" width="400" /></a></div><br /><i><br /></i></b></span><p></p><p style="text-align: center;"><span style="font-size: large;"><b><i>LINKS PARA DOWNLOAD</i></b></span></p><p style="text-align: center;"><span style="font-size: large;"><b><i>LINKS DIRETOS !</i></b></span></p><p style="text-align: center;"><b><i><span style="font-size: x-large;">SEASON 1</span></i></b></p><p style="text-align: center;"><b><i><span style="font-size: large;">APK:&nbsp;</span><a href="https://boostylink.com/4Z443Nza" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></i></b></p><p style="text-align: center;"><b><i><span style="font-size: large;">PC:&nbsp;</span><a href="https://boostylink.com/fDHA6nN9" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></i></b></p><p style="text-align: center;"><b><span style="font-size: x-large;">SEASON 2</span></b></p><p style="text-align: center;"><b><i><span style="font-size: large;">APK:&nbsp;</span><a href="https://boostylink.com/TfTAzny7" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></i></b></p><p style="text-align: center;"><b><i><span style="font-size: large;">PC:&nbsp;</span><a href="https://boostylink.com/3Hd4DiKz" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></i></b></p>
-      <!-- FIM DO CÓDIGO DO SEU BLOGGER -->
+      <!-- FIM DO CÓDIGO DO BLOGGER -->
 
     </div>
     
-    <!-- Caixa de Doação PIX (Automática) -->
+    <!-- Caixa de Doação PIX -->
     <div class="support-box">
       <div class="support-title"><i aria-hidden="true" class="fa fa-coffee" style="margin-right:8px;"></i> Apoie o Tradutor!</div>
       <div class="support-text">Nossos links são diretos e sem encurtadores irritantes! Considere doar para ajudar a manter os projetos ativos.</div>
@@ -58,26 +118,21 @@
       </div>
     </div>
     
-    <!-- Avaliação de Estrelas -->
-    <div class="rating-box">
-      <h3>O que achou deste script/tradução?</h3>
-      <div id="currentRatingDisplay" style="color:var(--text-dim); font-size:14px; margin-bottom:15px;">Carregando avaliações...</div>
-      <div class="stars-wrapper" id="starRatingContainer">
-        <input id="star5" name="rating" style="display:none" type="radio" value="5"><label for="star5">★</label>
-        <input id="star4" name="rating" style="display:none" type="radio" value="4"><label for="star4">★</label>
-        <input id="star3" name="rating" style="display:none" type="radio" value="3"><label for="star3">★</label>
-        <input id="star2" name="rating" style="display:none" type="radio" value="2"><label for="star2">★</label>
-        <input id="star1" name="rating" style="display:none" type="radio" value="1"><label for="star1">★</label>
-      </div>
-      <span id="ratingMsg" style="color:var(--accent); font-size:14px; display:none; margin-top:10px;">Obrigado pela sua avaliação!</span>
-    </div>
-
   </article>
 </div>
 
-<!-- ===================================================================== -->
-<!-- 2. COLE AQUI O SEU RODAPÉ (<footer>) E OS SCRIPTS DO FIREBASE         -->
-<!-- ===================================================================== -->
+<footer class="site-footer">
+  <p>&copy; 2026 HK SCRIPTS. Todos os direitos reservados.</p>
+</footer>
 
+<script>
+  function copyPix() {
+    var copyText = document.getElementById("pixKey");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    alert("Chave PIX copiada com sucesso! Obrigado pelo apoio.");
+  }
+</script>
 </body>
 </html>
