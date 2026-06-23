@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta content="width=device-width, initial-scale=1" name="viewport">
-<title>OMG! Not Another Isekai [v1.0.4] [SunflowerGames] - HK SCRIPTS</title>
+<title>HK SCRIPTS - Visual Novels</title>
 
 <!-- Conexões Externas -->
 <link crossorigin="anonymous" href="https://www.gstatic.com" rel="preconnect">
@@ -12,132 +12,250 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 
 <style>
-@font-face { font-family: 'Font Awesome 6 Free'; font-display: swap; }
-@font-face { font-family: 'Font Awesome 6 Brands'; font-display: swap; }
-
+/* ===================================================================== */
+/* CSS GLOBAL DA PÁGINA INICIAL                                          */
+/* ===================================================================== */
 :root{--bg-body:#0a0a0a;--bg-card:#141414;--text-main:#e0e0e0;--text-dim:#888;--accent:#00ff7f;--border:#222;--star-color:#ffcc00}
 ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg-body)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}::-webkit-scrollbar-thumb:hover{background:var(--accent)}
 body{background-color:var(--bg-body);color:var(--text-main);font-family:'Inter',sans-serif;margin:0;display:flex;flex-direction:column;min-height:100vh}
-a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4,.nav-links a{font-family:'Poppins',sans-serif}
-.header-site{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:var(--bg-card);border-bottom:1px solid var(--border);position:relative}
-.nav-left{flex:1;display:flex;align-items:center;gap:15px}.nav-links{display:flex;gap:15px}
-.nav-links a{color:var(--text-main);text-decoration:none;font-weight:bold;text-transform:uppercase;font-size:14px;transition:.3s}
-.nav-links a:hover{color:var(--accent);text-shadow:0 0 8px var(--accent)}.menu-toggle{display:none;font-size:24px;color:var(--accent);cursor:pointer}
-.header-logo-search{flex:2;display:flex;align-items:center;justify-content:center;gap:20px}.header-logo-search a{text-decoration:none}
+a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins',sans-serif}
+
+/* Header */
+.header-site{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000}
+.nav-left{display:flex;align-items:center;gap:15px}
+.menu-toggle{font-size:24px;color:var(--accent);cursor:pointer}
+.header-logo-search{display:flex;align-items:center;gap:20px}
 .header-logo-search h1{color:var(--accent);margin:0;font-size:28px;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 15px rgba(0,255,127,0.3)}
 .search-box{display:flex;align-items:center;background:#0a0a0a;border:1px solid var(--border);border-radius:4px;padding:5px 10px;transition:.3s}
-.search-box:focus-within{border-color:var(--accent);box-shadow:0 0 10px rgba(0,255,127,0.2)}.search-input{background:transparent;border:none;color:#fff;padding:5px;outline:none;font-size:14px;width:150px}
-.search-btn{background:transparent;border:none;color:var(--accent);cursor:pointer}.main-container{max-width:1200px;margin:0 auto;padding:20px;width:100%;box-sizing:border-box;flex:1}
+.search-box:focus-within{border-color:var(--accent);box-shadow:0 0 10px rgba(0,255,127,0.2)}
+.search-input{background:transparent;border:none;color:#fff;padding:5px;outline:none;font-size:14px;width:150px}
+.search-btn{background:transparent;border:none;color:var(--accent);cursor:pointer}
 
-/* MODO POST CONFIGURAÇÕES */
-.item .blog-posts{display:block}.item .main-container{max-width:850px}
-.item .post-outer{border:none;background:transparent}.item .post-title{font-size:32px;color:var(--accent);padding:20px 0 5px;text-align:center}
-.item .post-meta{display:flex;justify-content:center;align-items:center;font-size:14px;color:var(--text-dim);margin-bottom:30px;}
-.item .post-body{line-height:1.8;font-size:17px}.item .post-body a{color:var(--accent);font-weight:600;transition:.3s}.item .post-body a:hover{text-shadow:0 0 8px var(--accent)}
+/* ===================================================================== */
+/* NOVO SLIDER DESTAQUE (CARROSSEL)                                      */
+/* ===================================================================== */
+.featured-section { max-width: 1200px; margin: 30px auto; padding: 0 20px; box-sizing: border-box; width: 100%; }
+.slider-container { position: relative; border-radius: 12px; overflow: hidden; height: 350px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.8); background: #000; }
+.slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; visibility: hidden; transition: opacity 0.6s ease-in-out; display: flex; align-items: flex-end; }
+.slide.active { opacity: 1; visibility: visible; z-index: 2; }
+.slide::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.4) 50%, transparent 100%); z-index: 1; }
+.banner-content { position: relative; z-index: 3; padding: 30px; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; text-align: center; }
+.banner-title { font-size: 28px; margin: 0 0 20px 0; color: var(--accent); text-shadow: 2px 2px 8px #000; padding: 0 50px; }
+.btn-ver-script { background: var(--accent); color: #000; padding: 12px 30px; border-radius: 6px; font-weight: bold; text-transform: uppercase; display: inline-block; transition: 0.3s; font-family: 'Poppins', sans-serif; box-shadow: 0 0 15px rgba(0,255,127,0.4); }
+.btn-ver-script:hover { background: #fff; box-shadow: 0 0 20px rgba(255,255,255,0.6); transform: translateY(-2px); }
 
-/* GALERIA EM GRID */
-.img-capa { width: 100% !important; height: auto !important; max-height: 450px !important; border-radius: 8px; object-fit: cover; margin-bottom: 25px; display: block; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
-.hk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 25px 0; }
-.hk-grid .separator { margin: 0 !important; width: 100% !important; clear: none !important; display: block !important; }
-.hk-grid a { display: block !important; width: 100% !important; margin: 0 !important; }
-.img-galeria { width: 100% !important; height: 160px !important; object-fit: cover !important; border-radius: 8px; display: block !important; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
-.img-galeria:hover { transform: scale(1.03); border: 1px solid var(--accent); box-shadow: 0 5px 15px rgba(0,255,127,0.3); z-index: 10; position: relative; }
-@media(min-width: 800px) { .hk-grid { gap: 20px; } .img-galeria { height: 220px !important; } }
+/* Setas de Navegação do Slider */
+.slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); font-size: 24px; color: #fff; cursor: pointer; padding: 15px; background: rgba(0,0,0,0.6); border-radius: 50%; transition: 0.3s; z-index: 10; display: flex; align-items: center; justify-content: center; user-select: none; }
+.slider-arrow:hover { color: var(--accent); background: #000; }
+.slider-arrow.prev { left: 20px; }
+.slider-arrow.next { right: 20px; }
 
-/* BOTÕES DE DOWNLOAD */
-.download-area { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; align-items: center; }
-.dl-btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 15px 25px; border-radius: 8px; font-weight: 700; text-transform: uppercase; transition: 0.3s; font-family: 'Poppins', sans-serif; border: 1px solid rgba(255,255,255,0.1); color: #fff !important; text-decoration: none !important; cursor: pointer;}
-.btn-vexfile { background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDB75eG5CtsCQZ6rFE_2r4JBUe5dYjaLAGWYtLrZp5umj8gVEIVAW9rQcc1SaRqdJfKs6nrNJdoVBmwlkP4FF-6tVgivCdwbt3IZyI1yIAGT4hg2unHaLoPs6hLLNbOkiPiTTeU6iNqY9HM6SQ3O7zJRCHU86lH3xzHytkHsNlcacit1OCGjG2_6h56Rg/s380/1001291960.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none; min-width: 200px; min-height: 50px; padding: 0; }
-.btn-vexfile:hover { transform: scale(1.05); }
-.btn-boosty { background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNSjrle_AGPhjxsgLPV4MemH4vS7zrke4xVizJsQQMK-v76WkpyioLeFd582JLRtK3xfK3lDyh578RzLI5g5ymlwpuEWhwMYSmIzL4GKwPDaGRlNmjoyjfHrMAXUdT9lcN_Po9ggD1FvsCvLG5aa7hbjz10xEFyiSZmr9bean73cWvMUOvsORrQN1qzcg/s144/1001291967.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none; min-width: 150px; min-height: 45px; padding: 0; }
-.btn-boosty:hover { transform: scale(1.05); }
+/* Grid de Cards (Vitrine) */
+.main-container { max-width: 1200px; margin: 0 auto 40px auto; padding: 0 20px; width: 100%; box-sizing: border-box; flex: 1; }
+.post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+.card { background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; display: flex; flex-direction: column; }
+.card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+.card-img { width: 100%; height: 180px; object-fit: cover; display: block; border-bottom: 1px solid var(--border); }
+.card-info { padding: 15px; }
+.card-title { font-size: 16px; margin: 0 0 10px 0; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-meta { display: flex; gap: 15px; font-size: 13px; color: var(--text-dim); align-items: center; }
+.card-meta span { display: flex; align-items: center; gap: 5px; }
+.meta-star { color: var(--star-color); }
+.meta-eye { color: var(--accent); }
 
-/* APOIO E ESTRELAS */
-.support-box { background: var(--bg-card); border: 2px dashed var(--accent); border-radius: 12px; padding: 25px; margin: 40px 0; text-align: center; box-shadow: 0 0 20px rgba(0,255,127,0.05); }
-.support-title { color: var(--accent); font-size: 24px; margin-bottom: 10px; font-weight: bold; font-family: 'Poppins', sans-serif; text-transform: uppercase; }
-.support-text { color: var(--text-dim); font-size: 15px; margin-bottom: 20px; line-height: 1.6; }
-.qr-code-img { width: 130px; height: 130px; border-radius: 8px; border: 3px solid var(--accent); padding: 5px; background: #fff; margin-bottom: 15px; }
-.pix-container { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
-.pix-input { background: #000; border: 1px solid var(--border); color: #fff; padding: 12px; border-radius: 6px; width: 100%; max-width: 350px; text-align: center; font-family: monospace; font-size: 14px; outline: none; }
-.pix-btn { background: var(--accent); color: #000; border: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; font-family: 'Poppins', sans-serif; }
-.pix-btn:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,255,127,0.3); }
+/* Paginação */
+.pagination { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+.btn-page { background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border); padding: 10px 20px; border-radius: 6px; font-weight: bold; transition: 0.3s; }
+.btn-page:hover { border-color: var(--accent); color: var(--accent); }
 
-.rating-box{margin-top:30px;padding:30px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border);text-align:center}
-.stars-wrapper{display:flex;flex-direction:row-reverse;justify-content:center;gap:10px;margin:15px 0}.stars-wrapper label{font-size:35px;color:#333;cursor:pointer;transition:.2s}
-.stars-wrapper input:checked~label,.stars-wrapper label:hover,.stars-wrapper label:hover~label{color:var(--star-color);text-shadow:0 0 10px var(--star-color)}
-
-/* RODAPÉ */
+/* Footer */
 .rich-footer{background:var(--bg-card);border-top:1px solid var(--border);padding:40px 20px;margin-top:50px}
 .footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;text-align:left}
 .footer-col h4{color:var(--accent);margin-top:0}.footer-col ul{list-style:none;padding:0}.footer-col ul li{margin-bottom:10px}
 .footer-col ul li a{color:var(--text-main);text-decoration:none;transition:.3s}.footer-col ul li a:hover{color:var(--accent);padding-left:5px}
 .footer-bottom{text-align:center;padding-top:20px;margin-top:20px;border-top:1px solid var(--border);font-size:13px;color:var(--text-dim)}
 
-@media(max-width:800px){.header-site{flex-direction:column;gap:15px}.menu-toggle{display:block;position:absolute;top:25px;left:20px}.nav-links{display:none;flex-direction:column;width:100%;text-align:center;gap:10px;padding-top:10px}.nav-links.active{display:flex}.header-logo-search{flex-direction:column}}
+/* Botão flutuante */
+.back-to-top { position: fixed; bottom: 30px; right: 30px; background: var(--accent); color: #000; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 20px; cursor: pointer; opacity: 0; visibility: hidden; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,255,127,0.4); z-index: 999; }
+.back-to-top.show { opacity: 1; visibility: visible; }
+.back-to-top:hover { transform: translateY(-5px); background: #fff; }
+
+/* ===================================================================== */
+/* AJUSTES PARA CELULAR                                                  */
+/* ===================================================================== */
+@media(max-width:768px){
+  .header-site{flex-direction:column;gap:15px; padding: 15px;}
+  .header-logo-search{flex-direction:column; width: 100%; gap: 15px;}
+  .search-box{width: 100%; justify-content: space-between; box-sizing: border-box;}
+  .search-input{width: 100%;}
+  .nav-left { width: 100%; justify-content: center; position: relative;}
+  .menu-toggle { position: absolute; left: 0; }
+  
+  /* Ajustes do Slider no Celular */
+  .featured-section { padding: 0 10px; margin: 20px auto; }
+  .slider-container { height: 220px; }
+  .banner-content { padding: 15px; }
+  .banner-title { font-size: 15px; margin-bottom: 12px; padding: 0 35px; } 
+  .btn-ver-script { padding: 8px 20px; font-size: 13px; }
+  .slider-arrow { font-size: 16px; padding: 10px; }
+  .slider-arrow.prev { left: 10px; }
+  .slider-arrow.next { right: 10px; }
+
+  /* CARDS LADO A LADO */
+  .main-container { padding: 0 10px; }
+  .post-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .card-img { height: 110px; } 
+  .card-info { padding: 10px; }
+  .card-title { font-size: 13px; margin-bottom: 5px; } 
+  .card-meta { font-size: 10px; gap: 8px; flex-wrap: wrap; }
+}
 </style>
 </head>
 
-<body class="item">
+<body>
 
+<!-- CABEÇALHO -->
 <header class="header-site">
   <div class="nav-left">
-    <div aria-label="Menu" class="menu-toggle" onclick="document.getElementById('mobileMenu').classList.toggle('active')"><i aria-hidden="true" class="fa fa-bars"></i></div>
-    <div class="nav-links" id="mobileMenu">
-      <a class="notranslate" href="index.html" translate="no">Início</a>
-    </div>
+    <div aria-label="Menu" class="menu-toggle"><i class="fa fa-bars"></i></div>
+    <div class="header-logo-search"><a href="index.html"><h1 class="notranslate" translate="no">HK SCRIPTS</h1></a></div>
   </div>
-  <div class="header-logo-search">
-    <a href="index.html"><h1 class="notranslate" translate="no">HK SCRIPTS</h1></a>
+  <div class="search-box">
+    <input type="text" class="search-input" placeholder="Pesquisar...">
+    <button class="search-btn"><i class="fa fa-search"></i></button>
   </div>
-  <div style="flex:1"></div>
 </header>
 
-<div class="main-container">
-  <article class="post-outer">
+<!-- CARROSSEL DESTAQUE (SLIDER) -->
+<section class="featured-section">
+  <div class="slider-container">
     
-    <h1 class="post-title">OMG! Not Another Isekai [v1.0.4] [SunflowerGames]</h1>
-    
-    <span class="post-meta">
-      <i aria-hidden="true" class="fa fa-calendar-alt" style="margin-right:5px"></i> Hoje | 
-      <i aria-hidden="true" class="fa fa-eye" style="margin-left:15px; margin-right:5px; color:var(--accent);"></i> <span class="view-count">0</span>
-    </span>
-
-    <div class="post-body">
-      
-      <!-- CÓDIGO DO BLOGGER -->
-      <p style="text-align: center;">&nbsp;</p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8BQ0Bw9NSidthDk_jEUgqullww_cvhAmX9mQl3EDKZNPi6qhbcT8XGWgnLpcr5Adg8s8BqEzOdCOokRwoj5Dn6BqE55MQHC_NA1Ft1z5FZqRJXBCnDRbckpUSW24-OZVdkOCEqsxGYxL-o6tQRjCbkc7VxOpG7ZfnkkCPCvSbiTkmE0VhMguXiQaGUbI/s390/1001264147.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="105" data-original-width="390" height="108" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8BQ0Bw9NSidthDk_jEUgqullww_cvhAmX9mQl3EDKZNPi6qhbcT8XGWgnLpcr5Adg8s8BqEzOdCOokRwoj5Dn6BqE55MQHC_NA1Ft1z5FZqRJXBCnDRbckpUSW24-OZVdkOCEqsxGYxL-o6tQRjCbkc7VxOpG7ZfnkkCPCvSbiTkmE0VhMguXiQaGUbI/w400-h108/1001264147.png" width="400" /></a></div><br /><p></p><p style="text-align: center;"><span style="font-size: x-large;"><b>Visão geral</b></span></p><p style="text-align: center;"><span style="font-size: large;"><b><i>Seo acorda literalmente no colo de uma linda garota de outro mundo. Um mundo repleto de lutas de espadas, feitiços mágicos e criaturas lendárias. Acompanhe Seo e descubra mais sobre este mundo totalmente novo! Faça escolhas que afetarão os diálogos e o final do jogo.</i></b></span></p><p style="text-align: center;"><span style="font-size: large;"><b><i><br /></i></b></span></p><p style="text-align: center;"><span style="font-size: large;"><b></b></span></p><div class="separator" style="clear: both; text-align: center;"><span style="font-size: large;"><b><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjH_SS1RSVPQ9_6kGY1fsKzjcugT_KuSZ9AgUkQGexGSDath3kEl_f_c-yB-2t1ASZerJ7OPJo8H6RkIqJCWtJRR9Ilpt_fAApVmlskXQenYP3PJ3v4nLhOz6neLxDYEOdtSppFWZs61R9c4cxxdEG3spAa5wcGkMRRleS72h3p8fHFb78KvQEPgRVRCJ4/s1920/1001264149.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjH_SS1RSVPQ9_6kGY1fsKzjcugT_KuSZ9AgUkQGexGSDath3kEl_f_c-yB-2t1ASZerJ7OPJo8H6RkIqJCWtJRR9Ilpt_fAApVmlskXQenYP3PJ3v4nLhOz6neLxDYEOdtSppFWZs61R9c4cxxdEG3spAa5wcGkMRRleS72h3p8fHFb78KvQEPgRVRCJ4/w400-h225/1001264149.png" width="400" /></a></b></span></div><span style="font-size: large;"><b><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgY5LESjM3ju_SpxHlzWuKy3BNl1hdE1tV2ACeTwOdy8lHFT6glOl1TcHFQMFbhjJTniW6tokub4NCIKi1qZ09F8zs7zaZdZtzht7C1x-6bLAi7JitD8KUFOSX9B3arNHsoIxdnxEuKq00vv0gmjOpapmuXAP41ZM2YFItZzdw0YSyxcAco6bLEUb0KOFY/s1920/1001264150.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgY5LESjM3ju_SpxHlzWuKy3BNl1hdE1tV2ACeTwOdy8lHFT6glOl1TcHFQMFbhjJTniW6tokub4NCIKi1qZ09F8zs7zaZdZtzht7C1x-6bLAi7JitD8KUFOSX9B3arNHsoIxdnxEuKq00vv0gmjOpapmuXAP41ZM2YFItZzdw0YSyxcAco6bLEUb0KOFY/w400-h225/1001264150.png" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNymPWyqrwIr4s1D_hvbTa_P29F_o383joKnzj528j2_AZ5n5r7LuEP7THDCO_sTTk6PQ308dX4-yNARWL2edioJF6LmxSL43uQb9raxnAmfW3OqX6fazaQ3NirGqv4O-RccW1lDiA3DQuf72_QRTdsNoMqW9JYOBFmVy03rzknWsvPUEH7y3fLYcABbc/s1920/1001264148.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNymPWyqrwIr4s1D_hvbTa_P29F_o383joKnzj528j2_AZ5n5r7LuEP7THDCO_sTTk6PQ308dX4-yNARWL2edioJF6LmxSL43uQb9raxnAmfW3OqX6fazaQ3NirGqv4O-RccW1lDiA3DQuf72_QRTdsNoMqW9JYOBFmVy03rzknWsvPUEH7y3fLYcABbc/w400-h225/1001264148.png" width="400" /></a></div><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrc50v9PZD94jaioAEDGfihsDCaFr-8d3751tapO-86_9mzE0rTDTpWJVybmbqMQhUohZoOCw-UpL9_2UjH2Hi9yFX2_SBBoklwVo_cdvmIecfUjdWxDpraSp9v2M5xxCXMXkeghyRbsfsKgghWB3ZojzSICNso6uCTUgjjZ8jBCgGewy0q1XQybA8ptQ/s1920/1001264151.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="225" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrc50v9PZD94jaioAEDGfihsDCaFr-8d3751tapO-86_9mzE0rTDTpWJVybmbqMQhUohZoOCw-UpL9_2UjH2Hi9yFX2_SBBoklwVo_cdvmIecfUjdWxDpraSp9v2M5xxCXMXkeghyRbsfsKgghWB3ZojzSICNso6uCTUgjjZ8jBCgGewy0q1XQybA8ptQ/w400-h225/1001264151.png" width="400" /></a></div><br /><i><br /></i></b></span><p></p><p style="text-align: center;"><b><i><span style="font-size: x-large;">LINKS PARA DOWNLOAD</span></i></b></p><p style="text-align: center;"><b><i><span style="font-size: x-large;">LINKS DIRETOS !</span></i></b></p><p style="text-align: center;"><b><i style="font-size: x-large;">APK:&nbsp;</i><a href="https://boostylink.com/2hD8YyZe" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></b></p><p style="text-align: center;"><b><i style="font-size: x-large;">PC:&nbsp;</i><a href="https://boostylink.com/TDHrRfZH" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></b></p>
-      <!-- FIM DO CÓDIGO DO BLOGGER -->
-
-    </div>
-    
-    <!-- Caixa de Doação PIX -->
-    <div class="support-box">
-      <div class="support-title"><i aria-hidden="true" class="fa fa-coffee" style="margin-right:8px;"></i> Apoie o Tradutor!</div>
-      <div class="support-text">Nossos links são diretos e sem encurtadores irritantes! Considere doar para ajudar a manter os projetos ativos.</div>
-      <img alt="QR Code PIX" class="qr-code-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=00020126580014BR.GOV.BCB.PIX0136ba714471-1484-4618-a070-4a991de0395d5204000053039865802BR5924Isaac Newton Gomes Pinto6009SAO PAULO62140510Q8LzqXbuQc6304A85E">
-      <div class="pix-container">
-        <input aria-label="Chave PIX HK Scripts" class="pix-input" id="pixKey" readonly="readonly" type="text" value="00020126580014BR.GOV.BCB.PIX0136ba714471-1484-4618-a070-4a991de0395d5204000053039865802BR5924Isaac Newton Gomes Pinto6009SAO PAULO62140510Q8LzqXbuQc6304A85E">
-        <button class="pix-btn" onclick="copyPix()"><i aria-hidden="true" class="fa fa-copy"></i> Copiar PIX</button>
+    <!-- SLIDE 1: OMG! NOT ANOTHER ISEKAI (NOVO JOGO - ATIVO) -->
+    <div class="slide active" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjH_SS1RSVPQ9_6kGY1fsKzjcugT_KuSZ9AgUkQGexGSDath3kEl_f_c-yB-2t1ASZerJ7OPJo8H6RkIqJCWtJRR9Ilpt_fAApVmlskXQenYP3PJ3v4nLhOz6neLxDYEOdtSppFWZs61R9c4cxxdEG3spAa5wcGkMRRleS72h3p8fHFb78KvQEPgRVRCJ4/s1920/1001264149.png');">
+      <div class="banner-content">
+        <h2 class="banner-title">OMG! Not Another Isekai [v1.0.4] [SunflowerGames]</h2>
+        <a href="omg-not-another-isekai.html" class="btn-ver-script">VER SCRIPT</a>
       </div>
     </div>
-    
-    <!-- Avaliação de Estrelas -->
-    <div class="rating-box">
-      <h3>O que achou deste script/tradução?</h3>
-      <div id="currentRatingDisplay" style="color:var(--text-dim); font-size:14px; margin-bottom:15px;">Carregando avaliações...</div>
-      <div class="stars-wrapper" id="starRatingContainer">
-        <input id="star5" name="rating" style="display:none" type="radio" value="5"><label for="star5">★</label>
-        <input id="star4" name="rating" style="display:none" type="radio" value="4"><label for="star4">★</label>
-        <input id="star3" name="rating" style="display:none" type="radio" value="3"><label for="star3">★</label>
-        <input id="star2" name="rating" style="display:none" type="radio" value="2"><label for="star2">★</label>
-        <input id="star1" name="rating" style="display:none" type="radio" value="1"><label for="star1">★</label>
+
+    <!-- SLIDE 2: RAVAGER -->
+    <div class="slide" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLhqPJ42SqS2x_BjvNfYX-1Nm1Q1wV3BUj8-SyIEdEdKA1SI-0km0ozJRHoulCvFPPPcq27kVy_RKKMzMI9jVr33UUPDCnTCikxm5Tm2hy4JrAncGjPn8MCSEqpkHVnWbko2Nf0-7MLgXiY6t5JiWFDoXrSH9DgVD5XENeqbOlEpPOqV1wFlLkF5UyjQA/s720/ui_logo.png');">
+      <div class="banner-content">
+        <h2 class="banner-title">Ravager [v5.4.0] [4MinuteWarning]</h2>
+        <a href="ravager.html" class="btn-ver-script">VER SCRIPT</a>
       </div>
-      <span id="ratingMsg" style="color:var(--accent); font-size:14px; display:none; margin-top:10px;">Obrigado pela sua avaliação!</span>
     </div>
 
-  </article>
-</div>
+    <!-- SLIDE 3: VIOLATION NATION -->
+    <div class="slide" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTn4YwisVDLZYotmrX6ivq2KP8Mxn2ROTazeZuG9eCs89l0qTTIIvIOGBf_gfmv2FaByJicqImf_dKPxAPXhffGLEekccViVqqgxxf4EcI69gfDViYMGgHEB2r-KznvR8M4E7VMi4eXWe1hwprmzDrLCchyVgFdA_FUExlhe3g36Hzj02Cdtff9J0f8jU/s1413/1001166623.jpg');">
+      <div class="banner-content">
+        <h2 class="banner-title">Violation Nation [Ep.11] [Wet Avocado Games]</h2>
+        <a href="violation-nation.html" class="btn-ver-script">VER SCRIPT</a>
+      </div>
+    </div>
 
+    <!-- SLIDE 4: SUMMER'S GONE -->
+    <div class="slide" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKmMgXnWP5hU5zoZ26ybsGHt6czE3v-FqYhscHI93RsG_uT3D1N_Szr9gzCTJI1CPweEAl3dYqnIMXMGiI6gFV90cDqmTFnZe4kk-CnfC7QqNHr-4u_rfCFXKgqtJqAgo6JmR7m3Th5Og1VdenKkmS86m3xLFRk1gvENK27TvMqmEi-6ECca9D1OWQKR4/w400-h250/1001150893.png');">
+      <div class="banner-content">
+        <h2 class="banner-title">Summer's Gone [S2 Ch.1-3 Final] [Oceanlab]</h2>
+        <a href="summers-gone.html" class="btn-ver-script">VER SCRIPT</a>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: SERENITY -->
+    <div class="slide" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/s1920/1001199637.png');">
+      <div class="banner-content">
+        <h2 class="banner-title">Serenity [Ch. 2 v0.5] [N2TheFire]</h2>
+        <a href="serenity.html" class="btn-ver-script">VER SCRIPT</a>
+      </div>
+    </div>
+
+    <!-- SETAS DO SLIDER -->
+    <div class="slider-arrow prev" onclick="moveSlide(-1)"><i class="fa fa-chevron-left"></i></div>
+    <div class="slider-arrow next" onclick="moveSlide(1)"><i class="fa fa-chevron-right"></i></div>
+    
+  </div>
+</section>
+
+<!-- GRID DE JOGOS -->
+<main class="main-container">
+  <div class="post-grid">
+
+    <!-- CARD 1: OMG! NOT ANOTHER ISEKAI (NOVO JOGO) -->
+    <a href="omg-not-another-isekai.html" class="card">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjH_SS1RSVPQ9_6kGY1fsKzjcugT_KuSZ9AgUkQGexGSDath3kEl_f_c-yB-2t1ASZerJ7OPJo8H6RkIqJCWtJRR9Ilpt_fAApVmlskXQenYP3PJ3v4nLhOz6neLxDYEOdtSppFWZs61R9c4cxxdEG3spAa5wcGkMRRleS72h3p8fHFb78KvQEPgRVRCJ4/w400-h225/1001264149.png" alt="OMG! Not Another Isekai" class="card-img">
+      <div class="card-info">
+        <h3 class="card-title">OMG! Not Another Isekai [v1.0.4] [SunflowerGames]</h3>
+        <div class="card-meta">
+          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
+          <span title="Data"><i class="fa fa-calendar-alt"></i> Hoje</span>
+          <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="omg-not-another-isekai_html">0</span></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- CARD 2: RAVAGER -->
+    <a href="ravager.html" class="card">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLhqPJ42SqS2x_BjvNfYX-1Nm1Q1wV3BUj8-SyIEdEdKA1SI-0km0ozJRHoulCvFPPPcq27kVy_RKKMzMI9jVr33UUPDCnTCikxm5Tm2hy4JrAncGjPn8MCSEqpkHVnWbko2Nf0-7MLgXiY6t5JiWFDoXrSH9DgVD5XENeqbOlEpPOqV1wFlLkF5UyjQA/w400-h225/ui_logo.png" alt="Ravager" class="card-img">
+      <div class="card-info">
+        <h3 class="card-title">Ravager [v5.4.0] [4MinuteWarning]</h3>
+        <div class="card-meta">
+          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
+          <span title="Data"><i class="fa fa-calendar-alt"></i> Hoje</span>
+          <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="ravager_html">0</span></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- CARD 3: VIOLATION NATION -->
+    <a href="violation-nation.html" class="card">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTn4YwisVDLZYotmrX6ivq2KP8Mxn2ROTazeZuG9eCs89l0qTTIIvIOGBf_gfmv2FaByJicqImf_dKPxAPXhffGLEekccViVqqgxxf4EcI69gfDViYMGgHEB2r-KznvR8M4E7VMi4eXWe1hwprmzDrLCchyVgFdA_FUExlhe3g36Hzj02Cdtff9J0f8jU/w400-h254/1001166623.jpg" alt="Violation Nation" class="card-img">
+      <div class="card-info">
+        <h3 class="card-title">Violation Nation [Ep.11] [Wet Avocado Games]</h3>
+        <div class="card-meta">
+          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
+          <span title="Data"><i class="fa fa-calendar-alt"></i> Hoje</span>
+          <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="violation-nation_html">0</span></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- CARD 4: SUMMER'S GONE -->
+    <a href="summers-gone.html" class="card">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKmMgXnWP5hU5zoZ26ybsGHt6czE3v-FqYhscHI93RsG_uT3D1N_Szr9gzCTJI1CPweEAl3dYqnIMXMGiI6gFV90cDqmTFnZe4kk-CnfC7QqNHr-4u_rfCFXKgqtJqAgo6JmR7m3Th5Og1VdenKkmS86m3xLFRk1gvENK27TvMqmEi-6ECca9D1OWQKR4/w400-h250/1001150893.png" alt="Summer's Gone" class="card-img">
+      <div class="card-info">
+        <h3 class="card-title">Summer's Gone [S2 Ch.1-3 Final] [Oceanlab]</h3>
+        <div class="card-meta">
+          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
+          <span title="Data"><i class="fa fa-calendar-alt"></i> Hoje</span>
+          <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="summers-gone_html">0</span></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- CARD 5: SERENITY -->
+    <a href="serenity.html" class="card">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/w400-h225/1001199637.png" alt="Serenity" class="card-img">
+      <div class="card-info">
+        <h3 class="card-title">Serenity [Ch. 2 v0.5] [N2TheFire]</h3>
+        <div class="card-meta">
+          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(1)</span></span>
+          <span title="Data"><i class="fa fa-calendar-alt"></i> Junho 22, 2026</span>
+          <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="serenity_html">1</span></span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Botões de Paginação -->
+  <div class="pagination">
+    <a href="#" class="btn-page" style="opacity: 0.5; cursor: default; pointer-events: none;"><i class="fa fa-arrow-left"></i> Recentes</a>
+    <a href="pagina2.html" class="btn-page">Antigas <i class="fa fa-arrow-right"></i></a>
+  </div>
+</main>
+
+<!-- RODAPÉ -->
 <footer class="rich-footer">
   <div class="footer-content">
     <div class="footer-col">
@@ -157,134 +275,68 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4,.nav-links a{font-fam
   </div>
 </footer>
 
+<!-- BOTÃO FLUTUANTE (Voltar ao Topo) -->
+<div class="back-to-top" id="btnTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+  <i class="fa fa-arrow-up"></i>
+</div>
+
+<!-- SCRIPTS: SLIDER, BOTÃO FLUTUANTE E FIREBASE -->
 <script type="text/javascript">
-function copyPix() { 
-  var copyText = document.getElementById("pixKey"); 
-  if(copyText){
-      copyText.select(); 
-      copyText.setSelectionRange(0, 99999); 
-      navigator.clipboard.writeText(copyText.value).then(function() { 
-        alert("Chave PIX copiada! 💚"); 
-      }); 
-  }
-}
+  // LÓGICA DO SLIDER
+  let slideIndex = 0;
+  let slideInterval;
+  const slides = document.querySelectorAll('.slide');
 
-document.addEventListener("DOMContentLoaded", function() {
-  const pb = document.querySelector('.post-body');
-  if (pb) { pb.querySelectorAll('a').forEach(link => {
-    const url = link.href.toLowerCase();
-    let bc = ''; let bt = ''; let ic = 'fa-download';
-    
-    if (url.includes('vexfile.com') || url.includes('boostylink.com')) { 
-        bc = url.includes('vexfile.com') ? 'btn-vexfile' : 'btn-boosty'; 
-        bt = ''; ic = ''; 
-    }
-    else if (url.includes('mediafire.com')) { bc = 'btn-mediafire'; bt = 'Baixar via MediaFire'; }
-    else if (url.includes('mega.nz')) { bc = 'btn-mega'; bt = 'Baixar via MEGA'; }
-    else if (url.includes('drive.google.com')) { bc = 'btn-drive'; bt = 'Baixar via Drive'; }
-    
-    if (bc !== '') { 
-      link.className = 'dl-btn ' + bc; 
-      link.innerHTML = ic !== '' ? `<i aria-hidden="true" class="fa ${ic}"></i> ${bt}` : bt; 
-      const w = document.createElement('div'); w.className = 'download-area'; 
-      link.parentNode.insertBefore(w, link); w.appendChild(link); 
-    }
-  });}
-
-  const postBodyGaleria = document.querySelector('.item .post-body');
-  if (postBodyGaleria) {
-    const imgs = postBodyGaleria.querySelectorAll('img');
-    if (imgs.length > 0) {
-      imgs[0].classList.add('img-capa');
-      if (imgs.length > 1) {
-        const galleryWrapper = document.createElement('div');
-        galleryWrapper.className = 'hk-grid';
-        let firstGalItem = imgs[1].closest('.separator') || imgs[1].closest('a') || imgs[1];
-        firstGalItem.parentNode.insertBefore(galleryWrapper, firstGalItem);
-        
-        for (let i = 1; i < imgs.length; i++) {
-          let item = imgs[i].closest('.separator') || imgs[i].closest('a') || imgs[i];
-          galleryWrapper.appendChild(item);
-          imgs[i].classList.add('img-galeria');
-        }
-      }
-    }
-    
-    postBodyGaleria.querySelectorAll('div, p, span').forEach(el => {
-      let conteudo = el.innerHTML.replace(/&nbsp;/g, '').trim();
-      if (conteudo === '' || conteudo === '<br>') { el.remove(); }
-    });
-    postBodyGaleria.querySelectorAll('br').forEach(br => {
-      let prox = br.nextElementSibling;
-      if (prox && prox.tagName === 'BR') { br.remove(); }
-    });
+  function showSlide(n) {
+    slides.forEach(s => s.classList.remove('active'));
+    slideIndex = (n + slides.length) % slides.length;
+    slides[slideIndex].classList.add('active');
   }
-});
+
+  function moveSlide(n) {
+    showSlide(slideIndex + n);
+    resetInterval(); // Reseta o tempo automático se o usuário clicar
+  }
+
+  function resetInterval() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(() => moveSlide(1), 5000); // Passa sozinho a cada 5 segundos
+  }
+
+  // Inicia o slider automático se tiver mais de 1 slide
+  if(slides.length > 1) { resetInterval(); }
 </script>
 
 <script type="module">
+  window.addEventListener('scroll', function() {
+    var btn = document.getElementById('btnTop');
+    if (window.scrollY > 300) { btn.classList.add('show'); } 
+    else { btn.classList.remove('show'); }
+  });
+
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-  import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyDCNF3pZ3g20UkNDTUYq-X9zkyKA3El1TM",
     authDomain: "hk-scripts-db.firebaseapp.com",
     databaseURL: "https://hk-scripts-db-default-rtdb.firebaseio.com",
-    projectId: "hk-scripts-db",
-    storageBucket: "hk-scripts-db.firebasestorage.app",
-    messagingSenderId: "688262885548",
-    appId: "1:688262885548:web:495109ee40f2f603a6af09",
-    measurementId: "G-X0QLGZMQQT"
+    projectId: "hk-scripts-db"
   };
 
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
 
-  function sanitizePath(path) { return path.replace(/[.\/#$\[\]]/g, "_"); }
-  const currentPath = window.location.pathname;
-  const pathId = sanitizePath(currentPath);
-
-  if (currentPath !== "/" && currentPath !== "" && !currentPath.includes("/search")) {
-    if (localStorage.getItem('hk_admin') !== 'true') { 
-      runTransaction(ref(database, 'views/' + pathId), (v) => (v || 0) + 1); 
-    }
-  }
-
-  function updateRatingsUI(id, el, isCard = false) {
-    onValue(ref(database, 'ratings/' + id), (s) => {
-      const data = s.val() || { totalPoints: 0, count: 0 };
-      const avg = data.count > 0 ? (data.totalPoints / data.count).toFixed(1) : "0.0";
-      if (isCard) { 
-        el.innerHTML = `<i aria-hidden="true" class="fa fa-star" style="color:var(--star-color)"></i> ${avg} <span style="color:#888; font-size:11px;">(${data.count})</span>`; 
-      } else { 
-        const display = document.getElementById('currentRatingDisplay');
-        if (display) {
-          display.innerHTML = `<span style="color:var(--accent); font-weight:bold;">Média: ${avg} / 5</span> baseado em ${data.count} avaliações.`; 
-        }
-      }
-    });
-  }
-
-  if (document.getElementById('currentRatingDisplay')) { updateRatingsUI(pathId, null, false); }
-
-  document.querySelectorAll('input[name="rating"]').forEach(star => {
-    star.addEventListener('change', function() {
-      const points = parseInt(this.value);
-      const msg = document.getElementById('ratingMsg');
-      msg.style.display = "block"; 
-      msg.innerText = "Salvando voto...";
-      
-      runTransaction(ref(database, 'ratings/' + pathId), (current) => {
-        if (!current) current = { totalPoints: 0, count: 0 };
-        current.totalPoints += points; 
-        current.count += 1;
-        return current;
-      }).then(() => { 
-        msg.innerText = "Avaliação enviada com sucesso! ⭐"; 
-        document.querySelectorAll('input[name="rating"]').forEach(s => s.disabled = true); 
+  document.querySelectorAll('.fb-views').forEach(el => {
+    const path = el.getAttribute('data-path');
+    if(path) {
+      onValue(ref(database, 'views/' + path), (snapshot) => {
+        const views = snapshot.val() || 0;
+        el.innerText = views;
       });
-    });
+    }
   });
 </script>
+
 </body>
 </html>
