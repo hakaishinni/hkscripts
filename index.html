@@ -12,9 +12,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 
 <style>
-/* ===================================================================== */
-/* CSS GLOBAL DA PÁGINA INICIAL                                          */
-/* ===================================================================== */
+/* CSS GLOBAL */
 :root{--bg-body:#0a0a0a;--bg-card:#141414;--text-main:#e0e0e0;--text-dim:#888;--accent:#00ff7f;--border:#222;--star-color:#ffcc00}
 ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg-body)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}::-webkit-scrollbar-thumb:hover{background:var(--accent)}
 body{background-color:var(--bg-body);color:var(--text-main);font-family:'Inter',sans-serif;margin:0;display:flex;flex-direction:column;min-height:100vh}
@@ -31,9 +29,7 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 .search-input{background:transparent;border:none;color:#fff;padding:5px;outline:none;font-size:14px;width:150px}
 .search-btn{background:transparent;border:none;color:var(--accent);cursor:pointer}
 
-/* ===================================================================== */
-/* NOVO SLIDER DESTAQUE (CARROSSEL)                                      */
-/* ===================================================================== */
+/* SLIDER */
 .featured-section { max-width: 1200px; margin: 30px auto; padding: 0 20px; box-sizing: border-box; width: 100%; }
 .slider-container { position: relative; border-radius: 12px; overflow: hidden; height: 350px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.8); background: #000; }
 .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; visibility: hidden; transition: opacity 0.6s ease-in-out; display: flex; align-items: flex-end; }
@@ -43,14 +39,12 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 .banner-title { font-size: 28px; margin: 0 0 20px 0; color: var(--accent); text-shadow: 2px 2px 8px #000; padding: 0 50px; }
 .btn-ver-script { background: var(--accent); color: #000; padding: 12px 30px; border-radius: 6px; font-weight: bold; text-transform: uppercase; display: inline-block; transition: 0.3s; font-family: 'Poppins', sans-serif; box-shadow: 0 0 15px rgba(0,255,127,0.4); }
 .btn-ver-script:hover { background: #fff; box-shadow: 0 0 20px rgba(255,255,255,0.6); transform: translateY(-2px); }
-
-/* Setas de Navegação do Slider */
 .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); font-size: 24px; color: #fff; cursor: pointer; padding: 15px; background: rgba(0,0,0,0.6); border-radius: 50%; transition: 0.3s; z-index: 10; display: flex; align-items: center; justify-content: center; user-select: none; }
 .slider-arrow:hover { color: var(--accent); background: #000; }
 .slider-arrow.prev { left: 20px; }
 .slider-arrow.next { right: 20px; }
 
-/* Grid de Cards (Vitrine) */
+/* Grid de Cards */
 .main-container { max-width: 1200px; margin: 0 auto 40px auto; padding: 0 20px; width: 100%; box-sizing: border-box; flex: 1; }
 .post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
 .card { background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; display: flex; flex-direction: column; }
@@ -80,9 +74,7 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 .back-to-top.show { opacity: 1; visibility: visible; }
 .back-to-top:hover { transform: translateY(-5px); background: #fff; }
 
-/* ===================================================================== */
-/* AJUSTES PARA CELULAR                                                  */
-/* ===================================================================== */
+/* Ajustes Mobile */
 @media(max-width:768px){
   .header-site{flex-direction:column;gap:15px; padding: 15px;}
   .header-logo-search{flex-direction:column; width: 100%; gap: 15px;}
@@ -91,7 +83,6 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   .nav-left { width: 100%; justify-content: center; position: relative;}
   .menu-toggle { position: absolute; left: 0; }
   
-  /* Ajustes do Slider no Celular */
   .featured-section { padding: 0 10px; margin: 20px auto; }
   .slider-container { height: 220px; }
   .banner-content { padding: 15px; }
@@ -101,7 +92,6 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   .slider-arrow.prev { left: 10px; }
   .slider-arrow.next { right: 10px; }
 
-  /* CARDS LADO A LADO */
   .main-container { padding: 0 10px; }
   .post-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .card-img { height: 110px; } 
@@ -126,11 +116,10 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   </div>
 </header>
 
-<!-- CARROSSEL DESTAQUE (SLIDER) - EXIBE OS 5 MAIS RECENTES -->
+<!-- CARROSSEL DESTAQUE -->
 <section class="featured-section">
   <div class="slider-container">
     
-    <!-- SLIDE 1: ZERO END (NOVO JOGO - ATIVO) -->
     <div class="slide active" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1vnD7-eLnpQdzvqFvdzHjMkuEfppfS4ZwI3ERDrIlnKI4Oh4PWe2WU7uepBRc3IHLIEu-Xp9i0D9sAK4jjREUhEvZMEv4ea38fuhfzDbLr9l3GMiD48U8W5EpmnGSiAbY2vFnfbXJfThEsnS8wBiZNHXn4BHf0tnbSd5WwT2cvshQfYcbTWRZ_CHhe_4/s1920/1001428356.jpg');">
       <div class="banner-content">
         <h2 class="banner-title">Zero End [v0.3.6c] [Stolen Rose]</h2>
@@ -138,7 +127,6 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
       </div>
     </div>
 
-    <!-- SLIDE 2: ERUPTION IMMINENT -->
     <div class="slide" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYCQJORyQw2zAHycCtD9YvNhO2xoYXNGbnGN1Jr3iDZlMmhslz1XGPWJq_rrfmCgDtAjyWnMmOY0xAFT1JzTklVDZCkZQBz9AHkf-UOYern5D8diDxCkd05hV9cqkvfvaVNbliID8JZThehROEnpKxGKlAGb5xxV_XAo-0S9fcTIE9bYtNRtU_azIBHXY/s1920/1001415092.jpg');">
       <div class="banner-content">
         <h2 class="banner-title">Eruption Imminent [v0.7] [MorriganRae]</h2>
@@ -146,7 +134,6 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
       </div>
     </div>
 
-    <!-- SLIDE 3: NEPHILIM -->
     <div class="slide" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgC3tJh9cy9uw9jV9GdjqWx9J1xsfMqXcuDolo68vZ4Ni7eD-AgCMGds-LpMI-qTikcz6mQmnCrlbxckWPQkPebpoOaJX0hUXNOijuToFZxoUE2DdevvJNZSWv8udd5h949K4olIhX6PgYXBhqxWBXEUgx7BnS0F-Ok-XMOu3Hwk1LCq41uljay8t27P08/s1920/1001371645.jpg');">
       <div class="banner-content">
         <h2 class="banner-title">Nephilim [v0.6.5] [BuuPlays]</h2>
@@ -154,7 +141,6 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
       </div>
     </div>
 
-    <!-- SLIDE 4: THE SPELLBOOK -->
     <div class="slide" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5sID_EjCnjwx6CwIBth9AXJ05tDCff9_5y3ZO_lR_F5vShdMRzOg20AzuOVfGjDYnKRJ1qDz1DJrVdJvIzO89wU1s96awqr0i8EWwGw7CFjxfeFSdl3nyaxgoFUr0uYppKy7tAcAYpNqWgO-_eGZeWBDdtChcoY0EjPY92Z2TnA2qLgXR9XQzkG-R96Q/s1920/1001346975.jpg');">
       <div class="banner-content">
         <h2 class="banner-title">The Spellbook [v0.20.5.0] [NaughtyGames]</h2>
@@ -162,18 +148,15 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
       </div>
     </div>
 
-    <!-- SLIDE 5: UNDAWN -->
     <div class="slide" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhx9Pfp2-pMuKUw8K0aqa-9bF9R_2RtdN5SQpe1gUSs_EieH_eIv0Ttqvup-GVcG5ZtkSrLO-q4nLT7Y0LntwN3K5L6L1IteQFqRKUiW17WaV3g537_QLMIjE1FIHB8av_vI1b2mSKH-t1GgkdYLwuhj9otv3bd0EghQxwjYto0JTmeUdGCIyoziKGT6do/s1920/1001297770.jpg');">
       <div class="banner-content">
-        <h2 class="banner-title">UNDAWN: Shackles Of Eternity [Ch.2 Public] [Kind Nightmares]</h2>
+        <h2 class="banner-title">UNDAWN: Shackles Of Eternity [Ch.2 Public]</h2>
         <a href="undawn-shackles-of-eternity.html" class="btn-ver-script">VER SCRIPT</a>
       </div>
     </div>
 
-    <!-- SETAS DO SLIDER -->
     <div class="slider-arrow prev" onclick="moveSlide(-1)"><i class="fa fa-chevron-left"></i></div>
     <div class="slider-arrow next" onclick="moveSlide(1)"><i class="fa fa-chevron-right"></i></div>
-    
   </div>
 </section>
 
@@ -181,131 +164,121 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 <main class="main-container">
   <div class="post-grid">
 
-    <!-- CARD 1: ZERO END (NOVO JOGO) -->
+    <!-- 1. ZERO END -->
     <a href="zero-end.html" class="card">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1vnD7-eLnpQdzvqFvdzHjMkuEfppfS4ZwI3ERDrIlnKI4Oh4PWe2WU7uepBRc3IHLIEu-Xp9i0D9sAK4jjREUhEvZMEv4ea38fuhfzDbLr9l3GMiD48U8W5EpmnGSiAbY2vFnfbXJfThEsnS8wBiZNHXn4BHf0tnbSd5WwT2cvshQfYcbTWRZ_CHhe_4/w400-h225/1001428356.jpg" alt="Zero End" class="card-img">
       <div class="card-info">
         <h3 class="card-title">Zero End [v0.3.6c] [Stolen Rose]</h3>
         <div class="card-meta">
-          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
-          <span title="Data"><i class="fa fa-calendar-alt"></i> Hoje</span>
+          <span class="fb-rating" data-path="zero-end_html" title="Avaliação"><i class="fa fa-star meta-star"></i> 0.0 <span style="font-size:9px">(0)</span></span>
           <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="zero-end_html">0</span></span>
         </div>
       </div>
     </a>
 
-    <!-- CARD 2: ERUPTION IMMINENT -->
+    <!-- 2. ERUPTION IMMINENT -->
     <a href="eruption-imminent.html" class="card">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYCQJORyQw2zAHycCtD9YvNhO2xoYXNGbnGN1Jr3iDZlMmhslz1XGPWJq_rrfmCgDtAjyWnMmOY0xAFT1JzTklVDZCkZQBz9AHkf-UOYern5D8diDxCkd05hV9cqkvfvaVNbliID8JZThehROEnpKxGKlAGb5xxV_XAo-0S9fcTIE9bYtNRtU_azIBHXY/w400-h225/1001415092.jpg" alt="Eruption Imminent" class="card-img">
       <div class="card-info">
         <h3 class="card-title">Eruption Imminent [v0.7] [MorriganRae]</h3>
         <div class="card-meta">
-          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
-          <span title="Data"><i class="fa fa-calendar-alt"></i> Hoje</span>
+          <span class="fb-rating" data-path="eruption-imminent_html" title="Avaliação"><i class="fa fa-star meta-star"></i> 0.0 <span style="font-size:9px">(0)</span></span>
           <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="eruption-imminent_html">0</span></span>
         </div>
       </div>
     </a>
 
-    <!-- CARD 3: NEPHILIM -->
+    <!-- 3. NEPHILIM -->
     <a href="nephilim.html" class="card">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgC3tJh9cy9uw9jV9GdjqWx9J1xsfMqXcuDolo68vZ4Ni7eD-AgCMGds-LpMI-qTikcz6mQmnCrlbxckWPQkPebpoOaJX0hUXNOijuToFZxoUE2DdevvJNZSWv8udd5h949K4olIhX6PgYXBhqxWBXEUgx7BnS0F-Ok-XMOu3Hwk1LCq41uljay8t27P08/w400-h225/1001371645.jpg" alt="Nephilim" class="card-img">
       <div class="card-info">
         <h3 class="card-title">Nephilim [v0.6.5] [BuuPlays]</h3>
         <div class="card-meta">
-          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
-          <span title="Data"><i class="fa fa-calendar-alt"></i> Hoje</span>
+          <span class="fb-rating" data-path="nephilim_html" title="Avaliação"><i class="fa fa-star meta-star"></i> 0.0 <span style="font-size:9px">(0)</span></span>
           <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="nephilim_html">0</span></span>
         </div>
       </div>
     </a>
 
-    <!-- CARD 4: THE SPELLBOOK -->
+    <!-- 4. THE SPELLBOOK -->
     <a href="the-spellbook.html" class="card">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5sID_EjCnjwx6CwIBth9AXJ05tDCff9_5y3ZO_lR_F5vShdMRzOg20AzuOVfGjDYnKRJ1qDz1DJrVdJvIzO89wU1s96awqr0i8EWwGw7CFjxfeFSdl3nyaxgoFUr0uYppKy7tAcAYpNqWgO-_eGZeWBDdtChcoY0EjPY92Z2TnA2qLgXR9XQzkG-R96Q/w400-h225/1001346975.jpg" alt="The Spellbook" class="card-img">
       <div class="card-info">
         <h3 class="card-title">The Spellbook [v0.20.5.0] [NaughtyGames]</h3>
         <div class="card-meta">
-          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
-          <span title="Data"><i class="fa fa-calendar-alt"></i> Hoje</span>
+          <span class="fb-rating" data-path="the-spellbook_html" title="Avaliação"><i class="fa fa-star meta-star"></i> 0.0 <span style="font-size:9px">(0)</span></span>
           <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="the-spellbook_html">0</span></span>
         </div>
       </div>
     </a>
 
-    <!-- CARD 5: UNDAWN: Shackles Of Eternity -->
+    <!-- 5. UNDAWN: Shackles Of Eternity -->
     <a href="undawn-shackles-of-eternity.html" class="card">
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhx9Pfp2-pMuKUw8K0aqa-9bF9R_2RtdN5SQpe1gUSs_EieH_eIv0Ttqvup-GVcG5ZtkSrLO-q4nLT7Y0LntwN3K5L6L1IteQFqRKUiW17WaV3g537_QLMIjE1FIHB8av_vI1b2mSKH-t1GgkdYLwuhj9otv3bd0EghQxwjYto0JTmeUdGCIyoziKGT6do/w400-h225/1001297770.jpg" alt="UNDAWN: Shackles Of Eternity" class="card-img">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhx9Pfp2-pMuKUw8K0aqa-9bF9R_2RtdN5SQpe1gUSs_EieH_eIv0Ttqvup-GVcG5ZtkSrLO-q4nLT7Y0LntwN3K5L6L1IteQFqRKUiW17WaV3g537_QLMIjE1FIHB8av_vI1b2mSKH-t1GgkdYLwuhj9otv3bd0EghQxwjYto0JTmeUdGCIyoziKGT6do/w400-h225/1001297770.jpg" alt="UNDAWN" class="card-img">
       <div class="card-info">
-        <h3 class="card-title">UNDAWN: Shackles Of Eternity [Ch.2 Public] [Kind Nightmares]</h3>
+        <h3 class="card-title">UNDAWN: Shackles Of Eternity [Ch.2 Public]</h3>
         <div class="card-meta">
-          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
-          <span title="Data"><i class="fa fa-calendar-alt"></i> Hoje</span>
+          <span class="fb-rating" data-path="undawn-shackles-of-eternity_html" title="Avaliação"><i class="fa fa-star meta-star"></i> 0.0 <span style="font-size:9px">(0)</span></span>
           <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="undawn-shackles-of-eternity_html">0</span></span>
         </div>
       </div>
     </a>
 
-    <!-- CARD 6: JL: NEXT GENERATION -->
+    <!-- 6. JL: NEXT GENERATION -->
     <a href="jl-next-generation.html" class="card">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi80j4-938AtJORSCJINUfWSyH3qC_53SIe05Rfn8CTv6UwgZ_weM57HKipiY4bv64WKjQFPey6LuOg_tOHUuR7kzUE1dp1WhqE8_1Dh4ptrWD8GxEkD6du_0_Rtt_oJODJw7R1npXKuCY16MFFBl9bPQgyQN6mQhiDQSZDftqqmgNgD2wvE-D2bIYawvg/w400-h225/1001291938.jpg" alt="JL: Next Generation" class="card-img">
       <div class="card-info">
         <h3 class="card-title">JL: Next Generation [v0.15 Public] [Big T]</h3>
         <div class="card-meta">
-          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
-          <span title="Data"><i class="fa fa-calendar-alt"></i> Hoje</span>
+          <span class="fb-rating" data-path="jl-next-generation_html" title="Avaliação"><i class="fa fa-star meta-star"></i> 0.0 <span style="font-size:9px">(0)</span></span>
           <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="jl-next-generation_html">0</span></span>
         </div>
       </div>
     </a>
 
-    <!-- CARD 7: BAD BOY BOBBY -->
+    <!-- 7. BAD BOY BOBBY -->
     <a href="bad-boy-bobby-classic.html" class="card">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWIkGalTXnnAdzrE19H50asDITncSMhfgVwJGd4ZKHhrdfYXy9mskdx34kG27_MgJl6N31tx3vqQmAZVaceArOtNOnWXpqFJjZYw7awiuJ2Qd9C5bAdwN9FPAYpXSs4VszmlONpDSSCFiOGkhW02eQjYu25q2MfQsYlRpjjEFw6c9JJBJ0lCvUdouftB4/w400-h225/1001291881.png" alt="Bad Boy Bobby: Classic" class="card-img">
       <div class="card-info">
         <h3 class="card-title">Bad Boy Bobby: Classic [Demo] [Foxcreates]</h3>
         <div class="card-meta">
-          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
-          <span title="Data"><i class="fa fa-calendar-alt"></i> Hoje</span>
+          <span class="fb-rating" data-path="bad-boy-bobby-classic_html" title="Avaliação"><i class="fa fa-star meta-star"></i> 0.0 <span style="font-size:9px">(0)</span></span>
           <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="bad-boy-bobby-classic_html">0</span></span>
         </div>
       </div>
     </a>
 
-    <!-- CARD 8: SHUT UP AND DANCE -->
+    <!-- 8. SHUT UP AND DANCE -->
     <a href="shut-up-and-dance.html" class="card">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWHWSMmMDPz55dqO-IqsveO75q5bwAz8FLKCbvx4Q6ER_R7q_Twz0zZwrMAfw3MTFeGlnFrn5zK_luOwWIYLgcDJXVT2hlB7XJqMGnhOiznPS7GPFCC8OHziZdRCkHCZFrH-SNwL-Ul2TmRIKavyQbph69Fqevco7rbZJTDbkv8Uufq9Z5ZrZrHXUTBhM/w400-h225/1001276673.webp" alt="Shut Up and Dance" class="card-img">
       <div class="card-info">
         <h3 class="card-title">Shut Up and Dance [Ep.1-11 v1.0 SE] [Boring Games]</h3>
         <div class="card-meta">
-          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
-          <span title="Data"><i class="fa fa-calendar-alt"></i> Hoje</span>
+          <span class="fb-rating" data-path="shut-up-and-dance_html" title="Avaliação"><i class="fa fa-star meta-star"></i> 0.0 <span style="font-size:9px">(0)</span></span>
           <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="shut-up-and-dance_html">0</span></span>
         </div>
       </div>
     </a>
 
-    <!-- CARD 9: OMG! NOT ANOTHER ISEKAI -->
+    <!-- 9. OMG! NOT ANOTHER ISEKAI -->
     <a href="omg-not-another-isekai.html" class="card">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjH_SS1RSVPQ9_6kGY1fsKzjcugT_KuSZ9AgUkQGexGSDath3kEl_f_c-yB-2t1ASZerJ7OPJo8H6RkIqJCWtJRR9Ilpt_fAApVmlskXQenYP3PJ3v4nLhOz6neLxDYEOdtSppFWZs61R9c4cxxdEG3spAa5wcGkMRRleS72h3p8fHFb78KvQEPgRVRCJ4/w400-h225/1001264149.png" alt="OMG! Not Another Isekai" class="card-img">
       <div class="card-info">
         <h3 class="card-title">OMG! Not Another Isekai [v1.0.4] [SunflowerGames]</h3>
         <div class="card-meta">
-          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
-          <span title="Data"><i class="fa fa-calendar-alt"></i> Hoje</span>
+          <span class="fb-rating" data-path="omg-not-another-isekai_html" title="Avaliação"><i class="fa fa-star meta-star"></i> 0.0 <span style="font-size:9px">(0)</span></span>
           <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="omg-not-another-isekai_html">0</span></span>
         </div>
       </div>
     </a>
 
-    <!-- CARD 10: RAVAGER -->
+    <!-- 10. RAVAGER -->
     <a href="ravager.html" class="card">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLhqPJ42SqS2x_BjvNfYX-1Nm1Q1wV3BUj8-SyIEdEdKA1SI-0km0ozJRHoulCvFPPPcq27kVy_RKKMzMI9jVr33UUPDCnTCikxm5Tm2hy4JrAncGjPn8MCSEqpkHVnWbko2Nf0-7MLgXiY6t5JiWFDoXrSH9DgVD5XENeqbOlEpPOqV1wFlLkF5UyjQA/w400-h225/ui_logo.png" alt="Ravager" class="card-img">
       <div class="card-info">
         <h3 class="card-title">Ravager [v5.4.0] [4MinuteWarning]</h3>
         <div class="card-meta">
-          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
-          <span title="Data"><i class="fa fa-calendar-alt"></i> Hoje</span>
+          <span class="fb-rating" data-path="ravager_html" title="Avaliação"><i class="fa fa-star meta-star"></i> 0.0 <span style="font-size:9px">(0)</span></span>
           <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="ravager_html">0</span></span>
         </div>
       </div>
@@ -313,14 +286,12 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 
   </div>
 
-  <!-- Botões de Paginação -->
   <div class="pagination">
     <a href="#" class="btn-page" style="opacity: 0.5; cursor: default; pointer-events: none;"><i class="fa fa-arrow-left"></i> Recentes</a>
     <a href="pagina2.html" class="btn-page">Antigas <i class="fa fa-arrow-right"></i></a>
   </div>
 </main>
 
-<!-- RODAPÉ -->
 <footer class="rich-footer">
   <div class="footer-content">
     <div class="footer-col">
@@ -340,43 +311,22 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   </div>
 </footer>
 
-<!-- BOTÃO FLUTUANTE (Voltar ao Topo) -->
 <div class="back-to-top" id="btnTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
   <i class="fa fa-arrow-up"></i>
 </div>
 
-<!-- SCRIPTS: SLIDER, BOTÃO FLUTUANTE E FIREBASE -->
 <script type="text/javascript">
-  // LÓGICA DO SLIDER
-  let slideIndex = 0;
-  let slideInterval;
-  const slides = document.querySelectorAll('.slide');
-
-  function showSlide(n) {
-    slides.forEach(s => s.classList.remove('active'));
-    slideIndex = (n + slides.length) % slides.length;
-    slides[slideIndex].classList.add('active');
-  }
-
-  function moveSlide(n) {
-    showSlide(slideIndex + n);
-    resetInterval(); // Reseta o tempo automático se o usuário clicar
-  }
-
-  function resetInterval() {
-    clearInterval(slideInterval);
-    slideInterval = setInterval(() => moveSlide(1), 5000); // Passa sozinho a cada 5 segundos
-  }
-
-  // Inicia o slider automático se tiver mais de 1 slide
+  let slideIndex = 0; let slideInterval; const slides = document.querySelectorAll('.slide');
+  function showSlide(n) { slides.forEach(s => s.classList.remove('active')); slideIndex = (n + slides.length) % slides.length; slides[slideIndex].classList.add('active'); }
+  function moveSlide(n) { showSlide(slideIndex + n); resetInterval(); }
+  function resetInterval() { clearInterval(slideInterval); slideInterval = setInterval(() => moveSlide(1), 5000); }
   if(slides.length > 1) { resetInterval(); }
 </script>
 
 <script type="module">
   window.addEventListener('scroll', function() {
     var btn = document.getElementById('btnTop');
-    if (window.scrollY > 300) { btn.classList.add('show'); } 
-    else { btn.classList.remove('show'); }
+    if (window.scrollY > 300) { btn.classList.add('show'); } else { btn.classList.remove('show'); }
   });
 
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
@@ -392,16 +342,27 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
 
+  // PUXAR VIEWS
   document.querySelectorAll('.fb-views').forEach(el => {
     const path = el.getAttribute('data-path');
     if(path) {
       onValue(ref(database, 'views/' + path), (snapshot) => {
-        const views = snapshot.val() || 0;
-        el.innerText = views;
+        el.innerText = snapshot.val() || 0;
+      });
+    }
+  });
+
+  // PUXAR ESTRELAS
+  document.querySelectorAll('.fb-rating').forEach(el => {
+    const path = el.getAttribute('data-path');
+    if(path) {
+      onValue(ref(database, 'ratings/' + path), (snapshot) => {
+        const data = snapshot.val() || { totalPoints: 0, count: 0 };
+        const avg = data.count > 0 ? (data.totalPoints / data.count).toFixed(1) : "0.0";
+        el.innerHTML = `<i aria-hidden="true" class="fa fa-star meta-star"></i> ${avg} <span style="font-size:9px">(${data.count})</span>`;
       });
     }
   });
 </script>
-
 </body>
 </html>
