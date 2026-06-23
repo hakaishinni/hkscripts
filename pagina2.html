@@ -12,13 +12,11 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 
 <style>
-/* CSS GLOBAL */
 :root{--bg-body:#0a0a0a;--bg-card:#141414;--text-main:#e0e0e0;--text-dim:#888;--accent:#00ff7f;--border:#222;--star-color:#ffcc00}
 ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg-body)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}::-webkit-scrollbar-thumb:hover{background:var(--accent)}
 body{background-color:var(--bg-body);color:var(--text-main);font-family:'Inter',sans-serif;margin:0;display:flex;flex-direction:column;min-height:100vh}
 a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins',sans-serif}
 
-/* Header */
 .header-site{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000}
 .nav-left{display:flex;align-items:center;gap:15px}
 .menu-toggle{font-size:24px;color:var(--accent);cursor:pointer}
@@ -29,7 +27,6 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 .search-input{background:transparent;border:none;color:#fff;padding:5px;outline:none;font-size:14px;width:150px}
 .search-btn{background:transparent;border:none;color:var(--accent);cursor:pointer}
 
-/* Grid de Cards */
 .main-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; width: 100%; box-sizing: border-box; flex: 1; }
 .post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
 .card { background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; display: flex; flex-direction: column; }
@@ -42,24 +39,20 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 .meta-star { color: var(--star-color); }
 .meta-eye { color: var(--accent); }
 
-/* Paginação */
 .pagination { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
 .btn-page { background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border); padding: 10px 20px; border-radius: 6px; font-weight: bold; transition: 0.3s; }
 .btn-page:hover { border-color: var(--accent); color: var(--accent); }
 
-/* Footer */
 .rich-footer{background:var(--bg-card);border-top:1px solid var(--border);padding:40px 20px;margin-top:50px}
 .footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;text-align:left}
 .footer-col h4{color:var(--accent);margin-top:0}.footer-col ul{list-style:none;padding:0}.footer-col ul li{margin-bottom:10px}
 .footer-col ul li a{color:var(--text-main);text-decoration:none;transition:.3s}.footer-col ul li a:hover{color:var(--accent);padding-left:5px}
 .footer-bottom{text-align:center;padding-top:20px;margin-top:20px;border-top:1px solid var(--border);font-size:13px;color:var(--text-dim)}
 
-/* Botão flutuante */
 .back-to-top { position: fixed; bottom: 30px; right: 30px; background: var(--accent); color: #000; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 20px; cursor: pointer; opacity: 0; visibility: hidden; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,255,127,0.4); z-index: 999; }
 .back-to-top.show { opacity: 1; visibility: visible; }
 .back-to-top:hover { transform: translateY(-5px); background: #fff; }
 
-/* Ajustes Mobile */
 @media(max-width:768px){
   .header-site{flex-direction:column;gap:15px; padding: 15px;}
   .header-logo-search{flex-direction:column; width: 100%; gap: 15px;}
@@ -96,58 +89,50 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 <main class="main-container">
   <div class="post-grid">
 
-    <!-- CARD 11: VIOLATION NATION (Empurrado da Página 1) -->
+    <!-- 11. VIOLATION NATION -->
     <a href="violation-nation.html" class="card">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTn4YwisVDLZYotmrX6ivq2KP8Mxn2ROTazeZuG9eCs89l0qTTIIvIOGBf_gfmv2FaByJicqImf_dKPxAPXhffGLEekccViVqqgxxf4EcI69gfDViYMGgHEB2r-KznvR8M4E7VMi4eXWe1hwprmzDrLCchyVgFdA_FUExlhe3g36Hzj02Cdtff9J0f8jU/w400-h254/1001166623.jpg" alt="Violation Nation" class="card-img">
       <div class="card-info">
         <h3 class="card-title">Violation Nation [Ep.11] [Wet Avocado Games]</h3>
         <div class="card-meta">
-          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
-          <span title="Data"><i class="fa fa-calendar-alt"></i> Hoje</span>
+          <span class="fb-rating" data-path="violation-nation_html" title="Avaliação"><i class="fa fa-star meta-star"></i> 0.0 <span style="font-size:9px">(0)</span></span>
           <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="violation-nation_html">0</span></span>
         </div>
       </div>
     </a>
 
-    <!-- CARD 12: SUMMER'S GONE -->
+    <!-- 12. SUMMER'S GONE -->
     <a href="summers-gone.html" class="card">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKmMgXnWP5hU5zoZ26ybsGHt6czE3v-FqYhscHI93RsG_uT3D1N_Szr9gzCTJI1CPweEAl3dYqnIMXMGiI6gFV90cDqmTFnZe4kk-CnfC7QqNHr-4u_rfCFXKgqtJqAgo6JmR7m3Th5Og1VdenKkmS86m3xLFRk1gvENK27TvMqmEi-6ECca9D1OWQKR4/w400-h250/1001150893.png" alt="Summer's Gone" class="card-img">
       <div class="card-info">
         <h3 class="card-title">Summer's Gone [S2 Ch.1-3 Final] [Oceanlab]</h3>
         <div class="card-meta">
-          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
-          <span title="Data"><i class="fa fa-calendar-alt"></i> Hoje</span>
+          <span class="fb-rating" data-path="summers-gone_html" title="Avaliação"><i class="fa fa-star meta-star"></i> 0.0 <span style="font-size:9px">(0)</span></span>
           <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="summers-gone_html">0</span></span>
         </div>
       </div>
     </a>
 
-    <!-- CARD 13: SERENITY -->
+    <!-- 13. SERENITY -->
     <a href="serenity.html" class="card">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/w400-h225/1001199637.png" alt="Serenity" class="card-img">
       <div class="card-info">
         <h3 class="card-title">Serenity [Ch. 2 v0.5] [N2TheFire]</h3>
         <div class="card-meta">
-          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(1)</span></span>
-          <span title="Data"><i class="fa fa-calendar-alt"></i> Junho 22, 2026</span>
-          <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="serenity_html">1</span></span>
+          <span class="fb-rating" data-path="serenity_html" title="Avaliação"><i class="fa fa-star meta-star"></i> 0.0 <span style="font-size:9px">(0)</span></span>
+          <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="serenity_html">0</span></span>
         </div>
       </div>
     </a>
 
   </div>
 
-  <!-- Botões de Paginação (PÁGINA 2) -->
   <div class="pagination">
-    <!-- Volta para a página 1 (index.html) -->
     <a href="index.html" class="btn-page"><i class="fa fa-arrow-left"></i> Recentes</a>
-    
-    <!-- Bloqueado até você precisar criar a pagina3.html -->
     <a href="#" class="btn-page" style="opacity: 0.5; cursor: default; pointer-events: none;">Antigas <i class="fa fa-arrow-right"></i></a>
   </div>
 </main>
 
-<!-- RODAPÉ -->
 <footer class="rich-footer">
   <div class="footer-content">
     <div class="footer-col">
@@ -167,17 +152,14 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   </div>
 </footer>
 
-<!-- BOTÃO FLUTUANTE (Voltar ao Topo) -->
 <div class="back-to-top" id="btnTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
   <i class="fa fa-arrow-up"></i>
 </div>
 
-<!-- SCRIPTS: BOTÃO FLUTUANTE E FIREBASE (Para carregar as visualizações) -->
 <script type="module">
   window.addEventListener('scroll', function() {
     var btn = document.getElementById('btnTop');
-    if (window.scrollY > 300) { btn.classList.add('show'); } 
-    else { btn.classList.remove('show'); }
+    if (window.scrollY > 300) { btn.classList.add('show'); } else { btn.classList.remove('show'); }
   });
 
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
@@ -193,16 +175,27 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
 
+  // PUXAR VIEWS
   document.querySelectorAll('.fb-views').forEach(el => {
     const path = el.getAttribute('data-path');
     if(path) {
       onValue(ref(database, 'views/' + path), (snapshot) => {
-        const views = snapshot.val() || 0;
-        el.innerText = views;
+        el.innerText = snapshot.val() || 0;
+      });
+    }
+  });
+
+  // PUXAR ESTRELAS
+  document.querySelectorAll('.fb-rating').forEach(el => {
+    const path = el.getAttribute('data-path');
+    if(path) {
+      onValue(ref(database, 'ratings/' + path), (snapshot) => {
+        const data = snapshot.val() || { totalPoints: 0, count: 0 };
+        const avg = data.count > 0 ? (data.totalPoints / data.count).toFixed(1) : "0.0";
+        el.innerHTML = `<i aria-hidden="true" class="fa fa-star meta-star"></i> ${avg} <span style="font-size:9px">(${data.count})</span>`;
       });
     }
   });
 </script>
-
 </body>
 </html>
