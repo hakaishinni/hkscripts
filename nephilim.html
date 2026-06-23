@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>Nephilim [v0.6.5] [BuuPlays] - HK SCRIPTS</title>
+
+<!-- Conexões Externas -->
+<link crossorigin="anonymous" href="https://www.gstatic.com" rel="preconnect">
+<link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+
+<style>
+@font-face { font-family: 'Font Awesome 6 Free'; font-display: swap; }
+@font-face { font-family: 'Font Awesome 6 Brands'; font-display: swap; }
+
+:root{--bg-body:#0a0a0a;--bg-card:#141414;--text-main:#e0e0e0;--text-dim:#888;--accent:#00ff7f;--border:#222;--star-color:#ffcc00}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg-body)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+body{background-color:var(--bg-body);color:var(--text-main);font-family:'Inter',sans-serif;margin:0;display:flex;flex-direction:column;min-height:100vh}
+a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4,.nav-links a{font-family:'Poppins',sans-serif}
+.header-site{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:var(--bg-card);border-bottom:1px solid var(--border);position:relative}
+.nav-left{flex:1;display:flex;align-items:center;gap:15px}.nav-links{display:flex;gap:15px}
+.nav-links a{color:var(--text-main);text-decoration:none;font-weight:bold;text-transform:uppercase;font-size:14px;transition:.3s}
+.nav-links a:hover{color:var(--accent);text-shadow:0 0 8px var(--accent)}.menu-toggle{display:none;font-size:24px;color:var(--accent);cursor:pointer}
+.header-logo-search{flex:2;display:flex;align-items:center;justify-content:center;gap:20px}.header-logo-search a{text-decoration:none}
+.header-logo-search h1{color:var(--accent);margin:0;font-size:28px;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 15px rgba(0,255,127,0.3)}
+.search-box{display:flex;align-items:center;background:#0a0a0a;border:1px solid var(--border);border-radius:4px;padding:5px 10px;transition:.3s}
+.search-box:focus-within{border-color:var(--accent);box-shadow:0 0 10px rgba(0,255,127,0.2)}.search-input{background:transparent;border:none;color:#fff;padding:5px;outline:none;font-size:14px;width:150px}
+.search-btn{background:transparent;border:none;color:var(--accent);cursor:pointer}.main-container{max-width:1200px;margin:0 auto;padding:20px;width:100%;box-sizing:border-box;flex:1}
+
+/* MODO POST CONFIGURAÇÕES */
+.item .blog-posts{display:block}.item .main-container{max-width:850px}
+.item .post-outer{border:none;background:transparent}.item .post-title{font-size:32px;color:var(--accent);padding:20px 0 5px;text-align:center}
+.item .post-meta{display:flex;justify-content:center;align-items:center;font-size:14px;color:var(--text-dim);margin-bottom:30px;}
+.item .post-body{line-height:1.8;font-size:17px}.item .post-body a{color:var(--accent);font-weight:600;transition:.3s}.item .post-body a:hover{text-shadow:0 0 8px var(--accent)}
+
+/* GALERIA EM GRID */
+.img-capa { width: 100% !important; height: auto !important; max-height: 450px !important; border-radius: 8px; object-fit: cover; margin-bottom: 25px; display: block; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
+.hk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 25px 0; }
+.hk-grid .separator { margin: 0 !important; width: 100% !important; clear: none !important; display: block !important; }
+.hk-grid a { display: block !important; width: 100% !important; margin: 0 !important; }
+.img-galeria { width: 100% !important; height: 160px !important; object-fit: cover !important; border-radius: 8px; display: block !important; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+.img-galeria:hover { transform: scale(1.03); border: 1px solid var(--accent); box-shadow: 0 5px 15px rgba(0,255,127,0.3); z-index: 10; position: relative; }
+@media(min-width: 800px) { .hk-grid { gap: 20px; } .img-galeria { height: 220px !important; } }
+
+/* BOTÕES DE DOWNLOAD */
+.download-area { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.dl-btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 15px 25px; border-radius: 8px; font-weight: 700; text-transform: uppercase; transition: 0.3s; font-family: 'Poppins', sans-serif; border: 1px solid rgba(255,255,255,0.1); color: #fff !important; text-decoration: none !important; cursor: pointer;}
+.btn-vexfile { background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDB75eG5CtsCQZ6rFE_2r4JBUe5dYjaLAGWYtLrZp5umj8gVEIVAW9rQcc1SaRqdJfKs6nrNJdoVBmwlkP4FF-6tVgivCdwbt3IZyI1yIAGT4hg2unHaLoPs6hLLNbOkiPiTTeU6iNqY9HM6SQ3O7zJRCHU86lH3xzHytkHsNlcacit1OCGjG2_6h56Rg/s380/1001291960.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none; min-width: 200px; min-height: 50px; padding: 0; }
+.btn-vexfile:hover { transform: scale(1.05); }
+.btn-boosty { background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNSjrle_AGPhjxsgLPV4MemH4vS7zrke4xVizJsQQMK-v76WkpyioLeFd582JLRtK3xfK3lDyh578RzLI5g5ymlwpuEWhwMYSmIzL4GKwPDaGRlNmjoyjfHrMAXUdT9lcN_Po9ggD1FvsCvLG5aa7hbjz10xEFyiSZmr9bean73cWvMUOvsORrQN1qzcg/s144/1001291967.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: transparent; border: none; min-width: 150px; min-height: 45px; padding: 0; }
+.btn-boosty:hover { transform: scale(1.05); }
+
+/* APOIO E ESTRELAS */
+.support-box { background: var(--bg-card); border: 2px dashed var(--accent); border-radius: 12px; padding: 25px; margin: 40px 0; text-align: center; box-shadow: 0 0 20px rgba(0,255,127,0.05); }
+.support-title { color: var(--accent); font-size: 24px; margin-bottom: 10px; font-weight: bold; font-family: 'Poppins', sans-serif; text-transform: uppercase; }
+.support-text { color: var(--text-dim); font-size: 15px; margin-bottom: 20px; line-height: 1.6; }
+.qr-code-img { width: 130px; height: 130px; border-radius: 8px; border: 3px solid var(--accent); padding: 5px; background: #fff; margin-bottom: 15px; }
+.pix-container { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.pix-input { background: #000; border: 1px solid var(--border); color: #fff; padding: 12px; border-radius: 6px; width: 100%; max-width: 350px; text-align: center; font-family: monospace; font-size: 14px; outline: none; }
+.pix-btn { background: var(--accent); color: #000; border: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; font-family: 'Poppins', sans-serif; }
+.pix-btn:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,255,127,0.3); }
+
+.rating-box{margin-top:30px;padding:30px;background:var(--bg-card);border-radius:12px;border:1px solid var(--border);text-align:center}
+.stars-wrapper{display:flex;flex-direction:row-reverse;justify-content:center;gap:10px;margin:15px 0}.stars-wrapper label{font-size:35px;color:#333;cursor:pointer;transition:.2s}
+.stars-wrapper input:checked~label,.stars-wrapper label:hover,.stars-wrapper label:hover~label{color:var(--star-color);text-shadow:0 0 10px var(--star-color)}
+
+/* RODAPÉ */
+.rich-footer{background:var(--bg-card);border-top:1px solid var(--border);padding:40px 20px;margin-top:50px}
+.footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;text-align:left}
+.footer-col h4{color:var(--accent);margin-top:0}.footer-col ul{list-style:none;padding:0}.footer-col ul li{margin-bottom:10px}
+.footer-col ul li a{color:var(--text-main);text-decoration:none;transition:.3s}.footer-col ul li a:hover{color:var(--accent);padding-left:5px}
+.footer-bottom{text-align:center;padding-top:20px;margin-top:20px;border-top:1px solid var(--border);font-size:13px;color:var(--text-dim)}
+
+@media(max-width:800px){.header-site{flex-direction:column;gap:15px}.menu-toggle{display:block;position:absolute;top:25px;left:20px}.nav-links{display:none;flex-direction:column;width:100%;text-align:center;gap:10px;padding-top:10px}.nav-links.active{display:flex}.header-logo-search{flex-direction:column}}
+</style>
+</head>
+
+<body class="item">
+
+<header class="header-site">
+  <div class="nav-left">
+    <div aria-label="Menu" class="menu-toggle" onclick="document.getElementById('mobileMenu').classList.toggle('active')"><i aria-hidden="true" class="fa fa-bars"></i></div>
+    <div class="nav-links" id="mobileMenu">
+      <a class="notranslate" href="index.html" translate="no">Início</a>
+    </div>
+  </div>
+  <div class="header-logo-search">
+    <a href="index.html"><h1 class="notranslate" translate="no">HK SCRIPTS</h1></a>
+  </div>
+  <div style="flex:1"></div>
+</header>
+
+<div class="main-container">
+  <article class="post-outer">
+    
+    <h1 class="post-title">Nephilim [v0.6.5] [BuuPlays]</h1>
+    
+    <span class="post-meta">
+      <i aria-hidden="true" class="fa fa-calendar-alt" style="margin-right:5px"></i> Hoje | 
+      <i aria-hidden="true" class="fa fa-eye" style="margin-left:15px; margin-right:5px; color:var(--accent);"></i> <span class="view-count">0</span>
+    </span>
+
+    <div class="post-body">
+      
+      <!-- CÓDIGO DO BLOGGER -->
+      <p style="text-align: center;">&nbsp;</p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkDRV7_o3_VkXlY77r7Q6euvZB0htGJtpBsar0fZZWi_PT2PomWb9t_PS-uBTqqOCa_mR1KeTla3eOWhOscTkos3bJfwp7qpFViPla678rcQPUKYtXXSLLSFe_FAk01wu5oyJAlf5XdPtznh28vrNmktKUkM9gsXwCQBCEcCkK1V5OhVwau4PuCgpWWUk/s1600/1001371621.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="400" data-original-width="1600" height="160" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkDRV7_o3_VkXlY77r7Q6euvZB0htGJtpBsar0fZZWi_PT2PomWb9t_PS-uBTqqOCa_mR1KeTla3eOWhOscTkos3bJfwp7qpFViPla678rcQPUKYtXXSLLSFe_FAk01wu5oyJAlf5XdPtznh28vrNmktKUkM9gsXwCQBCEcCkK1V5OhVwau4PuCgpWWUk/w640-h160/1001371621.jpg" width="640" /></a></div><br /><p></p><p style="text-align: center;"><span style="font-size: x-large;"><b>Sinopse</b></span></p><p style="text-align: center;"><span style="font-size: large;"><b>Nephilim conta a história de um jovem em processo de amadurecimento.</b></span></p><p style="text-align: center;"><span style="font-size: large;"><b>Em uma noite fatídica, um andarilho encontra o protagonista (você) e decide tomá-lo sob sua proteção, treinando-o por vários anos, após dez anos de ausência. Você retorna à sua aldeia natal, agora um jovem endurecido por anos de treinamento árduo e desafios mentais impostos por seu mestre, pronto para trilhar seu próprio caminho na vida. Ainda jovem, há muito a crescer em sua jornada, através de desafios, escolhas, amizades e, possivelmente, até mesmo amor.</b></span></p><p style="text-align: center;"><span style="font-size: large;"><b>Descubra o que significa ser um *Nephilim*.</b></span></p><p style="text-align: center;"><span style="font-size: large;"><b>Você se renderá aos poderes das trevas... ou será um símbolo de esperança?</b></span></p><p style="text-align: center;"><span style="font-size: x-large;"><b>Devido a politicas do próprio blogger&nbsp;</b></span></p><p style="text-align: center;"><span style="font-size: x-large;"><b>Irei colocar somente as imagens sem ser explícitas</b></span></p><p style="text-align: center;"><span style="font-size: large;"><b><br /></b></span></p><p style="text-align: center;"></p><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgC3tJh9cy9uw9jV9GdjqWx9J1xsfMqXcuDolo68vZ4Ni7eD-AgCMGds-LpMI-qTikcz6mQmnCrlbxckWPQkPebpoOaJX0hUXNOijuToFZxoUE2DdevvJNZSWv8udd5h949K4olIhX6PgYXBhqxWBXEUgx7BnS0F-Ok-XMOu3Hwk1LCq41uljay8t27P08/s1920/1001371645.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgC3tJh9cy9uw9jV9GdjqWx9J1xsfMqXcuDolo68vZ4Ni7eD-AgCMGds-LpMI-qTikcz6mQmnCrlbxckWPQkPebpoOaJX0hUXNOijuToFZxoUE2DdevvJNZSWv8udd5h949K4olIhX6PgYXBhqxWBXEUgx7BnS0F-Ok-XMOu3Hwk1LCq41uljay8t27P08/s320/1001371645.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEin1O_WN38vMlg8dKb1zJETYus28H7kVlpLNN-Y07WOU99tkOayzJ13aA9IG_sENQPqv6-3Yppr7O-q7hOQmi9xV__lzngkiE7BZhmsiE1ovVkME-G_FHGCLrhNz6yzahE7h9lnQy08JAamCTrFPm-IZ2UWRn0Mcma8Kbx-POPXWNMqNacNl8pv6Iy6omo/s1920/1001371644.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEin1O_WN38vMlg8dKb1zJETYus28H7kVlpLNN-Y07WOU99tkOayzJ13aA9IG_sENQPqv6-3Yppr7O-q7hOQmi9xV__lzngkiE7BZhmsiE1ovVkME-G_FHGCLrhNz6yzahE7h9lnQy08JAamCTrFPm-IZ2UWRn0Mcma8Kbx-POPXWNMqNacNl8pv6Iy6omo/s320/1001371644.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9akMbLDRBV2KFWY2Go3f_si4yPEBJrQjevbTJIIcVZnCxVypilN2_99pgUqf-PVOaOV36VI2wsZax1tsEZJCE62dBxV0cdm9jrTkVhyaRJ-p6Yg1XnRn9pLtyGG8qgKwglXIqEqEHPTJFeFQSnSR4FHMh2oM_M3_3pF0D4OtMd0NhgRZ6FExJMJZUO_s/s1920/1001371641.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9akMbLDRBV2KFWY2Go3f_si4yPEBJrQjevbTJIIcVZnCxVypilN2_99pgUqf-PVOaOV36VI2wsZax1tsEZJCE62dBxV0cdm9jrTkVhyaRJ-p6Yg1XnRn9pLtyGG8qgKwglXIqEqEHPTJFeFQSnSR4FHMh2oM_M3_3pF0D4OtMd0NhgRZ6FExJMJZUO_s/s320/1001371641.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidIKwSljSOF98N7YYLTVu7FbsEmoR6Sx41YegwZTfggHyxLIuIG9ro2wWG7C9HNK7AQyeQPKTC0U1XJchZqKeCxW5sObxVd96iJ-IsF7MQGrRJqXt5k12tb2QlTOnGXU4NA0PMsJEn_P63y2obSkfhuzwNwV9QpW-Un3GjPrdA5K_zYVrj9abNaMAKjtQ/s1920/1001371642.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidIKwSljSOF98N7YYLTVu7FbsEmoR6Sx41YegwZTfggHyxLIuIG9ro2wWG7C9HNK7AQyeQPKTC0U1XJchZqKeCxW5sObxVd96iJ-IsF7MQGrRJqXt5k12tb2QlTOnGXU4NA0PMsJEn_P63y2obSkfhuzwNwV9QpW-Un3GjPrdA5K_zYVrj9abNaMAKjtQ/s320/1001371642.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5YO3jYrQwSw0Oy4USvbNILoG5IzP9dIhaAruu2zIuSV-6j84G1nTfoHfk5B_VNtAEy3UgxHOpWtjitnCrCz8dJE-BjsMLw5lSXyE5MxKX3DuauC8TPicZo2SjmaDQvLPJ7wL7F_wuizzs5cJrt9FcFVIVh3AZMAWLykEvq_jF8ALfCOOZ1ttD1enRIA8/s1920/1001371643.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5YO3jYrQwSw0Oy4USvbNILoG5IzP9dIhaAruu2zIuSV-6j84G1nTfoHfk5B_VNtAEy3UgxHOpWtjitnCrCz8dJE-BjsMLw5lSXyE5MxKX3DuauC8TPicZo2SjmaDQvLPJ7wL7F_wuizzs5cJrt9FcFVIVh3AZMAWLykEvq_jF8ALfCOOZ1ttD1enRIA8/s320/1001371643.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvDbBLzM2FZTCvmg3GxpjuaOC4uDqVX0iiQxNQA1KvwyuTDwegBEg12vA47VTLzRU1kA6FkiTrDwUd2piaIFwWFV8cxr6UjNKxUkCldL4kcWYbUQ61Qpo-1R_JjyZSO2qJmtjXFNwISLE6iNEvm9Jfdwvf01LkfnZX_ovRq11btNZ_P3ZGVQFx7C5MZ_k/s1920/1001371639.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvDbBLzM2FZTCvmg3GxpjuaOC4uDqVX0iiQxNQA1KvwyuTDwegBEg12vA47VTLzRU1kA6FkiTrDwUd2piaIFwWFV8cxr6UjNKxUkCldL4kcWYbUQ61Qpo-1R_JjyZSO2qJmtjXFNwISLE6iNEvm9Jfdwvf01LkfnZX_ovRq11btNZ_P3ZGVQFx7C5MZ_k/s320/1001371639.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9rBVS-FA8-Y8TuDiKjThRspTSG7MrnSkU_xTmJ33IvcGxRPCTJJ7mDNzP1T1xmHpHzCbJv0isyDf-b9W0W7ZsMuLylDNtkvJyfjKThG5bu5_TVPupW8j_z6GMXMyfFkiO-uJQ-372IxQbj-oC0BbGN4H32xy-3XQ9_eg7KI7Tk5D3L6hqmMZhI6d298E/s1919/1001371638.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1079" data-original-width="1919" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9rBVS-FA8-Y8TuDiKjThRspTSG7MrnSkU_xTmJ33IvcGxRPCTJJ7mDNzP1T1xmHpHzCbJv0isyDf-b9W0W7ZsMuLylDNtkvJyfjKThG5bu5_TVPupW8j_z6GMXMyfFkiO-uJQ-372IxQbj-oC0BbGN4H32xy-3XQ9_eg7KI7Tk5D3L6hqmMZhI6d298E/s320/1001371638.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFnIFEtl0AQHA_RlJ3C9kALHldFfKPV5B7q3qe1r6QmNEIGjKabOpJQD-jUwvA2s_DlA6qZmbp0-QvGQwW_ODtSk1ZHaeQ8SoUQyfY2o5TrImNG4oimS9DMnpJ4PKwpsJ0YxmwAzqbJT1wAH0xG9k500ZAJ4PcO8tuL6dGuh0yi4WLEyfH4xn9WGgIY34/s1920/1001371636.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFnIFEtl0AQHA_RlJ3C9kALHldFfKPV5B7q3qe1r6QmNEIGjKabOpJQD-jUwvA2s_DlA6qZmbp0-QvGQwW_ODtSk1ZHaeQ8SoUQyfY2o5TrImNG4oimS9DMnpJ4PKwpsJ0YxmwAzqbJT1wAH0xG9k500ZAJ4PcO8tuL6dGuh0yi4WLEyfH4xn9WGgIY34/s320/1001371636.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigQQOv2KNOgqS5k0_aE9F7THEH1w5tDLEBgtGfEPI5t5U6NdsvgOFDd60nZhSZUzF2IfhqeWgf0d-w0CLdUGRZcQsrHBaZd0_4O4Yl-cceO8V36qm8RieDPbuPEulssquxjUxrwtEJW4BDTighr0ZoMZpjlRTd7ojBeXKFrKuOqkjJj-wzcFGN5iDLVUc/s1920/1001371633.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigQQOv2KNOgqS5k0_aE9F7THEH1w5tDLEBgtGfEPI5t5U6NdsvgOFDd60nZhSZUzF2IfhqeWgf0d-w0CLdUGRZcQsrHBaZd0_4O4Yl-cceO8V36qm8RieDPbuPEulssquxjUxrwtEJW4BDTighr0ZoMZpjlRTd7ojBeXKFrKuOqkjJj-wzcFGN5iDLVUc/s320/1001371633.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjeao2izgasO4e2sYfqbpoagkIA68TGe6dwkQWYsgvgHsiduDuFaHClgcs4S-4zkKobKMtZ4caWybP1rmZmaJo4msw-ZzTW_DnBC_ypH4Zg8m_CDQuoBwbqo7rbkb7qx00FiDFMGR4Kp0ujDBrCJ1wdP0iQ2n6syN8OR4P3W8jveDP5FfB8cyJotHwItpk/s1920/1001371632.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjeao2izgasO4e2sYfqbpoagkIA68TGe6dwkQWYsgvgHsiduDuFaHClgcs4S-4zkKobKMtZ4caWybP1rmZmaJo4msw-ZzTW_DnBC_ypH4Zg8m_CDQuoBwbqo7rbkb7qx00FiDFMGR4Kp0ujDBrCJ1wdP0iQ2n6syN8OR4P3W8jveDP5FfB8cyJotHwItpk/s320/1001371632.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_gAic5u-BgIyGHnfdfANB9A5wVhngDXKCwEoWQsHGfKuVhXkH9INUvgjXt8dj-tXqxEjZh2NlZhiEch9QbuuiuKc-opWbxE1cawqBi_-EVF2bAym4TFzUbbxqG62iEr935sEz64Lq-gLI4-tvyROgYOv472_UaI4TnG6nfY6H3yW3b15T3w2yPinyO5g/s1920/1001371631.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_gAic5u-BgIyGHnfdfANB9A5wVhngDXKCwEoWQsHGfKuVhXkH9INUvgjXt8dj-tXqxEjZh2NlZhiEch9QbuuiuKc-opWbxE1cawqBi_-EVF2bAym4TFzUbbxqG62iEr935sEz64Lq-gLI4-tvyROgYOv472_UaI4TnG6nfY6H3yW3b15T3w2yPinyO5g/s320/1001371631.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQv3PKXR2zbKHfWkUV1JAeBfu8LqujdX7H1XHWzsF7Fx2yb01y6Cgtc86tR19saWZvqwcXVKD9FARw3n86excX-MUH0ntGeO5YAfdto_X3QIUZkhgNRDxzMV_3aR83033bFJzLoVZE7P1FlZKUVfBxHn7BCInuMsdgIOxvq3V3OzjjaXy5MEO81LXGqeU/s1920/1001371629.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQv3PKXR2zbKHfWkUV1JAeBfu8LqujdX7H1XHWzsF7Fx2yb01y6Cgtc86tR19saWZvqwcXVKD9FARw3n86excX-MUH0ntGeO5YAfdto_X3QIUZkhgNRDxzMV_3aR83033bFJzLoVZE7P1FlZKUVfBxHn7BCInuMsdgIOxvq3V3OzjjaXy5MEO81LXGqeU/s320/1001371629.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3DCAwqR2ezPrq3xtr8gWXRg4QqYfSr0WO8JME4hMOXhuWUj_DJJ8lFyxlM0XGZZE7ywUp1j4GQjNxoJkTUafZe-GXAbm6uKXT537F7Avsg0N_GLZ8gutbW72pO-5cIWx03JBglLRxb_DG5CsbLemZh8vjvzhwShQ4HK2uSUiTRIRLhPU3jHsrNmOQIIk/s1920/1001371628.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3DCAwqR2ezPrq3xtr8gWXRg4QqYfSr0WO8JME4hMOXhuWUj_DJJ8lFyxlM0XGZZE7ywUp1j4GQjNxoJkTUafZe-GXAbm6uKXT537F7Avsg0N_GLZ8gutbW72pO-5cIWx03JBglLRxb_DG5CsbLemZh8vjvzhwShQ4HK2uSUiTRIRLhPU3jHsrNmOQIIk/s320/1001371628.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEji-4eLT1YjkUJxSvaLKQ6uymergEc2kFgpVop9jNe68_kc4D1lu8je99kJMfZ0Aal3qvzpv3jbrw2U0fs0sGjX9ny8vPpnI_Gt6GiW7xfp95H26oRDxbePgMWiu7UG5R4T_Tj21nnZbmNUXBAj0UWYcSvrZoSShiCv50SU5GU57x05WZDe8dfR4kWWjM8/s1920/1001371627.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEji-4eLT1YjkUJxSvaLKQ6uymergEc2kFgpVop9jNe68_kc4D1lu8je99kJMfZ0Aal3qvzpv3jbrw2U0fs0sGjX9ny8vPpnI_Gt6GiW7xfp95H26oRDxbePgMWiu7UG5R4T_Tj21nnZbmNUXBAj0UWYcSvrZoSShiCv50SU5GU57x05WZDe8dfR4kWWjM8/s320/1001371627.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5Iaw_lOQ89biOofrE2yWzWslhZKGhlcszy3Vh0br52ph_wZG25XHyzoA-Itz2lckqZZ-O-OgQdnNokK__Tp8UnLn-j7OX604nnSMymi_D3vsiVpaU3yzvHNyRLwxf2ZxUeKSJNlW_-tZjIG6MiEzz2qCbHjs0BhLsZQCptLD5nW0zTQUUYALAU4CITiA/s1920/1001371626.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5Iaw_lOQ89biOofrE2yWzWslhZKGhlcszy3Vh0br52ph_wZG25XHyzoA-Itz2lckqZZ-O-OgQdnNokK__Tp8UnLn-j7OX604nnSMymi_D3vsiVpaU3yzvHNyRLwxf2ZxUeKSJNlW_-tZjIG6MiEzz2qCbHjs0BhLsZQCptLD5nW0zTQUUYALAU4CITiA/s320/1001371626.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfwbLxPQl9IAyDu-1SVJsfr5fGQFHoNmHjbBziya2A2rC0cIxFRgZVXmpb9Y6wz49xLjE1NzWiYdQuvjBPirzAQVMxjPxnvScpBZjIWpKv8PPfRzi8WyWRLY1eSnfeOy2wmS11ZeqIrx708Sg6D_1haT7vohklQ8Kife-02u6ZBVq7RBX0WnWXJh1fb8A/s1920/1001371625.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfwbLxPQl9IAyDu-1SVJsfr5fGQFHoNmHjbBziya2A2rC0cIxFRgZVXmpb9Y6wz49xLjE1NzWiYdQuvjBPirzAQVMxjPxnvScpBZjIWpKv8PPfRzi8WyWRLY1eSnfeOy2wmS11ZeqIrx708Sg6D_1haT7vohklQ8Kife-02u6ZBVq7RBX0WnWXJh1fb8A/s320/1001371625.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3ghZefu-tqeyhHez2_l1IZBagXcGgXhAac4oj1xNRbb-08fadUCtkswJk5xXqi3Rdkji2bw565pUwkBcgP7OAiITH294_mX5tUbWLPELlAN0wQpxwXKpmJEam1aKVJ6MVaiO6ecnCxoj3lHFC_gzFS7lmcj82POWREOX98jEsGthEQ251gccxJ8XpKlc/s1920/1001371624.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3ghZefu-tqeyhHez2_l1IZBagXcGgXhAac4oj1xNRbb-08fadUCtkswJk5xXqi3Rdkji2bw565pUwkBcgP7OAiITH294_mX5tUbWLPELlAN0wQpxwXKpmJEam1aKVJ6MVaiO6ecnCxoj3lHFC_gzFS7lmcj82POWREOX98jEsGthEQ251gccxJ8XpKlc/s320/1001371624.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIfzdLrDs1Jrc9_5P_cWfhOpgOKpHqS27w5AhzQz9RNMaliwfejDEsbWCXRJxneurulGmy6dyr4IVYHT0JvfjZ1VaJga17g0zHQ0y9IGILzp97IeZTASdtIkGKJVUvQ20nws0UHuJNXKIWG88FyDSZz12bpb1UprMmlORe82pLrYwZ_L45M1cYVEwVzhI/s1920/1001371623.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIfzdLrDs1Jrc9_5P_cWfhOpgOKpHqS27w5AhzQz9RNMaliwfejDEsbWCXRJxneurulGmy6dyr4IVYHT0JvfjZ1VaJga17g0zHQ0y9IGILzp97IeZTASdtIkGKJVUvQ20nws0UHuJNXKIWG88FyDSZz12bpb1UprMmlORe82pLrYwZ_L45M1cYVEwVzhI/s320/1001371623.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHYMEQ0HZNqOqgnEgdC9SVO1UjkhDO1uPfTSNdl2UDjgSBoApkJGhVflADXaDPLKlPWibsfAzZXgx2wvoRCCiqvHLohVYCSA761ZJxdMhIYUR6nLDeplnRDQQRSJ1lnx912qE5B1fQQ-Pm9EaTl3P90-lHgyzqjGPhCfaOIPYxOnDb19OZ1STp6ozfF_U/s1920/1001371622.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHYMEQ0HZNqOqgnEgdC9SVO1UjkhDO1uPfTSNdl2UDjgSBoApkJGhVflADXaDPLKlPWibsfAzZXgx2wvoRCCiqvHLohVYCSA761ZJxdMhIYUR6nLDeplnRDQQRSJ1lnx912qE5B1fQQ-Pm9EaTl3P90-lHgyzqjGPhCfaOIPYxOnDb19OZ1STp6ozfF_U/s320/1001371622.jpg" width="320" /></a></div><br /><div class="separator" style="clear: both; font-size: x-large; text-align: center;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLuUrkcAqaNTgaznGeXhyisuz1mMdT28L2PtSgFnXkBRI40qDkMh32sYIKjVAVbiPJPWBWgWVUCK9cV_GEHDnHicXr7cwaazopDQHODhsvE5lY-QoNp7DOX35iiUFlTOjbhwt7W3nlcAUQtahq92wNp2vi0NZIn0xj-JDK-L0OfCP1ZSOKuiMXd7tvFhw/s1920/1001371646.jpg" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="1080" data-original-width="1920" height="180" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLuUrkcAqaNTgaznGeXhyisuz1mMdT28L2PtSgFnXkBRI40qDkMh32sYIKjVAVbiPJPWBWgWVUCK9cV_GEHDnHicXr7cwaazopDQHODhsvE5lY-QoNp7DOX35iiUFlTOjbhwt7W3nlcAUQtahq92wNp2vi0NZIn0xj-JDK-L0OfCP1ZSOKuiMXd7tvFhw/s320/1001371646.jpg" width="320" /></a></div><br /><div style="text-align: center;"><b><span style="font-size: x-large;">LINKS PARA DOWNLOAD</span></b></div><p></p><p style="text-align: center;"><b><span style="font-size: x-large;">LINKS DIRETOS !</span></b></p><p style="text-align: center;"><b><span style="font-size: x-large;">APK:</span><span style="font-size: large;">&nbsp;</span><a href="https://boostylink.com/dQ3neDdn" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></b></p><p style="text-align: center;"><b><span style="font-size: x-large;">PC:</span><span style="font-size: large;">&nbsp;</span><a href="https://boostylink.com/ysYAnATs" target="_blank"><span style="font-size: x-large;">VEXFILE</span></a></b></p>
+      <!-- FIM DO CÓDIGO DO BLOGGER -->
+
+    </div>
+    
+    <!-- Caixa de Doação PIX -->
+    <div class="support-box">
+      <div class="support-title"><i aria-hidden="true" class="fa fa-coffee" style="margin-right:8px;"></i> Apoie o Tradutor!</div>
+      <div class="support-text">Nossos links são diretos e sem encurtadores irritantes! Considere doar para ajudar a manter os projetos ativos.</div>
+      <img alt="QR Code PIX" class="qr-code-img" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=00020126580014BR.GOV.BCB.PIX0136ba714471-1484-4618-a070-4a991de0395d5204000053039865802BR5924Isaac Newton Gomes Pinto6009SAO PAULO62140510Q8LzqXbuQc6304A85E">
+      <div class="pix-container">
+        <input aria-label="Chave PIX HK Scripts" class="pix-input" id="pixKey" readonly="readonly" type="text" value="00020126580014BR.GOV.BCB.PIX0136ba714471-1484-4618-a070-4a991de0395d5204000053039865802BR5924Isaac Newton Gomes Pinto6009SAO PAULO62140510Q8LzqXbuQc6304A85E">
+        <button class="pix-btn" onclick="copyPix()"><i aria-hidden="true" class="fa fa-copy"></i> Copiar PIX</button>
+      </div>
+    </div>
+    
+    <!-- Avaliação de Estrelas -->
+    <div class="rating-box">
+      <h3>O que achou deste script/tradução?</h3>
+      <div id="currentRatingDisplay" style="color:var(--text-dim); font-size:14px; margin-bottom:15px;">Carregando avaliações...</div>
+      <div class="stars-wrapper" id="starRatingContainer">
+        <input id="star5" name="rating" style="display:none" type="radio" value="5"><label for="star5">★</label>
+        <input id="star4" name="rating" style="display:none" type="radio" value="4"><label for="star4">★</label>
+        <input id="star3" name="rating" style="display:none" type="radio" value="3"><label for="star3">★</label>
+        <input id="star2" name="rating" style="display:none" type="radio" value="2"><label for="star2">★</label>
+        <input id="star1" name="rating" style="display:none" type="radio" value="1"><label for="star1">★</label>
+      </div>
+      <span id="ratingMsg" style="color:var(--accent); font-size:14px; display:none; margin-top:10px;">Obrigado pela sua avaliação!</span>
+    </div>
+
+  </article>
+</div>
+
+<footer class="rich-footer">
+  <div class="footer-content">
+    <div class="footer-col">
+      <h4 class="notranslate" translate="no">HK SCRIPTS</h4>
+      <p>O seu portal definitivo para os melhores scripts, mods e traduções.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Redes Sociais</h4>
+      <ul>
+        <li><a href="https://discord.gg/zt5Ub6Xgbw" target="_blank"><i aria-hidden="true" class="fab fa-discord"></i> Discord</a></li>
+        <li><a href="https://www.youtube.com/@HkScripts-b8z" target="_blank"><i aria-hidden="true" class="fab fa-youtube"></i> YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 HK Scripts - Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script type="text/javascript">
+function copyPix() { 
+  var copyText = document.getElementById("pixKey"); 
+  if(copyText){
+      copyText.select(); 
+      copyText.setSelectionRange(0, 99999); 
+      navigator.clipboard.writeText(copyText.value).then(function() { 
+        alert("Chave PIX copiada! 💚"); 
+      }); 
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  const pb = document.querySelector('.post-body');
+  if (pb) { pb.querySelectorAll('a').forEach(link => {
+    const url = link.href.toLowerCase();
+    let bc = ''; let bt = ''; let ic = 'fa-download';
+    
+    if (url.includes('vexfile.com') || url.includes('boostylink.com')) { 
+        bc = url.includes('vexfile.com') ? 'btn-vexfile' : 'btn-boosty'; 
+        bt = ''; ic = ''; 
+    }
+    else if (url.includes('mediafire.com')) { bc = 'btn-mediafire'; bt = 'Baixar via MediaFire'; }
+    else if (url.includes('mega.nz')) { bc = 'btn-mega'; bt = 'Baixar via MEGA'; }
+    else if (url.includes('drive.google.com')) { bc = 'btn-drive'; bt = 'Baixar via Drive'; }
+    
+    if (bc !== '') { 
+      link.className = 'dl-btn ' + bc; 
+      link.innerHTML = ic !== '' ? `<i aria-hidden="true" class="fa ${ic}"></i> ${bt}` : bt; 
+      const w = document.createElement('div'); w.className = 'download-area'; 
+      link.parentNode.insertBefore(w, link); w.appendChild(link); 
+    }
+  });}
+
+  const postBodyGaleria = document.querySelector('.item .post-body');
+  if (postBodyGaleria) {
+    const imgs = postBodyGaleria.querySelectorAll('img');
+    if (imgs.length > 0) {
+      imgs[0].classList.add('img-capa');
+      if (imgs.length > 1) {
+        const galleryWrapper = document.createElement('div');
+        galleryWrapper.className = 'hk-grid';
+        let firstGalItem = imgs[1].closest('.separator') || imgs[1].closest('a') || imgs[1];
+        firstGalItem.parentNode.insertBefore(galleryWrapper, firstGalItem);
+        
+        for (let i = 1; i < imgs.length; i++) {
+          let item = imgs[i].closest('.separator') || imgs[i].closest('a') || imgs[i];
+          galleryWrapper.appendChild(item);
+          imgs[i].classList.add('img-galeria');
+        }
+      }
+    }
+    
+    postBodyGaleria.querySelectorAll('div, p, span').forEach(el => {
+      let conteudo = el.innerHTML.replace(/&nbsp;/g, '').trim();
+      if (conteudo === '' || conteudo === '<br>') { el.remove(); }
+    });
+    postBodyGaleria.querySelectorAll('br').forEach(br => {
+      let prox = br.nextElementSibling;
+      if (prox && prox.tagName === 'BR') { br.remove(); }
+    });
+  }
+});
+</script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+  import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDCNF3pZ3g20UkNDTUYq-X9zkyKA3El1TM",
+    authDomain: "hk-scripts-db.firebaseapp.com",
+    databaseURL: "https://hk-scripts-db-default-rtdb.firebaseio.com",
+    projectId: "hk-scripts-db",
+    storageBucket: "hk-scripts-db.firebasestorage.app",
+    messagingSenderId: "688262885548",
+    appId: "1:688262885548:web:495109ee40f2f603a6af09",
+    measurementId: "G-X0QLGZMQQT"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  function sanitizePath(path) { return path.replace(/[.\/#$\[\]]/g, "_"); }
+  const currentPath = window.location.pathname;
+  const pathId = sanitizePath(currentPath);
+
+  if (currentPath !== "/" && currentPath !== "" && !currentPath.includes("/search")) {
+    if (localStorage.getItem('hk_admin') !== 'true') { 
+      runTransaction(ref(database, 'views/' + pathId), (v) => (v || 0) + 1); 
+    }
+  }
+
+  function updateRatingsUI(id, el, isCard = false) {
+    onValue(ref(database, 'ratings/' + id), (s) => {
+      const data = s.val() || { totalPoints: 0, count: 0 };
+      const avg = data.count > 0 ? (data.totalPoints / data.count).toFixed(1) : "0.0";
+      if (isCard) { 
+        el.innerHTML = `<i aria-hidden="true" class="fa fa-star" style="color:var(--star-color)"></i> ${avg} <span style="color:#888; font-size:11px;">(${data.count})</span>`; 
+      } else { 
+        const display = document.getElementById('currentRatingDisplay');
+        if (display) {
+          display.innerHTML = `<span style="color:var(--accent); font-weight:bold;">Média: ${avg} / 5</span> baseado em ${data.count} avaliações.`; 
+        }
+      }
+    });
+  }
+
+  if (document.getElementById('currentRatingDisplay')) { updateRatingsUI(pathId, null, false); }
+
+  document.querySelectorAll('input[name="rating"]').forEach(star => {
+    star.addEventListener('change', function() {
+      const points = parseInt(this.value);
+      const msg = document.getElementById('ratingMsg');
+      msg.style.display = "block"; 
+      msg.innerText = "Salvando voto...";
+      
+      runTransaction(ref(database, 'ratings/' + pathId), (current) => {
+        if (!current) current = { totalPoints: 0, count: 0 };
+        current.totalPoints += points; 
+        current.count += 1;
+        return current;
+      }).then(() => { 
+        msg.innerText = "Avaliação enviada com sucesso! ⭐"; 
+        document.querySelectorAll('input[name="rating"]').forEach(s => s.disabled = true); 
+      });
+    });
+  });
+</script>
+</body>
+</html>
