@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>Pesquisa - HK SCRIPTS</title>
+
+<link crossorigin="anonymous" href="https://www.gstatic.com" rel="preconnect">
+<link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+
+<style>
+/* CSS GLOBAL */
+:root{--bg-body:#0a0a0a;--bg-card:#141414;--text-main:#e0e0e0;--text-dim:#888;--accent:#00ff7f;--border:#222;--star-color:#ffcc00}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg-body)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+body{background-color:var(--bg-body);color:var(--text-main);font-family:'Inter',sans-serif;margin:0;display:flex;flex-direction:column;min-height:100vh}
+a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins',sans-serif}
+
+/* Header */
+.header-site{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000}
+.nav-left{display:flex;align-items:center;gap:15px}
+.menu-toggle{font-size:24px;color:var(--accent);cursor:pointer}
+.header-logo-search{display:flex;align-items:center;gap:20px}
+.header-logo-search h1{color:var(--accent);margin:0;font-size:28px;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 15px rgba(0,255,127,0.3)}
+.search-box{display:flex;align-items:center;background:#0a0a0a;border:1px solid var(--border);border-radius:4px;padding:5px 10px;transition:.3s}
+.search-box:focus-within{border-color:var(--accent);box-shadow:0 0 10px rgba(0,255,127,0.2)}
+.search-input{background:transparent;border:none;color:#fff;padding:5px;outline:none;font-size:14px;width:150px}
+.search-btn{background:transparent;border:none;color:var(--accent);cursor:pointer}
+
+/* Header de Pesquisa */
+.search-header { max-width: 1200px; margin: 40px auto 20px auto; padding: 0 20px; width: 100%; box-sizing: border-box; text-align: left; border-bottom: 1px solid var(--border); padding-bottom: 15px;}
+.search-header h2 { font-size: 22px; color: #fff; font-weight: normal; margin: 0; }
+.search-header span { color: var(--accent); font-weight: bold; }
+.empty-state { text-align: center; color: var(--text-dim); margin-top: 50px; font-size: 18px; padding: 0 20px; width: 100%;}
+
+/* Grid de Cards */
+.main-container { max-width: 1200px; margin: 0 auto 40px auto; padding: 0 20px; width: 100%; box-sizing: border-box; flex: 1; }
+.post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+.card { background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; display: flex; flex-direction: column; }
+.card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+.card-img { width: 100%; height: 180px; object-fit: cover; display: block; border-bottom: 1px solid var(--border); }
+.card-info { padding: 15px; }
+.card-title { font-size: 16px; margin: 0 0 10px 0; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-meta { display: flex; gap: 15px; font-size: 13px; color: var(--text-dim); align-items: center; }
+.card-meta span { display: flex; align-items: center; gap: 5px; }
+.meta-star { color: var(--star-color); }
+.meta-eye { color: var(--accent); }
+
+/* Footer */
+.rich-footer{background:var(--bg-card);border-top:1px solid var(--border);padding:40px 20px;margin-top:50px}
+.footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;text-align:left}
+.footer-col h4{color:var(--accent);margin-top:0}.footer-col ul{list-style:none;padding:0}.footer-col ul li{margin-bottom:10px}
+.footer-col ul li a{color:var(--text-main);text-decoration:none;transition:.3s}.footer-col ul li a:hover{color:var(--accent);padding-left:5px}
+.footer-bottom{text-align:center;padding-top:20px;margin-top:20px;border-top:1px solid var(--border);font-size:13px;color:var(--text-dim)}
+
+/* Ajustes Mobile */
+@media(max-width:768px){
+  .header-site{flex-direction:column;gap:15px; padding: 15px;}
+  .header-logo-search{flex-direction:column; width: 100%; gap: 15px;}
+  .search-box{width: 100%; justify-content: space-between; box-sizing: border-box;}
+  .search-input{width: 100%;}
+  .nav-left { width: 100%; justify-content: center; position: relative;}
+  .menu-toggle { position: absolute; left: 0; }
+  
+  .search-header h2 { font-size: 18px; text-align: center; }
+  .main-container { padding: 0 10px; }
+  .post-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .card-img { height: 110px; } 
+  .card-info { padding: 10px; }
+  .card-title { font-size: 13px; margin-bottom: 5px; } 
+  .card-meta { font-size: 10px; gap: 8px; flex-wrap: wrap; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header-site">
+  <div class="nav-left">
+    <div aria-label="Menu" class="menu-toggle"><i class="fa fa-bars"></i></div>
+    <div class="header-logo-search"><a href="index.html"><h1 class="notranslate" translate="no">HK SCRIPTS</h1></a></div>
+  </div>
+  <form class="search-box" action="search.html" method="GET">
+    <input type="text" name="q" class="search-input" placeholder="Pesquisar..." required>
+    <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+  </form>
+</header>
+
+<div class="search-header">
+  <h2>Resultados para: "<span id="query-text"></span>"</h2>
+</div>
+
+<main class="main-container">
+  <div class="post-grid" id="search-results-container">
+    </div>
+</main>
+
+<footer class="rich-footer">
+  <div class="footer-content">
+    <div class="footer-col">
+      <h4 class="notranslate" translate="no">HK SCRIPTS</h4>
+      <p>O seu portal definitivo para os melhores scripts, mods e traduções.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Redes Sociais</h4>
+      <ul>
+        <li><a href="https://discord.gg/zt5Ub6Xgbw" target="_blank"><i aria-hidden="true" class="fab fa-discord"></i> Discord</a></li>
+        <li><a href="https://www.youtube.com/@HkScripts-b8z" target="_blank"><i aria-hidden="true" class="fab fa-youtube"></i> YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 HK Scripts - Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script type="text/javascript">
+  // ==========================================
+  // BANCO DE DADOS LOCAL DE JOGOS
+  // ==========================================
+  const gamesDB = [
+    { id: "bright-lord_html", url: "bright-lord.html", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGsBgAi0YUPn_NyDrihjc0jutaVciwvSO4ZSsOVFK7AcfG1Gc9WHYzrpcM_ZkHQPc6kYRdwAN9dhqUYAZBevB7CmGssXG8JU2QEjPdA2HggZwvi7N8oEgHxNsoZrIbLZJCFFduck7gi1cQx1H2gxzzpEZkXSNDkLkaIk6qWgzDkBJmj53wF0l2ErYXkpg/w400-h225/1001476226.jpg", title: "Bright Lord [v1.16.0 Fix2] [KissKiss Studio]" },
+    { id: "zero-end_html", url: "zero-end.html", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1vnD7-eLnpQdzvqFvdzHjMkuEfppfS4ZwI3ERDrIlnKI4Oh4PWe2WU7uepBRc3IHLIEu-Xp9i0D9sAK4jjREUhEvZMEv4ea38fuhfzDbLr9l3GMiD48U8W5EpmnGSiAbY2vFnfbXJfThEsnS8wBiZNHXn4BHf0tnbSd5WwT2cvshQfYcbTWRZ_CHhe_4/w400-h225/1001428356.jpg", title: "Zero End [v0.3.6c] [Stolen Rose]" },
+    { id: "eruption-imminent_html", url: "eruption-imminent.html", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYCQJORyQw2zAHycCtD9YvNhO2xoYXNGbnGN1Jr3iDZlMmhslz1XGPWJq_rrfmCgDtAjyWnMmOY0xAFT1JzTklVDZCkZQBz9AHkf-UOYern5D8diDxCkd05hV9cqkvfvaVNbliID8JZThehROEnpKxGKlAGb5xxV_XAo-0S9fcTIE9bYtNRtU_azIBHXY/w400-h225/1001415092.jpg", title: "Eruption Imminent [v0.7] [MorriganRae]" },
+    { id: "nephilim_html", url: "nephilim.html", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgC3tJh9cy9uw9jV9GdjqWx9J1xsfMqXcuDolo68vZ4Ni7eD-AgCMGds-LpMI-qTikcz6mQmnCrlbxckWPQkPebpoOaJX0hUXNOijuToFZxoUE2DdevvJNZSWv8udd5h949K4olIhX6PgYXBhqxWBXEUgx7BnS0F-Ok-XMOu3Hwk1LCq41uljay8t27P08/w400-h225/1001371645.jpg", title: "Nephilim [v0.6.5] [BuuPlays]" },
+    { id: "the-spellbook_html", url: "the-spellbook.html", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5sID_EjCnjwx6CwIBth9AXJ05tDCff9_5y3ZO_lR_F5vShdMRzOg20AzuOVfGjDYnKRJ1qDz1DJrVdJvIzO89wU1s96awqr0i8EWwGw7CFjxfeFSdl3nyaxgoFUr0uYppKy7tAcAYpNqWgO-_eGZeWBDdtChcoY0EjPY92Z2TnA2qLgXR9XQzkG-R96Q/w400-h225/1001346975.jpg", title: "The Spellbook [v0.20.5.0] [NaughtyGames]" },
+    { id: "undawn-shackles-of-eternity_html", url: "undawn-shackles-of-eternity.html", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhx9Pfp2-pMuKUw8K0aqa-9bF9R_2RtdN5SQpe1gUSs_EieH_eIv0Ttqvup-GVcG5ZtkSrLO-q4nLT7Y0LntwN3K5L6L1IteQFqRKUiW17WaV3g537_QLMIjE1FIHB8av_vI1b2mSKH-t1GgkdYLwuhj9otv3bd0EghQxwjYto0JTmeUdGCIyoziKGT6do/w400-h225/1001297770.jpg", title: "UNDAWN: Shackles Of Eternity [Ch.2 Public]" },
+    { id: "jl-next-generation_html", url: "jl-next-generation.html", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi80j4-938AtJORSCJINUfWSyH3qC_53SIe05Rfn8CTv6UwgZ_weM57HKipiY4bv64WKjQFPey6LuOg_tOHUuR7kzUE1dp1WhqE8_1Dh4ptrWD8GxEkD6du_0_Rtt_oJODJw7R1npXKuCY16MFFBl9bPQgyQN6mQhiDQSZDftqqmgNgD2wvE-D2bIYawvg/w400-h225/1001291938.jpg", title: "JL: Next Generation [v0.15 Public] [Big T]" },
+    { id: "bad-boy-bobby-classic_html", url: "bad-boy-bobby-classic.html", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWIkGalTXnnAdzrE19H50asDITncSMhfgVwJGd4ZKHhrdfYXy9mskdx34kG27_MgJl6N31tx3vqQmAZVaceArOtNOnWXpqFJjZYw7awiuJ2Qd9C5bAdwN9FPAYpXSs4VszmlONpDSSCFiOGkhW02eQjYu25q2MfQsYlRpjjEFw6c9JJBJ0lCvUdouftB4/w400-h225/1001291881.png", title: "Bad Boy Bobby: Classic [Demo] [Foxcreates]" },
+    { id: "shut-up-and-dance_html", url: "shut-up-and-dance.html", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWHWSMmMDPz55dqO-IqsveO75q5bwAz8FLKCbvx4Q6ER_R7q_Twz0zZwrMAfw3MTFeGlnFrn5zK_luOwWIYLgcDJXVT2hlB7XJqMGnhOiznPS7GPFCC8OHziZdRCkHCZFrH-SNwL-Ul2TmRIKavyQbph69Fqevco7rbZJTDbkv8Uufq9Z5ZrZrHXUTBhM/w400-h225/1001276673.webp", title: "Shut Up and Dance [Ep.1-11 v1.0 SE] [Boring Games]" },
+    { id: "omg-not-another-isekai_html", url: "omg-not-another-isekai.html", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjH_SS1RSVPQ9_6kGY1fsKzjcugT_KuSZ9AgUkQGexGSDath3kEl_f_c-yB-2t1ASZerJ7OPJo8H6RkIqJCWtJRR9Ilpt_fAApVmlskXQenYP3PJ3v4nLhOz6neLxDYEOdtSppFWZs61R9c4cxxdEG3spAa5wcGkMRRleS72h3p8fHFb78KvQEPgRVRCJ4/w400-h225/1001264149.png", title: "OMG! Not Another Isekai [v1.0.4] [SunflowerGames]" },
+    { id: "violation-nation_html", url: "violation-nation.html", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTn4YwisVDLZYotmrX6ivq2KP8Mxn2ROTazeZuG9eCs89l0qTTIIvIOGBf_gfmv2FaByJicqImf_dKPxAPXhffGLEekccViVqqgxxf4EcI69gfDViYMGgHEB2r-KznvR8M4E7VMi4eXWe1hwprmzDrLCchyVgFdA_FUExlhe3g36Hzj02Cdtff9J0f8jU/w400-h254/1001166623.jpg", title: "Violation Nation [Ep.11] [Wet Avocado Games]" },
+    { id: "summers-gone_html", url: "summers-gone.html", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKmMgXnWP5hU5zoZ26ybsGHt6czE3v-FqYhscHI93RsG_uT3D1N_Szr9gzCTJI1CPweEAl3dYqnIMXMGiI6gFV90cDqmTFnZe4kk-CnfC7QqNHr-4u_rfCFXKgqtJqAgo6JmR7m3Th5Og1VdenKkmS86m3xLFRk1gvENK27TvMqmEi-6ECca9D1OWQKR4/w400-h250/1001150893.png", title: "Summer's Gone [S2 Ch.1-3 Final] [Oceanlab]" },
+    { id: "serenity_html", url: "serenity.html", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/w400-h225/1001199637.png", title: "Serenity [Ch. 2 v0.5] [N2TheFire]" }
+  ];
+
+  // Captura o que a pessoa digitou na URL (ex: search.html?q=Nephilim)
+  const urlParams = new URLSearchParams(window.location.search);
+  const query = urlParams.get('q') || '';
+  
+  // Escreve na tela o termo pesquisado
+  document.getElementById('query-text').innerText = query;
+
+  // Lógica de filtragem
+  const resultsContainer = document.getElementById('search-results-container');
+  const filteredGames = gamesDB.filter(game => game.title.toLowerCase().includes(query.toLowerCase()));
+
+  // Injetar o HTML dos resultados
+  if (filteredGames.length === 0) {
+    resultsContainer.innerHTML = `<div class="empty-state" style="grid-column: 1 / -1;"><i class="fa fa-folder-open" style="font-size: 40px; margin-bottom: 15px; display:block;"></i> Poxa, não encontramos nada para "${query}".</div>`;
+  } else {
+    filteredGames.forEach(game => {
+      const cardHTML = `
+        <a href="${game.url}" class="card">
+          <img src="${game.img}" alt="${game.title}" class="card-img">
+          <div class="card-info">
+            <h3 class="card-title">${game.title}</h3>
+            <div class="card-meta">
+              <span class="fb-rating" data-path="${game.id}" title="Avaliação"><i class="fa fa-star meta-star"></i> 0.0 <span style="font-size:9px">(0)</span></span>
+              <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="${game.id}">0</span></span>
+            </div>
+          </div>
+        </a>
+      `;
+      resultsContainer.innerHTML += cardHTML;
+    });
+  }
+</script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDCNF3pZ3g20UkNDTUYq-X9zkyKA3El1TM",
+    authDomain: "hk-scripts-db.firebaseapp.com",
+    databaseURL: "https://hk-scripts-db-default-rtdb.firebaseio.com",
+    projectId: "hk-scripts-db"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  // PUXAR VIEWS
+  document.querySelectorAll('.fb-views').forEach(el => {
+    const path = el.getAttribute('data-path');
+    if(path) {
+      onValue(ref(database, 'views/' + path), (snapshot) => {
+        el.innerText = snapshot.val() || 0;
+      });
+    }
+  });
+
+  // PUXAR ESTRELAS
+  document.querySelectorAll('.fb-rating').forEach(el => {
+    const path = el.getAttribute('data-path');
+    if(path) {
+      onValue(ref(database, 'ratings/' + path), (snapshot) => {
+        const data = snapshot.val() || { totalPoints: 0, count: 0 };
+        const avg = data.count > 0 ? (data.totalPoints / data.count).toFixed(1) : "0.0";
+        el.innerHTML = `<i aria-hidden="true" class="fa fa-star meta-star"></i> ${avg} <span style="font-size:9px">(${data.count})</span>`;
+      });
+    }
+  });
+</script>
+</body>
+</html>
