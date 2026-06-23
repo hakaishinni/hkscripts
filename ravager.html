@@ -224,42 +224,44 @@ document.addEventListener("DOMContentLoaded", function() {
     apiKey: "AIzaSyDCNF3pZ3g20UkNDTUYq-X9zkyKA3El1TM",
     authDomain: "hk-scripts-db.firebaseapp.com",
     databaseURL: "https://hk-scripts-db-default-rtdb.firebaseio.com",
-    projectId: "hk-scripts-db",
-    storageBucket: "hk-scripts-db.firebasestorage.app",
-    messagingSenderId: "688262885548",
-    appId: "1:688262885548:web:495109ee40f2f603a6af09",
-    measurementId: "G-X0QLGZMQQT"
+    projectId: "hk-scripts-db"
   };
 
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
 
-  function sanitizePath(path) { return path.replace(/[.\/#$\[\]]/g, "_"); }
-  const currentPath = window.location.pathname;
-  const pathId = sanitizePath(currentPath);
+  // 1. Isola apenas o nome exato do arquivo (ex: zero-end.html)
+  let fileName = window.location.pathname.split('/').pop();
+  if (!fileName || fileName === "") fileName = "index.html";
+  
+  // 2. Converte para o padrão do Firebase (ex: zero-end_html)
+  const pathId = fileName.replace(/\./g, "_");
 
-  if (currentPath !== "/" && currentPath !== "" && !currentPath.includes("/search")) {
+  // 3. Sistema de Visualizações (Conta + Exibe na tela)
+  if (fileName !== "index.html" && fileName !== "pagina2.html" && !fileName.includes("search")) {
     if (localStorage.getItem('hk_admin') !== 'true') { 
       runTransaction(ref(database, 'views/' + pathId), (v) => (v || 0) + 1); 
     }
+    onValue(ref(database, 'views/' + pathId), (snapshot) => {
+      const viewEl = document.querySelector('.view-count');
+      if (viewEl) viewEl.innerText = snapshot.val() || 0;
+    });
   }
 
-  function updateRatingsUI(id, el, isCard = false) {
-    onValue(ref(database, 'ratings/' + id), (s) => {
+  // 4. Sistema de Avaliações
+  function updateRatingsUI() {
+    onValue(ref(database, 'ratings/' + pathId), (s) => {
       const data = s.val() || { totalPoints: 0, count: 0 };
       const avg = data.count > 0 ? (data.totalPoints / data.count).toFixed(1) : "0.0";
-      if (isCard) { 
-        el.innerHTML = `<i aria-hidden="true" class="fa fa-star" style="color:var(--star-color)"></i> ${avg} <span style="color:#888; font-size:11px;">(${data.count})</span>`; 
-      } else { 
-        const display = document.getElementById('currentRatingDisplay');
-        if (display) {
-          display.innerHTML = `<span style="color:var(--accent); font-weight:bold;">Média: ${avg} / 5</span> baseado em ${data.count} avaliações.`; 
-        }
+      
+      const display = document.getElementById('currentRatingDisplay');
+      if (display) {
+        display.innerHTML = `<span style="color:var(--accent); font-weight:bold;">Média: ${avg} / 5</span> baseado em ${data.count} avaliações.`; 
       }
     });
   }
 
-  if (document.getElementById('currentRatingDisplay')) { updateRatingsUI(pathId, null, false); }
+  if (document.getElementById('currentRatingDisplay')) { updateRatingsUI(); }
 
   document.querySelectorAll('input[name="rating"]').forEach(star => {
     star.addEventListener('change', function() {
