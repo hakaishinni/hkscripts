@@ -78,17 +78,12 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 @media(max-width:768px){
   .header-site{flex-direction:column;gap:15px; padding: 15px;}
   .header-logo-search{flex-direction:column; width: 100%; gap: 15px;}
-  
-  /* Olha o 21px aqui no lugar certinho: */
-  .header-logo-search h1 { font-size: 21px; white-space: nowrap; } 
-  
   .search-box{width: 100%; justify-content: space-between; box-sizing: border-box;}
   .search-input{width: 100%;}
-  .nav-left { width: 100%; justify-content: center; align-items: center; position: relative;}
+  .nav-left { width: 100%; justify-content: center; position: relative;}
+  .menu-toggle { position: absolute; left: 0; }
   
-  /* Botão de menu travado no meio */
-  .menu-toggle { position: absolute; left: 0; top: 50%; transform: translateY(-50%); } 
-  
+  /* Ajustes do Slider no Celular */
   .featured-section { padding: 0 10px; margin: 20px auto; }
   .slider-container { height: 220px; }
   .banner-content { padding: 15px; }
@@ -98,7 +93,8 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   .slider-arrow.prev { left: 10px; }
   .slider-arrow.next { right: 10px; }
 
-  .main-container { padding: 0 10px; }
+  /* CARDS LADO A LADO */
+  .main-container { padding: 0 10px; margin-top: 0; }
   .post-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .card-img { height: 110px; } 
   .card-info { padding: 10px; }
