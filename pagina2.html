@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta content="width=device-width, initial-scale=1" name="viewport">
-<title>HK SCRIPTS - Página 2</title>
+<title>HK SCRIPTS - Visual Novels (Página 2)</title>
 
 <!-- Conexões Externas -->
 <link crossorigin="anonymous" href="https://www.gstatic.com" rel="preconnect">
@@ -12,9 +12,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 
 <style>
-/* ===================================================================== */
-/* CSS GLOBAL (Idêntico ao index.html para manter o padrão)              */
-/* ===================================================================== */
+/* CSS GLOBAL */
 :root{--bg-body:#0a0a0a;--bg-card:#141414;--text-main:#e0e0e0;--text-dim:#888;--accent:#00ff7f;--border:#222;--star-color:#ffcc00}
 ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg-body)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}::-webkit-scrollbar-thumb:hover{background:var(--accent)}
 body{background-color:var(--bg-body);color:var(--text-main);font-family:'Inter',sans-serif;margin:0;display:flex;flex-direction:column;min-height:100vh}
@@ -31,7 +29,7 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 .search-input{background:transparent;border:none;color:#fff;padding:5px;outline:none;font-size:14px;width:150px}
 .search-btn{background:transparent;border:none;color:var(--accent);cursor:pointer}
 
-/* Grid de Cards (Vitrine) */
+/* Grid de Cards */
 .main-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; width: 100%; box-sizing: border-box; flex: 1; }
 .post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
 .card { background: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; display: flex; flex-direction: column; }
@@ -61,9 +59,7 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 .back-to-top.show { opacity: 1; visibility: visible; }
 .back-to-top:hover { transform: translateY(-5px); background: #fff; }
 
-/* ===================================================================== */
-/* AJUSTES PARA CELULAR                                                  */
-/* ===================================================================== */
+/* Ajustes Mobile */
 @media(max-width:768px){
   .header-site{flex-direction:column;gap:15px; padding: 15px;}
   .header-logo-search{flex-direction:column; width: 100%; gap: 15px;}
@@ -72,8 +68,7 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   .nav-left { width: 100%; justify-content: center; position: relative;}
   .menu-toggle { position: absolute; left: 0; }
   
-  /* CARDS LADO A LADO */
-  .main-container { padding: 20px 10px; margin-top: 0; }
+  .main-container { padding: 0 10px; margin-top: 20px; }
   .post-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .card-img { height: 110px; } 
   .card-info { padding: 10px; }
@@ -101,19 +96,18 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
 <main class="main-container">
   <div class="post-grid">
 
-    <!-- COLOQUE OS CARDS DOS JOGOS ANTIGOS AQUI PARA BAIXO -->
-    <!-- Exemplo de Card vazio/genérico -->
-    <a href="#" class="card">
-      <img src="https://via.placeholder.com/400x225/141414/00ff7f?text=JOGO+ANTIGO" alt="Jogo Antigo" class="card-img">
+    <!-- CARD 11: SERENITY -->
+    <a href="serenity.html" class="card">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTe-5IuVoh0lM1vwTPqAPAAFcOF7288E55nuKWwAcFtUfp8E7ncmb9-E9IPYScz77d2d8jedDX51N5LaA25CSKV-ePZue0RqEiS5YLyOu6hFVJGdz0Evr1ca-mKjyVTvJ2UrrSQ6eMl5iM29aVFCAXkO4KkUbjRj7Y5HZR9_bJuRYrcYxbBM0t0nKyzIA/w400-h225/1001199637.png" alt="Serenity" class="card-img">
       <div class="card-info">
-        <h3 class="card-title">Nome do Jogo Antigo</h3>
+        <h3 class="card-title">Serenity [Ch. 2 v0.5] [N2TheFire]</h3>
         <div class="card-meta">
-          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(0)</span></span>
-          <span title="Data"><i class="fa fa-calendar-alt"></i> Data Aqui</span>
+          <span title="Avaliação"><i class="fa fa-star meta-star"></i> 5.0 <span style="font-size:9px">(1)</span></span>
+          <span title="Data"><i class="fa fa-calendar-alt"></i> Junho 22, 2026</span>
+          <span title="Visualizações"><i class="fa fa-eye meta-eye"></i> <span class="fb-views" data-path="serenity_html">1</span></span>
         </div>
       </div>
     </a>
-    <!-- FIM DO CARD -->
 
   </div>
 
@@ -152,11 +146,35 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   <i class="fa fa-arrow-up"></i>
 </div>
 
+<!-- SCRIPTS: BOTÃO FLUTUANTE E FIREBASE (Para carregar as visualizações) -->
 <script type="module">
   window.addEventListener('scroll', function() {
     var btn = document.getElementById('btnTop');
     if (window.scrollY > 300) { btn.classList.add('show'); } 
     else { btn.classList.remove('show'); }
+  });
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDCNF3pZ3g20UkNDTUYq-X9zkyKA3El1TM",
+    authDomain: "hk-scripts-db.firebaseapp.com",
+    databaseURL: "https://hk-scripts-db-default-rtdb.firebaseio.com",
+    projectId: "hk-scripts-db"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  document.querySelectorAll('.fb-views').forEach(el => {
+    const path = el.getAttribute('data-path');
+    if(path) {
+      onValue(ref(database, 'views/' + path), (snapshot) => {
+        const views = snapshot.val() || 0;
+        el.innerText = views;
+      });
+    }
   });
 </script>
 
