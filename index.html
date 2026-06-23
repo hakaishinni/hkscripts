@@ -83,7 +83,16 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
   .nav-left { width: 100%; justify-content: center; position: relative;}
   .menu-toggle { position: absolute; left: 0; }
   
-  .main-container { padding: 0 10px; margin-top: 20px; }
+  .featured-section { padding: 0 10px; margin: 20px auto; }
+  .slider-container { height: 220px; }
+  .banner-content { padding: 15px; }
+  .banner-title { font-size: 15px; margin-bottom: 12px; padding: 0 35px; } 
+  .btn-ver-script { padding: 8px 20px; font-size: 13px; }
+  .slider-arrow { font-size: 16px; padding: 10px; }
+  .slider-arrow.prev { left: 10px; }
+  .slider-arrow.next { right: 10px; }
+
+  .main-container { padding: 0 10px; }
   .post-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .card-img { height: 110px; } 
   .card-info { padding: 10px; }
@@ -101,10 +110,10 @@ a,a:visited{text-decoration:none;color:inherit}h1,h2,h3,h4{font-family:'Poppins'
     <div aria-label="Menu" class="menu-toggle"><i class="fa fa-bars"></i></div>
     <div class="header-logo-search"><a href="index.html"><h1 class="notranslate" translate="no">HK SCRIPTS</h1></a></div>
   </div>
-    <form class="search-box" action="search.html" method="GET">
-    <input type="text" name="q" class="search-input" placeholder="Pesquisar..." required>
-    <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
-  </form>
+  <div class="search-box">
+    <input type="text" class="search-input" placeholder="Pesquisar...">
+    <button class="search-btn"><i class="fa fa-search"></i></button>
+  </div>
 </header>
 
 <!-- CARROSSEL DESTAQUE -->
